@@ -51,6 +51,30 @@ class Bobot extends Kominfo
 		$this->template->view('Kominfo/bobot/create-bobot', $this->data);
 	}
 
+	public function update($param = 0)
+	{
+		$this->page_title->push('Bobot Nilai', 'Tambah Data Bobot Nilai');
+
+		$this->form_validation->set_rules('selisih', 'Selisi', 'trim|required');
+		$this->form_validation->set_rules('bobot_nilai', 'Bobot Nilai', 'trim|required');
+		$this->form_validation->set_rules('ket', 'keterangan', 'trim|required');
+
+		if ($this->form_validation->run() == TRUE)
+		{
+			$this->bobot->update($param);
+
+			redirect(current_url());
+		}
+
+		$this->data = array(
+			'title' => "Tambah Bobot Nilai", 
+			'breadcrumb' => $this->breadcrumbs->show(),
+			'page_title' => $this->page_title->show(),
+			'get' => $this->bobot->get($param)
+		);
+
+		$this->template->view('Kominfo/bobot/update-bobot', $this->data);
+	}
 }
 
 /* End of file bobot.php */

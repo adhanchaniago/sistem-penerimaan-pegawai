@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </a>
       </li>
 
-      <li class="<?php echo active_link_method('index','panduan').active_link_method('panduan','create'); ?>">
+      <li class="<?php echo active_link_method('index','panduan').active_link_method('create','panduan').active_link_method('update','panduan') ?>">
         <a href="<?php  echo site_url('panduan') ?>">
           <i class="fa fa-book"></i> <span>Panduan Sistem</span>
         </a>
@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="<?php echo active_link_controller('index','bobot').active_link_controller('bobot','create') ?>">
+          <li class="<?php echo active_link_controller('index','bobot').active_link_controller('bobot','create').active_link_controller('bobot','update') ?>">
             <a href="<?php echo site_url('bobot') ?>"><i class="fa fa-angle-double-right"></i> Bobot Gap</a>
           </li>
           <li class="">

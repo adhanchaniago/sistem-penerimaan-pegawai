@@ -33,7 +33,7 @@
               <td><?php echo $row->bobot_nilai ?></td>
               <td><?php echo $row->ket ?></td>
               <td>
-                <a href="<?php echo site_url("") ?>" class="icon-button text-blue" data-toggle="tooltip" data-placement="top" title="Sunting"><i class="fa fa-pencil"></i></a>
+                <a href="<?php echo site_url("bobot/update/{$row->id_bobot}") ?>" class="icon-button text-blue" data-toggle="tooltip" data-placement="top" title="Sunting"><i class="fa fa-pencil"></i></a>
                 <a href="javascript:void(0)" id="delete-panduan" data-id="" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus">
                   <i class="fa fa-trash-o"></i>
                 </a>

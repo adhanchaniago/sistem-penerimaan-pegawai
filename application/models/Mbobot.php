@@ -55,6 +55,31 @@ class Mbobot extends Kominfo_model
 
 	}
 
+	public function update($param = 0)
+	{
+		$data = array(
+			'selisih' => $this->input->post('selisih'),
+			'bobot_nilai' => $this->input->post('bobot_nilai'),
+			'ket' => $this->input->post('ket'),
+			
+		);
+		$this->db->update('tbl_bobot', $data, array('id_bobot' => $param));
+
+		if($this->db->affected_rows())
+		{
+			$this->template->alert(
+				' Bobot Nilai di update.', 
+				array('type' => 'success','icon' => 'check')
+			);
+		} else {
+			$this->template->alert(
+				' Gagal menyimpan data.', 
+				array('type' => 'warning','icon' => 'warning')
+			);
+		}
+
+	}
+
 }
 
 /* End of file Mbobot.php */
