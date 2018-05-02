@@ -4,10 +4,11 @@
             <span class="info-box-icon"><i class="fa fa-users"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text">Jumlah Pelamar </span>
-                <span class="info-box-number"> <small>calon</small></span>
+                <span class="info-box-number"><?php echo $this->db->count_all('tbl_pelamar'); ?> <small>calon Pelamar</small></span>
                 <div class="progress">
                     <div class="progress-bar" style="width: 100%"></div>
                 </div>
+                <a href="<?php echo base_url('pelamar') ?>"><span>Selanjutnya...</span></a>
             </div>
         </div>
     </div>
@@ -16,10 +17,11 @@
             <span class="info-box-icon"><i class="fa fa-child"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text">Jumlah Penerima </span>
-                <span class="info-box-number"><small>penerima</small></span>
+                <span class="info-box-number">50 <small>penerima</small></span>
                 <div class="progress">
                     <div class="progress-bar" style="width: 100%"></div>
                 </div>
+                <span>Selanjutnya...</span>
             </div>
         </div>
     </div>
@@ -32,6 +34,7 @@
                 <div class="progress">
                     <div class="progress-bar" style="width: 100%"></div>
                 </div>
+                <span>Selanjutnya...</span>
             </div>
         </div>
     </div>

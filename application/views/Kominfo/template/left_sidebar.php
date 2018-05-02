@@ -63,6 +63,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <li class="">
             <a href=""><i class="fa fa-angle-double-right"></i> Sub_Kriteria</a>
           </li>
+          <li class="">
+            <a href=""><i class="fa fa-angle-double-right"></i> Profile Perusahaan</a>
+          </li>
+          <li class="">
+            <a href=""><i class="fa fa-angle-double-right"></i> Analisa</a>
+          </li>
+          <li class="">
+            <a href=""><i class="fa fa-angle-double-right"></i> Hasil</a>
+          </li>
         </ul>
       </li>
 
