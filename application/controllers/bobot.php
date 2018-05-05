@@ -7,6 +7,7 @@ class Bobot extends Kominfo
 	{
 		parent::__construct();
 		$this->load->js(base_url('assets/public/app/bobot.js'));
+		// $this->load->js(base_url('assets/public/app/tabel.js'));
 		$this->load->model('mbobot','bobot');
 		$this->per_page = (!$this->input->get('per_page')) ? 20 : $this->input->get('per_page');
 		$this->page = $this->input->get('page');
@@ -18,7 +19,7 @@ class Bobot extends Kominfo
 		$this->page_title->push('Bobot Nilai GAP', 'Data Nilai GAP');
 
 		$this->data = array(
-			'title' => "Panduan Aplikasi", 
+			'title' => "Bobot Nilai Gap", 
 			'breadcrumb' => $this->breadcrumbs->show(),
 			'page_title' => $this->page_title->show(),
 			'bobot' => $this->bobot->get_all($this->per_page, $this->page,'result'),	

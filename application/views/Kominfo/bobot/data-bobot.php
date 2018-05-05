@@ -13,41 +13,36 @@
           <a href="<?php echo site_url('bobot/create') ?>" class="btn btn-warning hvr-shadow btn-flat btn-sm"><i class="fa fa-plus"></i> Tambah Baru</a>
         </div>
     </div>
-
-  <div class="box-body">
-      <table id="tabel1" class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>Selisih</th>
-              <th>Bobot Nilai</th>
-              <th>Keterangan</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <?php foreach ($bobot as $row) : ?>
-            <tr>
-              <td><?php echo ++$this->page ?>.</td>
-              <td><?php echo $row->selisih ?></td>
-              <td><?php echo $row->bobot_nilai ?></td>
-              <td><?php echo $row->ket ?></td>
-              <td>
-                <a href="<?php echo site_url("bobot/update/{$row->id_bobot}") ?>" class="icon-button text-blue" data-toggle="tooltip" data-placement="top" title="Sunting"><i class="fa fa-pencil"></i></a>
-                <a href="javascript:void(0)" id="delete-panduan" data-id="" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus">
-                  <i class="fa fa-trash-o"></i>
-                </a>
-              </td>
-            </tr>
-
-            <?php endforeach; ?>
-
-          </tbody>
-      </table>
-  </div>
-      
-      
-</div>
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Selisih</th>
+                    <th>Bobot Nilai</th>
+                    <th>Keterangan</th>
+                    <th></th>
+                  </tr>
+              </thead>
+              <tbody>
+              <?php foreach ($bobot as $row) : ?>
+                  <tr>
+                    <td><?php echo ++$this->page ?>.</td>
+                    <td><?php echo $row->selisih ?></td>
+                    <td><?php echo $row->bobot_nilai ?></td>
+                    <td><?php echo $row->ket ?></td>
+                    <td>
+                      <a href="<?php echo site_url("bobot/update/{$row->id_bobot}") ?>" class="icon-button text-blue" data-toggle="tooltip" data-placement="top" title="Sunting"><i class="fa fa-pencil"></i></a>
+                      <a href="javascript:void(0)" id="delete-bobot" data-id="<?php echo $row->id_bobot ?>" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus">
+                      <i class="fa fa-trash-o"></i>
+                      </a>
+                    </td>
+                  </tr>
+              <?php endforeach; ?>
+            </table>
+        </div>
+         
+    </div>
 </div>
   
 </div>
