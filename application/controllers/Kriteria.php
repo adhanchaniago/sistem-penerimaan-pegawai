@@ -6,6 +6,10 @@ class Kriteria extends Kominfo
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->js(base_url('assets/public/app/kriteria.js'));
+		$this->load->model('mkriteria','kriteria');
+		$this->per_page = (!$this->input->get('per_page')) ? 20 : $this->input->get('per_page');
+		$this->page = $this->input->get('page');
 	}	
 
 	public function index()
@@ -16,7 +20,7 @@ class Kriteria extends Kominfo
 			'title' => "Data Kriteria", 
 			'breadcrumb' => $this->breadcrumbs->show(),
 			'page_title' => $this->page_title->show(),
-			//'bobot' => $this->bobot->get_all($this->per_page, $this->page,'result'),	
+			'kriteria' => $this->kriteria->get_all($this->per_page, $this->page,'result'),	
 		);
 
 		$this->template->view('Kominfo/kriteria/data-kriteria', $this->data);
