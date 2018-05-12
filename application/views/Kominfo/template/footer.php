@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      <small><strong>SKRIPSI YURANDA 1422500233</strong></small>
     </div>
    <div class="container">
-      <small>&copy; 2017 <?php if(date('Y')!=2017) echo "- ".date('Y'); ?> Kementerian Komunikasi dan Informatikan Provinsi Kepuluan Bangka Belitung Develop By Develop By 1422500233 - Yuranda<small>
+      <small>&copy; 2017 <?php if(date('Y')!=2017) echo "- ".date('Y'); ?> Kementerian Komunikasi dan Informatikan Provinsi Kepuluan Bangka Belitung Develop By 1422500233 - Yuranda<small>
    </div>
 </footer>
 
