@@ -3,14 +3,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pelamar extends Kominfo 
 {
+	public $query;
+
+	public $per_page;
+
+	public $page = 20;
+
 	public  function __construct()
 	{
 		parent::__construct();
-
+		$this->query = $this->input->get('query');
 		$this->load->model('mpelamar', 'pelamar');
 		$this->per_page = (!$this->input->get('per_page')) ? 20 : $this->input->get('per_page');
 		$this->load->js(base_url('assets/public/app/pelamar.js'));
 		$this->page = $this->input->get('page');
+		$this->query = $this->input->get('query');
 	}
 
 	public function index()
@@ -18,7 +25,7 @@ class Pelamar extends Kominfo
 		$this->page_title->push('Pelamar', 'Data Pelamar');
 
 		$config = $this->template->pagination_list();
-
+		$config['base_url'] = site_url("pelamar?per_page={$this->per_page}&query={$this->query}");
 		$config['per_page'] = $this->per_page;
 		$config['total_rows'] = $this->pelamar->get_all(null, null, 'num');
 
@@ -26,7 +33,7 @@ class Pelamar extends Kominfo
 			'title' => "Data Pelamar", 
 			'breadcrumb' => $this->breadcrumbs->show(),
 			'page_title' => $this->page_title->show(),
-			'pelamar' => $this->pelamar->gett_all(),		
+			'pelamar' => $this->pelamar->get_all($this->per_page, $this->page, 'result'),		
 		);
 
 		$this->template->view('Kominfo/pelamar/data-pelamar', $this->data);

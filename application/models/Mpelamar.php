@@ -17,16 +17,15 @@ class Mpelamar extends Kominfo_model
 		$this->db->join('villages', '.villages.id = tbl_pelamar.id','LEFT');
 		return $this->db->get()->result();
 	}
-	public function get_all($limit = 1, $offset = 0, $type = 'result')
+
+	public function get_all($limit = 20, $offset = 0, $type = 'result')
 	{
 		if($this->input->get('query') != '')
-			$this->db->like('kd_pelamar', $this->input->get('query'))
-					 ->or_like('nama_lengkap', $this->input->get('query'));
-					 
-		
+			$this->db->like('kd_pelamar.', $this->input->get('query'))
+						->or_like('nama_lengkap', $this->input->get('query'));
+
 		if($type == 'result')
 		{
-
 			return $this->db->get('tbl_pelamar', $limit, $offset)->result();
 		} else {
 			return $this->db->get('tbl_pelamar')->num_rows();

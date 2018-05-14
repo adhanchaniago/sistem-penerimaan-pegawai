@@ -12,15 +12,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<h3 class="box-title">Data Pelamar</h3>
 				</div>
 			</div>
+			<!-- <pre>
+				<?php  //print_r($pelamar) ?>
+			</pre> -->
 			<?php echo form_open(current_url(), array('method' => 'GET')); ?>
 			<div class="box-header">
 				<div class="col-md-12">
 					<div class="col-md-4">
-						<input type="text" class="form-control" name="query" placeholder="Pencarian...." value="">
+						<input type="text" class="form-control" name="query" placeholder="Pencarian...." value="<?php echo $this->input->get('query') ?>">
 					</div>
 					<div class="col-md-3">
 						<button type="submit" class="btn btn-warning hvr-shadow btn-flat btn-sm" id="search"><i class="fa fa-search"></i> Cari Data</button>
-						<a href="<?php echo base_url('kepegawaian') ?>" class="btn btn-warning hvr-shadow btn-flat btn-sm" id="reset-form"><i class="fa fa-times"></i> Reset</a>
+						<a href="<?php echo base_url('pelamar') ?>" class="btn btn-warning hvr-shadow btn-flat btn-sm" id="reset-form"><i class="fa fa-times"></i> Reset</a>
 					</div>
 					<div class="col-md-3 pull-right">
 						<a href="<?php echo base_url('pelamar/create') ?>" class="btn btn-warning hvr-shadow btn-flat btn-sm" id="reset-form"><i class="fa fa-plus"></i> Tambahkan</a>

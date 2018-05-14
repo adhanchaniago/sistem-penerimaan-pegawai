@@ -61,6 +61,15 @@ class Panduan extends Kominfo
 
 	public function update($param = 0)
 	{
+		if (!$param) {
+			show_404();
+		}
+
+		if ($this->panduan->cek($param) == 0) {
+			show_404();
+			
+		}
+
 		$this->page_title->push('Panduan Aplikasi', 'Ubah Data Panduan Aplikasi');
 
 
