@@ -4,13 +4,13 @@
   
   <div class="box box-primary">
   <div class="box-header">
-      <h3 class="box-title">Data Bobot Nilai GAP</h3>
+      <h3 class="box-title">Data Kriteria</h3>
   </div>
 
   <!-- HAK AKSES -->  
     <div class="box-body">
         <div class="pull-right">
-          <a href="<?php echo site_url('bobot/create') ?>" class="btn btn-warning hvr-shadow btn-flat btn-sm"><i class="fa fa-plus"></i> Tambah Baru</a>
+          <a href="<?php echo site_url('kriteria/create') ?>" class="btn btn-warning hvr-shadow btn-flat btn-sm"><i class="fa fa-plus"></i> Tambah Baru</a>
         </div>
     </div>
         <div class="box-body">
@@ -28,12 +28,12 @@
               <?php foreach ($kriteria as $row) : ?>
                   <tr>
                     <td><?php echo ++$this->page ?>.</td>
-                    <td><?php echo $row->nama_kriteria ?></td>
-                    <td><?php echo $row->jenis_kriteria ?></td>
+                    <td><?php echo ucwords($row->nama_kriteria); ?></td>
+                    <td><?php echo ucwords($row->jenis_kriteria); ?></td>
                    
                     <td>
                       <a href="<?php echo site_url("kriteria/update/{$row->id_kriteria}") ?>" class="icon-button text-blue" data-toggle="tooltip" data-placement="top" title="Sunting"><i class="fa fa-pencil"></i></a>
-                      <a href="javascript:void(0)" id="delete-bobot" data-id="<?php echo $row->id_kriteria ?>" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus">
+                      <a href="javascript:void(0)" id="delete-kriteria" data-id="<?php echo $row->id_kriteria ?>" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus">
                       <i class="fa fa-trash-o"></i>
                       </a>
                     </td>

@@ -30,7 +30,7 @@
                     <td><?php echo ++$this->page ?>.</td>
                     <td><?php echo $row->selisih ?></td>
                     <td><?php echo $row->bobot_nilai ?></td>
-                    <td><?php echo $row->ket ?></td>
+                    <td><?php echo ucwords($row->ket ); ?></td>
                     <td>
                       <a href="<?php echo site_url("bobot/update/{$row->id_bobot}") ?>" class="icon-button text-blue" data-toggle="tooltip" data-placement="top" title="Sunting"><i class="fa fa-pencil"></i></a>
                       <a href="javascript:void(0)" id="delete-bobot" data-id="<?php echo $row->id_bobot ?>" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus">

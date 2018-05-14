@@ -10,7 +10,7 @@ $(document).ready(function() {
 	{
 		$('div#modal-delete').modal('show');
 
-		$('a#delete-yes').attr('href', base_url + '/bobot/delete/' + $(this).data('id'))
+		$('a#delete-yes').attr('href', base_url + '/kriteria/delete/' + $(this).data('id'))
 	});
 
     //Date picker

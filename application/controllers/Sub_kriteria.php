@@ -7,6 +7,7 @@ class Sub_kriteria extends Kominfo
 	{
 		parent::__construct();
 		$this->load->js(base_url('assets/public/app/sub_kriteria.js'));
+		$this->load->model('mkriteria','kriteria');
 		$this->load->model('msub_kriteria','sub_kriteria');
 		$this->per_page = (!$this->input->get('per_page')) ? 20 : $this->input->get('per_page');
 		$this->page = $this->input->get('page');	
@@ -26,6 +27,69 @@ class Sub_kriteria extends Kominfo
 		$this->template->view('Kominfo/Sub_kriteria/data-sub_kriteria', $this->data);
 	}
 
+	public function create()
+	{
+		$this->page_title->push('Sub Kriteria', 'Tambah Data Sub Kriteria');
+
+		$this->form_validation->set_rules('nama_kriteria', 'Nama Kriteria', 'trim|required');
+		$this->form_validation->set_rules('nama_subkriteria', 'Nama Sub Kriteria', 'trim|required');
+		//$this->form_validation->set_rules('jenis_kriteria', 'Jenis Kriteria', 'trim|required');
+		$this->form_validation->set_rules('nilai', 'Nilai', 'trim|required');
+
+
+		if ($this->form_validation->run() == TRUE)
+		{
+			$this->sub_kriteria->create();
+
+			redirect(current_url());
+		}
+
+		$this->data = array(
+			'title' => "Tambah Sub Kriteria", 
+			'breadcrumb' => $this->breadcrumbs->show(),
+			'page_title' => $this->page_title->show(),
+			'kriteria' => $this->kriteria->get_all($this->per_page, $this->page,'result'),
+		);
+
+		$this->template->view('Kominfo/sub_kriteria/create-sub_kriteria', $this->data);
+	}
+
+	public function update($param = 0)
+	{
+		$this->page_title->push('Sub Kriteria', 'Ubah Data Sub Kriteria');
+
+		$this->form_validation->set_rules('nama_kriteria', 'Nama Kriteria', 'trim|required');
+		$this->form_validation->set_rules('nama_subkriteria', 'Nama Sub Kriteria', 'trim|required');
+		//$this->form_validation->set_rules('jenis_kriteria', 'Jenis Kriteria', 'trim|required');
+		$this->form_validation->set_rules('nilai', 'Nilai', 'trim|required');
+
+
+		if ($this->form_validation->run() == TRUE)
+		{
+			$this->sub_kriteria->update($param);
+
+			redirect(current_url());
+		}
+
+		$this->data = array(
+			'title' => "Tambah Sub Kriteria", 
+			'breadcrumb' => $this->breadcrumbs->show(),
+			'page_title' => $this->page_title->show(),
+			//'kriteria' => $this->kriteria->get_all($this->per_page, $this->page,'result'),
+			'kri'=> $this->sub_kriteria->get($param),
+			'sub'=> $this->sub_kriteria->get_sub($param),
+
+		);
+
+		$this->template->view('Kominfo/sub_kriteria/update-sub_kriteria', $this->data);
+	}
+	
+	public function delete($param = 0)
+	{
+		$this->sub_kriteria->delete($param);
+
+		redirect('sub_kriteria');
+	}
 }
 
 /* End of file Sub_kriteria.php */

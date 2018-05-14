@@ -26,6 +26,62 @@ class Kriteria extends Kominfo
 		$this->template->view('Kominfo/kriteria/data-kriteria', $this->data);
 	}
 
+
+	public function create()
+	{
+		$this->page_title->push('Kriteria', 'Tambah Data Kriteria');
+
+		$this->form_validation->set_rules('nama_kriteria', 'Nama Kriteria', 'trim|required');
+		$this->form_validation->set_rules('jenis_kriteria', 'Jenis Kriteria', 'trim|required');
+
+		if ($this->form_validation->run() == TRUE)
+		{
+			$this->kriteria->create();
+
+			redirect(current_url());
+		}
+
+		$this->data = array(
+			'title' => "Tambah Kriteria", 
+			'breadcrumb' => $this->breadcrumbs->show(),
+			'page_title' => $this->page_title->show(),
+		);
+
+		$this->template->view('Kominfo/kriteria/create-kriteria', $this->data);
+	}
+
+	public function update($param = 0)
+	{
+		$this->page_title->push('Kriteria', 'Ubah Data Kriteria');
+
+		$this->form_validation->set_rules('nama_kriteria', 'Nama Kriteria', 'trim|required');
+		$this->form_validation->set_rules('jenis_kriteria', 'Jenis Kriteria', 'trim|required');
+
+		if ($this->form_validation->run() == TRUE)
+		{
+			$this->kriteria->update($param);
+
+			redirect(current_url());
+		}
+
+		$this->data = array(
+			'title' => "Tambah Kriteria", 
+			'breadcrumb' => $this->breadcrumbs->show(),
+			'page_title' => $this->page_title->show(),
+			'get'=> $this->kriteria->get($param),
+		);
+
+		$this->template->view('Kominfo/kriteria/update-kriteria', $this->data);
+	}
+
+
+	public function delete($param = 0)
+	{
+		$this->kriteria->delete($param);
+
+		redirect('kriteria');
+	}
+
 }
 
 /* End of file kriteria.php */

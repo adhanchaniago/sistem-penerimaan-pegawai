@@ -16,12 +16,15 @@ class Mbobot extends Kominfo_model
 			$this->db->like('selisih', $this->input->get('query'))
 					 ->or_like('bobot_nilai', $this->input->get('query'));
 					 
-		
+		$this->db->order_by('id_bobot', 'ASC');
 		if($type == 'result')
 		{
+			//$this->db->order_by('id_bobot', 'ASC');
 			return $this->db->get('tbl_bobot', $limit, $offset)->result();
+			
 		} else {
 			return $this->db->get('tbl_bobot')->num_rows();
+			//$this->db->order_by('id_bobot', 'ASC');
 		}
 	}
 
@@ -78,6 +81,24 @@ class Mbobot extends Kominfo_model
 			);
 		}
 
+	}
+
+	public function delete($param = 0)
+	{
+		$this->db->delete('tbl_bobot', array('id_bobot' => $param));
+
+		if($this->db->affected_rows())
+		{
+			$this->template->alert(
+				'data Bobot dihapus.', 
+				array('type' => 'success','icon' => 'check')
+			);
+		} else {
+			$this->template->alert(
+				' Tidak ada data yang dihapus.', 
+				array('type' => 'warning','icon' => 'warning')
+			);
+		}
 	}
 
 }

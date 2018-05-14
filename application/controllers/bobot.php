@@ -54,7 +54,7 @@ class Bobot extends Kominfo
 
 	public function update($param = 0)
 	{
-		$this->page_title->push('Bobot Nilai', 'Tambah Data Bobot Nilai');
+		$this->page_title->push('Bobot Nilai', 'Ubah Data Bobot Nilai');
 
 		$this->form_validation->set_rules('selisih', 'Selisi', 'trim|required');
 		$this->form_validation->set_rules('bobot_nilai', 'Bobot Nilai', 'trim|required');
@@ -76,6 +76,14 @@ class Bobot extends Kominfo
 
 		$this->template->view('Kominfo/bobot/update-bobot', $this->data);
 	}
+
+	public function delete($param = 0)
+	{
+		$this->bobot->delete($param);
+
+		redirect('bobot');
+	}
+
 }
 
 /* End of file bobot.php */

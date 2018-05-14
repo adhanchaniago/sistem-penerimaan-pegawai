@@ -17,7 +17,7 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
 				<div class="form-group">
                     <label for="nomor" class="control-label col-md-3 col-xs-12">Selisi : <strong class="text-red">*</strong></label>
                     <div class="col-md-8">
-                    	<input type="text"  class="form-control" autofocus name="selisih" value="" placeholder="Selisih">
+                    	<input type="text"  class="form-control" autofocus name="selisih" value="<?php echo set_value('selisih'); ?>" placeholder="Selisih">
                     	<p class="help-block"><?php echo form_error('selisih', '<small class="text-danger">', '</small>'); ?></p>         
                     </div>
                     
@@ -25,7 +25,7 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
                 <div class="form-group">
                    <label for="deskripsi" class="control-label col-md-3 col-xs-12">Bobot Nilai : <strong class="text-red">*</strong></label>
                     <div class="col-md-8">
-                    	<input type="text"  class="form-control" autofocus name="bobot_nilai" value="" placeholder="Bobot Nilai">
+                    	<input type="text"  class="form-control" autofocus name="bobot_nilai" value="<?php echo set_value('bobot_nilai'); ?>" placeholder="Bobot Nilai">
                     	<p class="help-block"><?php echo form_error('bobot_nilai', '<small class="text-danger">', '</small>'); ?></p>         
                     </div>              
                 </div>
