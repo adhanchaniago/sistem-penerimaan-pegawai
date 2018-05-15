@@ -39,7 +39,7 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
                     <div class="col-md-8">
                     	<select name="jenis_kriteria" class="form-control select2">
 							<option value="">-- Pilih Jenis Kriteria --</option>
-							<?php foreach($kriteria as $kre){
+							<?php foreach($get_core as $kre){
                             echo '<option value="'.$kre->jenis_kriteria.'">'.$kre->jenis_kriteria.'</option>';
                            } ?>	
 						</select>

@@ -45,6 +45,7 @@ class Kriteria extends Kominfo
 			'title' => "Tambah Kriteria", 
 			'breadcrumb' => $this->breadcrumbs->show(),
 			'page_title' => $this->page_title->show(),
+			'get_core' => $this->kriteria->get_core(),
 		);
 
 		$this->template->view('Kominfo/kriteria/create-kriteria', $this->data);

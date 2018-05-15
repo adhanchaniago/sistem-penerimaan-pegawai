@@ -49,6 +49,7 @@ class Sub_kriteria extends Kominfo
 			'breadcrumb' => $this->breadcrumbs->show(),
 			'page_title' => $this->page_title->show(),
 			'kriteria' => $this->kriteria->get_all($this->per_page, $this->page,'result'),
+			'get_core' => $this->kriteria->get_core($this->per_page, $this->page,'result'),
 		);
 
 		$this->template->view('Kominfo/sub_kriteria/create-sub_kriteria', $this->data);

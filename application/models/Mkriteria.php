@@ -15,7 +15,7 @@ class Mkriteria extends Kominfo_model
 			$this->db->like('nama_kriteria', $this->input->get('query'))
 					 ->or_like('jenis_kriteria', $this->input->get('query'));
 					 
-		$this->db->group_by('jenis_kriteria');
+		// $this->db->group_by('jenis_kriteria');
 		
 		if($type == 'result')
 		{
@@ -28,6 +28,18 @@ class Mkriteria extends Kominfo_model
 	public function get($param = 0)
 	{
 		return $this->db->get_where('tbl_kriteria', array('id_kriteria' => $param))->row();
+	}
+
+	public function get_core($limit = 20, $offset = 0, $type = 'result')
+	{
+		$this->db->group_by('jenis_kriteria');
+
+		if($type == 'result')
+		{
+			return $this->db->get('tbl_kriteria', $limit, $offset)->result();
+		} else {
+			return $this->db->get('tbl_kriteria')->num_rows();
+		}
 	}
 
 
