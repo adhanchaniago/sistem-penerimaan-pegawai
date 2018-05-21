@@ -21,7 +21,7 @@
                     <th>Nama Kriteria</th>
                     <th>Nama Sub Kriteria</th>
                     <th>Jenis Kriteria</th>
-                    <th>Nilai</th>
+                    <th>Nilai ideal</th>
                     <th></th>
                   </tr>
               </thead>

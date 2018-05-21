@@ -17,11 +17,16 @@ class Mpelamar extends Kominfo_model
 		$this->db->join('villages', '.villages.id = tbl_pelamar.id','LEFT');
 		return $this->db->get()->result();
 	}
+	
+	public function cek($param = 0)
+	{
+		return $this->db->get_where('tbl_pelamar', array('kd_pelamar' => $param) )->num_rows();
+	}
 
 	public function get_all($limit = 20, $offset = 0, $type = 'result')
 	{
 		if($this->input->get('query') != '')
-			$this->db->like('kd_pelamar.', $this->input->get('query'))
+			$this->db->like('kd_pelamar', $this->input->get('query'))
 						->or_like('nama_lengkap', $this->input->get('query'));
 
 		if($type == 'result')
@@ -34,13 +39,13 @@ class Mpelamar extends Kominfo_model
 
 	public function get($param = 0)
 	{
-		//return $this->db->get_where('tbl_pelamar', array('id' => $param))->row();
-		$this->db->select('*');
-		$this->db->from('tbl_pelamar');
-		$this->db->join('districts', '.districts.id = tbl_pelamar.id','LEFT');
-		$this->db->join('regencies', '.regencies.id = tbl_pelamar.id','LEFT');
-		$this->db->join('villages', '.villages.id = tbl_pelamar.id','LEFT');
-		return $this->db->get_where()->row();
+		return $this->db->get_where('tbl_pelamar', array('kd_pelamar' => $param))->row();
+		// $this->db->select('*');
+		// $this->db->from('tbl_pelamar');
+		// $this->db->join('districts', '.districts.id = tbl_pelamar.id','LEFT');
+		// $this->db->join('regencies', '.regencies.id = tbl_pelamar.id','LEFT');
+		// $this->db->join('villages', '.villages.id = tbl_pelamar.id','LEFT');
+		// return $this->db->get_where()->row();
 	}
 
 
@@ -121,6 +126,8 @@ class Mpelamar extends Kominfo_model
 	public function delete($param = 0)
 	{
 		$this->db->delete('tbl_pelamar', array('kd_pelamar' => $param));
+		$this->db->delete('tbl_analisa', array('id_analisa' => $param));
+		$this->db->delete('notifikasi', array('id_notifikasi' => $param));
 
 		if($this->db->affected_rows())
 		{
@@ -135,7 +142,6 @@ class Mpelamar extends Kominfo_model
 			);
 		}
 	}
-
 
 
 	public function get_no_invoice()

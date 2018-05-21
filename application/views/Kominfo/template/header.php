@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link  rel="stylesheet" href="<?php echo base_url("assets/public/dist/css/hover-min.css"); ?>">
   <link rel="stylesheet" href="<?php echo base_url("assets/public/plugins/bootstrap-checkbox/awesome-bootstrap-checkbox.min.css"); ?>">
   <link rel="stylesheet" href="<?php echo base_url("assets/public/plugins/datepicker/datepicker3.min.css"); ?>">
-
+<style type="text/css">.color{background-color: #A1A1A1;}</style>
 <link rel="stylesheet" href="<?php echo base_url("assets/public/plugins/datatables/dataTables.bootstrap.css"); ?>">
  
   <link rel="stylesheet" href="<?php echo base_url("assets/public/summernote/summernote.css"); ?>">

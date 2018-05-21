@@ -33,7 +33,7 @@ class Mpanduan extends Kominfo_model
 
 	public function cek($param = 0)
 	{
-		return $this->db->get_where('tbl_pelamar', array('id' => $param) )->num_rows();
+		return $this->db->get_where('panduan', array('id' => $param) )->num_rows();
 	}
 
 	public function create ( )

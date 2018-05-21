@@ -76,6 +76,15 @@ class Pelamar extends Kominfo
 
 	public function update($param = 0)
 	{
+		if (!$param) {
+			show_404();
+		}
+
+		if ($this->pelamar->cek($param) == 0) {
+			show_404();
+			
+		}
+
 		$this->page_title->push('Lamaran Pekerjaan', 'Tambah Data Pelamar');
 
 		$this->form_validation->set_rules('nama_lengkap', 'Nama', 'trim|required');
@@ -104,7 +113,7 @@ class Pelamar extends Kominfo
 			'page_title' => $this->page_title->show(),
 			'provinsi' => $this->pelamar->get_all_provinsi(),
 			'kd_pelamar' => $this->pelamar->get_no_invoice(),
-			'get' => $this->pelamar->get($param)
+			'get' => $this->pelamar->get($param),
 		);
 
 		$this->template->view('Kominfo/pelamar/update-pelamar', $this->data);

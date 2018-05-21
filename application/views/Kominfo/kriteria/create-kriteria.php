@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-8 col-md-offset-2 col-xs-12"><?php echo $this->session->flashdata('alert'); ?></div>
-	<dov class="col-md-10 col-md-offset-1 col-xs-12">
+	<div class="col-md-10 col-md-offset-1 col-xs-12">
 		<div class="box box-primary">
 <?php  
 /**
@@ -51,5 +51,5 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
 echo form_close();
 ?>
 		</div>
-	</dov>
+	</div>
 </div>

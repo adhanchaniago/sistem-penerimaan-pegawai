@@ -8,7 +8,9 @@
                 <div class="progress">
                     <div class="progress-bar" style="width: 100%"></div>
                 </div>
+                <?php if ($this->muniversal->get_account_by_login($this->session->userdata('ID'))->level == 'Admin') : ?>
                 <a href="<?php echo base_url('pelamar') ?>"><span>Selanjutnya...</span></a>
+                <?php endif; ?>
             </div>
         </div>
     </div>

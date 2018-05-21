@@ -32,15 +32,17 @@
             <tr>
               <td><?php echo $row->nomor ?></td>
               <td><?php echo ucwords($row->nama_panduan) ?></td>
-            <!-- HAK AKSES -->
-            <?php if ($this->muniversal->get_account_by_login($this->session->userdata('ID'))->level == 'Admin') : ?> 
+            
               <td>
+               <!-- HAK AKSES -->
+            <?php if ($this->muniversal->get_account_by_login($this->session->userdata('ID'))->level == 'Admin') : ?>
                 <a href="<?php echo site_url("panduan/update/{$row->id}") ?>" class="icon-button text-blue" data-toggle="tooltip" data-placement="top" title="Sunting"><i class="fa fa-pencil"></i></a>
                 <a href="javascript:void(0)" id="delete-panduan" data-id="<?php echo $row->id ?>" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus">
                   <i class="fa fa-trash-o"></i>
                 </a>
-              </td>
             <?php endif; ?>
+              </td>
+            
             <!-- TUTUP HAK AKSES -->
             </tr>
 
