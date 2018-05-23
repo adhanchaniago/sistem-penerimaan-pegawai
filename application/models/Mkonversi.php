@@ -34,10 +34,20 @@ class Mkonversi extends Kominfo_model
 		$this->db->join('tbl_nm', 'tbl_nm.id_nama = tbl_konversi.id_nama','LEFT');
 
 		//$this->db->group_by('id_nama');
-		$this->db->order_by('nama', 'desc');
+		// $this->db->order_by('nilai', 'ASC');
+		// $this->db->order_by('nama', 'desc');
 		
 		return $this->db->get()->result();
+	}
 
+	public function get_konversinama($param = 0)
+	{
+		return $this->db->get_where('tbl_konversi', array('id_konversi' => $param))->num_rows();
+	}
+
+	public function get_nm($param = 0)
+	{
+		return $this->db->get_where('tbl_nm', array('id_nama' => $param))->num_rows();
 	}
 
 	public function get_update($param = 0)

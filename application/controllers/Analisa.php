@@ -62,6 +62,11 @@ class Analisa extends Kominfo
 			'breadcrumb' => $this->breadcrumbs->show(),
 			'page_title' => $this->page_title->show(),
 			'data' => $this->analisa->nilai($param),
+			'create_nilai1' => $this->analisa->get_create(1),
+			'create_nilai2' => $this->analisa->get_create(2),
+			'create_nilai3' => $this->analisa->get_create(3),
+			'create_nilai4' => $this->analisa->get_create(4),
+			'create_nilai5' => $this->analisa->get_create(5),
 			'get' => $this->db->get_where('tbl_pelamar', array('kd_pelamar'=> $param))->row()
 		);
 
@@ -77,11 +82,13 @@ class Analisa extends Kominfo
 			'title' => "Detail Penilaian", 
 			'breadcrumb' => $this->breadcrumbs->show(),
 			'page_title' => $this->page_title->show(),
-			'get' => $this->db->get_where('tbl_pelamar', array('id'=> $param))->row(),
-			'analisa' => $this->analisa->get_saya($param),
+			//'get' => $this->db->get_where('tbl_pelamar', array('kd_pelamar'=> $param))->row(),
+			'analisa' => $this->analisa->get_analisa($param),
 			'konversi' => $this->konversi->gett_all($this->per_page, $this->page,'result'),
 			'sub_kriteria' => $this->sub_kriteria->get_all($this->per_page, $this->page,'result'),
+			// 'sub' => $this->sub_kriteria->get_kre($param),
 		);
+
 
 		$this->template->view('Kominfo/analisa/detail-analisa', $this->data);
 	}
@@ -92,8 +99,6 @@ class Analisa extends Kominfo
 
 		redirect('analisa');
 	}
-
-
 }
 
 /* End of file Analisa.php */

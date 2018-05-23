@@ -25,7 +25,10 @@ class Konversi extends Kominfo
 			'breadcrumb' => $this->breadcrumbs->show(),
 			'page_title' => $this->page_title->show(),
 			'konversi' => $this->konversi->gett_all($this->per_page, $this->page,'result'),
-			'nama' => $this->konversi->get_nama(),	
+			'nama' => $this->konversi->get_nama(),
+			//'nilai_konversi' => $this->konversi->get_konversinama($param),
+			//'nama_konversi' => $this->konversi->get_nm($param),
+
 		);
 
 		$this->template->view('Kominfo/konversi/data-konversi', $this->data);

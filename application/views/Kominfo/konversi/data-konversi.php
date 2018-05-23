@@ -30,6 +30,7 @@
                   <th>Nilai Konversi</th>
                   <th>Range Konversi</th>
                   <th></th>
+
                 </tr>
             </thead>
             <tbody>
@@ -48,7 +49,8 @@
                   </a>
                 </td>
               </tr>
-              <?php endforeach; ?> 
+              <?php endforeach; ?>
+              
             </tbody>
           </table>
         </div>

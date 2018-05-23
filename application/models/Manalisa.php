@@ -45,7 +45,7 @@ class Manalisa extends Kominfo_model
 		$this->db->join('districts', '.districts.id = tbl_pelamar.id','LEFT');
 		$this->db->join('regencies', '.regencies.id = tbl_pelamar.id','LEFT');
 		$this->db->join('villages', '.villages.id = tbl_pelamar.id','LEFT');
-		return $this->db->get_where()->row();
+		return $this->db->get()->row();
 	}
 
 	public function nilai($param = 0)
@@ -54,26 +54,31 @@ class Manalisa extends Kominfo_model
 		return $this->db->get_where('tbl_pelamar', array('kd_pelamar' => $param))->result();
 	}
 
-	public function get_saya($param = 0)
+	public function get_analisa($param = 0)
 	{
+		$this->db->select('*');
+		$this->db->from('tbl_analisa');
+		$this->db->join('tbl_pelamar', 'tbl_analisa.kd_pelamar = tbl_pelamar.kd_pelamar', 'left');
+		$this->db->where('tbl_analisa.kd_pelamar', $param);
 
-		$this->db->select('tbl_pelamar.*, notifikasi.id_notifikasi AS status, notifikasi.id_notifikasi  AS id_status, notifikasi.id_notifikasi AS id_status, notifikasi.status,tbl_analisa.*,tbl_pelamar.*,notifikasi.*, tbl_pelamar.kd_pelamar AS id');
+		return $this->db->get()->row();
+	}
 
-		//$this->db->from('tbl_pelamar');
 
-		$this->db->join('notifikasi', 'tbl_pelamar.kd_pelamar = notifikasi.kd_pelamar', 'left');
+	public function get_create($param = 0)
+	{
+		$this->db->select('*');
+		$this->db->from('tbl_nm');
+		$this->db->join('tbl_konversi', 'tbl_nm.id_nama = tbl_konversi.id_nama', 'left');
 
-		$this->db->join('tbl_analisa', 'notifikasi.kd_pelamar = tbl_analisa.kd_pelamar', 'left');
-
-		// $this->db->order_by('kd_pelamar', 'ASC');
-
-		return $this->db->get('tbl_pelamar', array('id' => $param))->result();
-
+		$this->db->where('tbl_nm.id_nama', $param);
+		//$this->db->order_by('nilai', 'desc');
+		return $this->db->get()->result();
 	}
 
 	public function get_data($param = 0)
 	{
-		return $this->db->get_where('tbl_pelamar', array('kd_pelamar' => $param))->row();
+		return $this->db->get('tbl_pelamar', array('kd_pelamar' => $param))->row();
 	}
 
 
@@ -131,6 +136,16 @@ class Manalisa extends Kominfo_model
 				array('type' => 'warning','icon' => 'warning')
 			);
 		}
+	}
+
+	public function get_konversi($value=0)		
+	{
+		return $this->db->get_where('tbl_konversi', array('id_konversi' => $value ))->row();
+	}
+
+	public function get_kre($value= 0)
+	{
+		return $this->db->get_where('tbl_sub_kriteria', array('id_sub_kriteria' => $value ))->row();
 	}
 }
 

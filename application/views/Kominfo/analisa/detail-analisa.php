@@ -1,4 +1,6 @@
-
+<!-- <pre>
+  <?php print_r($sub_kriteria) ?>
+</pre> -->
   <div class="row">
     <div class="col-md-4">
       <div class="box box-primary">
@@ -54,17 +56,14 @@
             </thead>
 
             <tbody>
-            <?php foreach ($analisa as $row) : ?>
-              <tr>
-              <th> <?php echo $row->id ?></th>
-              <th class="text-center"><?php echo $row->nama_lengkap ?></th>
-              <th class="text-center"><?php echo $row->wawancara ?></th>
-              <th class="text-center"><?php echo $row->tes_tertulis ?></th>
-              <th class="text-center"><?php echo $row->tes_praktek1 ?></th>
-              <th class="text-center"><?php echo $row->tes_praktek2 ?></th>
-              <th class="text-center"><?php echo $row->tes_keahlian ?></th>
-              </tr>
-            <?php endforeach; ?>
+          <tr class="text-center">
+            <td><?php echo $analisa->nama_lengkap; ?></td>
+            <td><?php echo $this->analisa->get_konversi($analisa->wawancara)->range ?> </td>
+            <td><?php echo $this->analisa->get_konversi($analisa->tes_tertulis)->range ?></td>
+            <td><?php echo $this->analisa->get_konversi($analisa->tes_praktek1)->range  ?></td>
+            <td><?php echo $this->analisa->get_konversi($analisa->tes_praktek2)->range ?></td>
+            <td><?php echo $this->analisa->get_konversi($analisa->tes_keahlian)->range ?></td>
+          </tr>
           </tbody>
           </table>
         </div>
@@ -92,47 +91,33 @@
               </tr>
             </thead>
 
-            <tbody>
-            <?php foreach ($analisa as $row) : ?>
-              <tr class="text-center">
-              <th class="text-center"><?php echo $row->nama_lengkap ?></th>
-              <th class="text-center">
-              <?php 
-              $saya = ($get->range == 30);
-              $data = ($row->wawancara == 20) ;
-                if ($data == $saya )
-                    {
-                        echo 1;
-
-                    }elseif ($data < $saya)
-                    {
-                        echo "barang baru";
-
-                    }elseif ($data > $saya) 
-                    {
-                      echo "buduh";  
-                    }
-               ?>
-              </th>
-            
-              <th class="text-center"><?php echo $row->tes_tertulis ?></th>
-              <th class="text-center"><?php echo $row->tes_praktek1 ?></th>
-              <th class="text-center"><?php echo $row->tes_praktek2 ?></th>
-              <th class="text-center"><?php echo $row->tes_keahlian ?></th>
-              </tr>
-            <?php endforeach; ?>
+           <tbody>
+             <tr class="text-center">
+              <td><?php echo $analisa->nama_lengkap; ?></td>
+              <td><?php echo $this->analisa->get_konversi($analisa->wawancara)->nilai ?></td>
+              <td><?php echo $this->analisa->get_konversi($analisa->tes_tertulis)->nilai  ?></td>
+              <td><?php echo $this->analisa->get_konversi($analisa->tes_praktek1)->nilai  ?></td>
+              <td><?php echo $this->analisa->get_konversi($analisa->tes_praktek2)->nilai  ?></td>
+              <td><?php echo $this->analisa->get_konversi($analisa->tes_keahlian)->nilai ?></td>
+            </tr>
               
               <th class="color text-center">Nilai Profile</th>
-              <?php foreach ($sub_kriteria as $row) : ?>
+              <!-- <?php foreach ($sub_kriteria as $row) : ?>
               <th class="color text-center"><?php echo $row->nilai; ?></th>
-              <?php endforeach; ?>
-              <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+              <?php endforeach; ?> -->
+              <th class="color text-center"></th>
+              <th class="color text-center"></th>
+              <th class="color text-center"></th>
+              <th class="color text-center"></th>
+              <th class="color text-center"></th>
+
+              <tr >
+                <th class="text-center"><?php echo $analisa->nama_lengkap; ?></th>
+                <th class="text-center"><?php echo $this->analisa->get_konversi($analisa->wawancara)->nilai   ?></th>
+                <th class="text-center"><?php echo $this->analisa->get_konversi($analisa->tes_tertulis)->nilai ?></th>
+                <th class="text-center"><?php echo $this->analisa->get_konversi($analisa->tes_praktek1)->nilai ?></th>
+                <th class="text-center"><?php echo $this->analisa->get_konversi($analisa->tes_praktek2)->nilai ?></th>
+                <th class="text-center"><?php echo $this->analisa->get_konversi($analisa->tes_keahlian)->nilai ?></th>
               </tr>           
           </tbody>
           </table>
