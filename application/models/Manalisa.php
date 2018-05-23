@@ -93,7 +93,7 @@ class Manalisa extends Kominfo_model
 			'tes_keahlian' => $this->input->post('tes_keahlian'),
 			
 		);
-		$this->db->insert('tbl_analisa', $data);
+		$this->db->insert('tbl_nilai', $data);
 
 		$data = array(
 			'kd_pelamar' => $this->input->post('kd_pelamar'),
