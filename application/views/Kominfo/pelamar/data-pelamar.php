@@ -6,6 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="row">
 <div class="col-md-8 col-md-offset-2 col-xs-12"><?php echo $this->session->flashdata('alert'); ?></div>
 	<div class="col-md-12">
+		<a href="<?php echo base_url('pelamar/download') ?>">Download file</a>
 		<div class="box box-primary">
 			<div class="box-header with-border">
 				<div class="col-md-7">
@@ -74,7 +75,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<td><?php echo $this->pelamar->kecamatan($row->kecamatan)->name;  ?></td>
 							<td><?php echo $this->pelamar->kabupaten($row->kabupaten)->name;  ?></td>
 							<td><?php echo $this->pelamar->provinsi($row->provinsi)->name; ?></td>
-							<td><?php echo $row->pend_terakhir ?></td>							
+							<td><?php echo $row->pend_terakhir ?></td>
+							<td><?php echo $row->file; ?></td>							
 							
 							<td>
 								<a href="<?php echo site_url("pelamar/update/{$row->kd_pelamar}") ?>" class="btn btn-xs btn-primary" style="margin-right: 10px" data-toggle="tooltip" data-placement="top" title="Sunting">

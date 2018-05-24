@@ -161,6 +161,21 @@ class Pelamar extends Kominfo
 	  	$this->pelamar->get_no_invoice();
 	  }
 
+	  // public function download()
+	  // {
+	  // 	if ($fileName) {
+		 //    $file = realpath ( "download" ) . "\\" . $fileName;
+		 //    // check file exists    
+		 //    if (file_exists ( $file )) {
+		 //     // get file content
+		 //     $data = file_get_contents ( $file );
+		 //     //force download
+		 //     force_download ( $fileName, $data );
+		 //    } else {
+		 //     // Redirect to base url
+		 //     redirect ( base_url () );
+	  // }
+
 }
 
 /* End of file Pelamar.php */
