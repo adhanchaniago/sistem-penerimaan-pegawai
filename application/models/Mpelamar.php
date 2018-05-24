@@ -40,17 +40,27 @@ class Mpelamar extends Kominfo_model
 	public function get($param = 0)
 	{
 		return $this->db->get_where('tbl_pelamar', array('kd_pelamar' => $param))->row();
-		// $this->db->select('*');
-		// $this->db->from('tbl_pelamar');
-		// $this->db->join('districts', '.districts.id = tbl_pelamar.id','LEFT');
-		// $this->db->join('regencies', '.regencies.id = tbl_pelamar.id','LEFT');
-		// $this->db->join('villages', '.villages.id = tbl_pelamar.id','LEFT');
-		// return $this->db->get_where()->row();
+		
 	}
 
 
 	public function create()
 	{
+		$config['upload_path'] = './assets/images/documen/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size']  = '5120';
+		$config['max_width']  = '4000';
+		$config['max_height']  = '3000';
+		
+		$this->upload->initialize($config);
+		
+		if($this->upload->do_upload('foto')) 
+		{
+			$foto = $this->upload->file_name;
+		} else {
+			$foto = 'No Images';
+		}
+
 		$pelamar = array(
 			'kd_pelamar'=> $this->input->post('no_invoice'),
 			'nama_lengkap' => $this->input->post('nama_lengkap'),
@@ -67,6 +77,7 @@ class Mpelamar extends Kominfo_model
 			'kecamatan' => $this->input->post('kecamatan'),
 			'desa' => $this->input->post('desa'),
 			'pend_terakhir' => $this->input->post('pend_terakhir'),
+			'foto' => $foto
 
 		);
 
@@ -88,6 +99,26 @@ class Mpelamar extends Kominfo_model
 
 	public function update($param = 0)
 	{
+		$get = $this->get($param);
+
+		$config['upload_path'] = './assets/images/documen/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size']  = '5120';
+		$config['max_width']  = '4000';
+		$config['max_height']  = '3000';
+		
+		$this->upload->initialize($config);
+		
+		if($this->upload->do_upload('foto')) 
+		{
+			if($get->foto != FALSE)
+				@unlink("assets/images/documen/{$get->foto}");
+
+			$foto = $this->upload->file_name;
+		} else {
+			$foto = $get->foto;
+		}
+
 		$pelamar = array(
 			// 'kd_pelamar'=> $this->input->post('no_invoice'),
 			'nama_lengkap' => $this->input->post('nama_lengkap'),
@@ -104,6 +135,7 @@ class Mpelamar extends Kominfo_model
 			'kecamatan' => $this->input->post('kecamatan'),
 			'desa' => $this->input->post('desa'),
 			'pend_terakhir' => $this->input->post('pend_terakhir'),
+			'foto' => $foto
 
 		);
 
@@ -125,6 +157,11 @@ class Mpelamar extends Kominfo_model
 
 	public function delete($param = 0)
 	{
+		$get = $this->get($param);
+
+		if($get->foto != FALSE)
+			@unlink("assets/images/documen/{$get->foto}");
+
 		$this->db->delete('tbl_pelamar', array('kd_pelamar' => $param));
 		$this->db->delete('tbl_analisa', array('id_analisa' => $param));
 		$this->db->delete('notifikasi', array('id_notifikasi' => $param));

@@ -3,20 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 ?>
 
-<pre>
-	
-	<?php print_r($create_nilai1) ?>
-</pre>
 <div class="row">
 <div class="col-md-8 col-md-offset-2 col-xs-12"><?php echo $this->session->flashdata('alert'); ?></div>
     <div class="col-md-4">
 		<div class="box box-primary">
 			<div class="box-body box-profile">
 				<div class="profile-user-img img-responsive img-circle">
-				<?php if ($this->muniversal->get_account_by_login($this->session->userdata('ID'))->photo == NULL ) : ?>
+				<?php if($get->foto == NULL) : ?>
 	              <img width="100%" src="<?php echo base_url('assets/public/image/avatar.jpg') ?>" class="img-circle" alt="User Image">
 	          	<?php else : ?>
-	          	  <img width="100%" src="<?php echo base_url('assets/public/image/'.$this->muniversal->get_account_by_login($this->session->userdata('ID'))->photo) ?>" class="img-circle" alt="User Image">
+	          	  <img width="100%" src="<?php echo base_url('assets/images/documen/'.$get->foto) ?>" class="img-circle" alt="User Image">
 	          	<?php endif ?>
 	        	</div>
         		<br>

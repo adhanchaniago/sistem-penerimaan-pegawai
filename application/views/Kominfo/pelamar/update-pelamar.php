@@ -118,6 +118,7 @@ echo form_open_multipart(current_url(), array('class' => 'form-horizontal'));
                     <div class="col-md-6">
                         <select name="kabupaten" id="kabupaten" class="form-control select2">
                             <option value="<?php echo $get->kabupaten ?>">-- PILIH Kabupaten/Kota --</option>
+                            
                         </select>
                         <p class="help-block"><?php echo form_error('kabupaten', '<small class="text-red">', '</small>'); ?></p>
                     </div>
@@ -146,6 +147,13 @@ echo form_open_multipart(current_url(), array('class' => 'form-horizontal'));
 					<div class="col-md-4">
 						<input type="text" name="pend_terakhir" class="form-control" value="<?php echo $get->pend_terakhir ?>">
 						<p class="help-block"><?php echo form_error('pend_terakhir', '<small class="text-red">', '</small>'); ?></p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="telepon" class="control-label col-md-3 col-xs-12">Foto : <strong class="text-blue">*</strong></label>
+					<div class="col-md-6">
+						<input type="file" name="foto" class="form-control" value="<?php echo $get->foto ?>">
 					</div>
 				</div>
 

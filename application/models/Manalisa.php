@@ -95,12 +95,12 @@ class Manalisa extends Kominfo_model
 		);
 		$this->db->insert('tbl_analisa', $data);
 
-		$data = array(
+		$data2 = array(
 			'kd_pelamar' => $this->input->post('kd_pelamar'),
 			'status' => 'telah',
 		);
 
-		$this->db->insert('notifikasi', $data);
+		$this->db->insert('notifikasi', $data2);
 
 
 		if($this->db->affected_rows())

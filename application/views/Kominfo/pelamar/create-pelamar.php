@@ -147,6 +147,12 @@ echo form_open_multipart(current_url(), array('class' => 'form-horizontal'));
 						<p class="help-block"><?php echo form_error('pend_terakhir', '<small class="text-red">', '</small>'); ?></p>
 					</div>
 				</div>
+				<div class="form-group">
+					<label for="telepon" class="control-label col-md-3 col-xs-12">Foto : <strong class="text-blue">*</strong></label>
+					<div class="col-md-4">
+						<input type="file" name="foto" class="form-control">
+					</div>
+				</div>
 
 			</div>
 
