@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 col-xs-12"><?php echo $this->session->flashdata('alert'); ?></div>
+    <div class="col-md-3">
+
+      <div class="box box-primary">
+        <div class="box-body box-profile">
+          <div class="profile-user-img img-responsive img-circle">
+              <?php if ($this->muniversal->get_account_by_login($this->session->userdata('ID'))->photo == NULL ) : ?>
+                <img width="100%" src="<?php echo base_url('assets/public/image/avatar.jpg') ?>" class="img-circle" alt="User Image">
+              <?php else : ?>
+                <img width="100%" src="<?php echo base_url('assets/public/image/'.$this->muniversal->get_account_by_login($this->session->userdata('ID'))->photo) ?>" class="img-circle" alt="User Image">
+              <?php endif ?>
+          </div>
+          <h3 class="profile-username text-center"><?php echo ucwords($get->nama_lengkap) ?></h3>
+            <ul class="list-group list-group-unbordered">
+              <li class="list-group-item">
+                <b>Followers</b> <a class="pull-right">1,322</a>
+              </li>
+              <li class="list-group-item">
+                <b>Following</b> <a class="pull-right">543</a>
+              </li>
+              <li class="list-group-item">
+                <b>Friends</b> <a class="pull-right">13,287</a>
+              </li>
+            </ul>
+          <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+        </div>
+      </div>
+    </div>
+ 
+
+
+<div class="col-md-9 pull-right">
+      <div class="nav-tabs-custom">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">Bordered Table</h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table class="table table-bordered">
+              <thead>
+              <tr class="color">
+            
+                <th></th>
+                <th class="text-center">Nilai Tes</th>
+                <th class="text-center">Nilai Profile </th>
+                <th class="text-center">Hasil Nilai</th>
+              </tr>
+            </thead>
+              <tr>
+               
+                <td>Wawancara</td>
+                <td>12</td>
+                <td class="bg-silver">12</td>
+                <td>23</td>
+              </tr>
+              <tr>
+              
+                <td>Tertulis</td>
+                <td>12</td>
+                <td class="bg-silver">12</td>
+                <td>23</td>
+              </tr>
+
+
+            </table>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
