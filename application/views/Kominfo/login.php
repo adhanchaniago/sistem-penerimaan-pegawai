@@ -104,7 +104,7 @@
 	</nav>
 	
 	<div class="container">
-		<div class="col-md-4 col-md-offset-4 box-login ">
+		<div class="col-md-4 col-md-offset-4 box-login pull-right" style="margin-top: -10px;">
 	      	<?php  
 	      	/**
 	      	 * undocumented class variable
@@ -116,7 +116,7 @@
 	      	<div class="box-alert">
 	      		<?php echo $this->session->flashdata('alert'); ?>
 	      	</div>
-	      	<div  style="padding-bottom: 29px" class="box-body border blue-bg shadow animated <?php if($this->session->flashdata('alert')) echo "shake"; ?>">
+	      	<div  style="padding-bottom: 20px" class=" box-body border blue-bg shadow animated <?php if($this->session->flashdata('alert')) echo "shake"; ?>">
 	      	<h4 class="text-center arial tebal" style="padding-bottom: 10px;">Silahkan Login</h4>
 	      		<form action="<?php echo current_url(); ?>" method="POST" role="form">
 					<?php echo form_hidden('from_url', $this->input->get('from_url')); ?>

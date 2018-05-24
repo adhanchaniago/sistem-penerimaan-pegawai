@@ -2,7 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 ?>
-
+<!-- <pre>
+	<?php print_r($test) ?>
+</pre> -->
 <div class="row">
 <div class="col-md-8 col-md-offset-2 col-xs-12"><?php echo $this->session->flashdata('alert'); ?></div>
     <div class="col-md-4">
@@ -83,7 +85,7 @@ echo form_hidden('kd_pelamar', $get->kd_pelamar );
 				<div class="form-group">
 					<label for="no_sk" class="control-label col-md-3 col-xs-12">Wawancara : <strong class="text-red">*</strong></label>
 					<div class="col-md-8">
-						<select name="wawancara" class="form-control select2" style="width: 100%;">
+						<select name="id_konversi[1]" class="form-control select2" style="width: 100%;">
 			                <option value="">==== Pilih Nilai ====</option>
 			                <?php foreach($create_nilai1 as $get) :?>
 			                  <option value="<?php echo $get->id_konversi ?>"><?php echo $get->range ?></option> 
@@ -96,7 +98,7 @@ echo form_hidden('kd_pelamar', $get->kd_pelamar );
 				<div class="form-group">
 					<label for="no_sk" class="control-label col-md-3 col-xs-12">Tes Tertulis : <strong class="text-red">*</strong></label>
 					<div class="col-md-8">
-						<select name="tes_tertulis" class="form-control select2" style="width: 100%;">
+						<select name="id_konversi[id_konversi][2]" class="form-control select2" style="width: 100%;">
 			                <option value="">==== Pilih Nilai ====</option>
 			                <?php foreach($create_nilai2 as $get) :?>
 			                  <option value="<?php echo $get->id_konversi ?>"><?php echo $get->range ?></option> 
@@ -110,7 +112,7 @@ echo form_hidden('kd_pelamar', $get->kd_pelamar );
 					<label for="no_sk" class="control-label col-md-3 col-xs-12">Tes Praktek Word : <strong class="text-red">*</strong></label>
 					<div class="col-md-8">
 						
-						<select name="tes_praktek1" class="form-control select2" style="width: 100%;">
+						<select name="id_konversi[id_konversi][3]" class="form-control select2" style="width: 100%;">
 			                <option value="">==== Pilih Nilai ====</option>
 			                <?php foreach($create_nilai3 as $get) :?>
 			                  <option value="<?php echo $get->id_konversi ?>"><?php echo $get->range ?></option> 
@@ -124,7 +126,7 @@ echo form_hidden('kd_pelamar', $get->kd_pelamar );
 					<label for="no_sk" class="control-label col-md-3 col-xs-12">Tes Praktek Excel : <strong class="text-red">*</strong></label>
 					<div class="col-md-8">
 						
-						<select name="tes_praktek2" class="form-control select2" style="width: 100%;">
+						<select name="id_konversi[id_konversi][4]" class="form-control select2" style="width: 100%;">
 			                <option value="">==== Pilih Nilai ====</option>
 			                <?php foreach($create_nilai4 as $get) :?>
 			                  <option value="<?php echo $get->id_konversi ?>"><?php echo $get->range ?></option> 
@@ -138,7 +140,7 @@ echo form_hidden('kd_pelamar', $get->kd_pelamar );
 					<label for="no_sk" class="control-label col-md-3 col-xs-12">Tes Keahlian : <strong class="text-blue">*</strong></label>
 					<div class="col-md-8">
 						
-						<select name="tes_keahlian" class="form-control select2" style="width: 100%;">
+						<select name="id_konversi[id_konversi][5]" class="form-control select2" style="width: 100%;">
 			                <option value="">==== Pilih Nilai ====</option>
 			                <?php foreach($create_nilai5 as $get) :?>
 			                  <option value="<?php echo $get->id_konversi ?>"><?php echo $get->range ?></option> 

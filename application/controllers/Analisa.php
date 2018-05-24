@@ -45,14 +45,17 @@ class Analisa extends Kominfo
 
 		$this->page_title->push('Penilaian', 'Form Penilaian calon Karyawan');
 
-		$this->form_validation->set_rules('wawancara', 'Wawancara', 'trim|required');
-		$this->form_validation->set_rules('tes_tertulis', 'Tes Tertulis', 'trim|required');
-		$this->form_validation->set_rules('tes_praktek1', 'Tes Microsoft Word', 'trim|required');
-		$this->form_validation->set_rules('tes_praktek2', 'Tes Microsoft Excel', 'trim|required');
+		 $this->form_validation->set_rules('id_konversi', 'id_konversi', 'trim|required');
+		 //$this->form_validation->set_rules('id_konversi', 'id_konversi', 'trim|required');
+		 // $this->form_validation->set_rules('id_koversi', 'tes_praktek1', 'trim|required');
+		 // $this->form_validation->set_rules('id_koversi', 'tes_praktek2','trim|required');
+		 //$this->form_validation->set_rules('id_koversi', 'Tes Tertulis2', 'trim|required');
+		
 
 		if ($this->form_validation->run() == TRUE)
 		{
-			$this->analisa->create();
+			 $this->analisa->create();
+			//$this->test();
 
 			redirect(current_url());
 		}
@@ -71,6 +74,13 @@ class Analisa extends Kominfo
 		);
 
 		$this->template->view('Kominfo/analisa/nilai-analisa', $this->data);
+	}
+
+	public function test()
+	{
+		echo "<pre>";
+		print_r ($this->input->post('id_konversi'));
+		echo "</pre>";
 	}
 
 

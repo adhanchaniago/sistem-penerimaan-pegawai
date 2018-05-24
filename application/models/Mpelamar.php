@@ -47,7 +47,7 @@ class Mpelamar extends Kominfo_model
 	public function create()
 	{
 		$config['upload_path'] = './assets/images/documen/';
-		$config['allowed_types'] = 'gif|jpg|png';
+		$config['allowed_types'] = 'gif|jpg|JPG|png|pdf|PDF|jpeg|JPEG';
 		$config['max_size']  = '5120';
 		$config['max_width']  = '4000';
 		$config['max_height']  = '3000';
@@ -59,6 +59,13 @@ class Mpelamar extends Kominfo_model
 			$foto = $this->upload->file_name;
 		} else {
 			$foto = 'No Images';
+		}
+
+		if($this->upload->do_upload('file')) 
+		{
+			$file = $this->upload->file_name;
+		} else {
+			$file = 'No Berkas';
 		}
 
 		$pelamar = array(
@@ -77,8 +84,8 @@ class Mpelamar extends Kominfo_model
 			'kecamatan' => $this->input->post('kecamatan'),
 			'desa' => $this->input->post('desa'),
 			'pend_terakhir' => $this->input->post('pend_terakhir'),
-			'foto' => $foto
-
+			'foto' => $foto,
+			'file' => $file
 		);
 
 		$this->db->insert('tbl_pelamar', $pelamar);
@@ -102,7 +109,7 @@ class Mpelamar extends Kominfo_model
 		$get = $this->get($param);
 
 		$config['upload_path'] = './assets/images/documen/';
-		$config['allowed_types'] = 'gif|jpg|png';
+		$config['allowed_types'] = 'gif|jpg|JPG|png|pdf|PDF|jpeg|JPEG';
 		$config['max_size']  = '5120';
 		$config['max_width']  = '4000';
 		$config['max_height']  = '3000';
@@ -117,6 +124,16 @@ class Mpelamar extends Kominfo_model
 			$foto = $this->upload->file_name;
 		} else {
 			$foto = $get->foto;
+		}
+
+		if($this->upload->do_upload('file')) 
+		{
+			if($get->file != FALSE)
+				@unlink("assets/images/documen/{$get->file}");
+
+			$file = $this->upload->file_name;
+		} else {
+			$file = $get->file;
 		}
 
 		$pelamar = array(
@@ -161,10 +178,12 @@ class Mpelamar extends Kominfo_model
 
 		if($get->foto != FALSE)
 			@unlink("assets/images/documen/{$get->foto}");
+		if($get->file != FALSE)
+			@unlink("assets/images/documen/{$get->file}");
 
 		$this->db->delete('tbl_pelamar', array('kd_pelamar' => $param));
-		$this->db->delete('tbl_analisa', array('id_analisa' => $param));
-		$this->db->delete('notifikasi', array('id_notifikasi' => $param));
+		// $this->db->delete('tbl_analisa', array('id_analisa' => $param));
+		// $this->db->delete('notifikasi', array('id_notifikasi' => $param));
 
 		if($this->db->affected_rows())
 		{

@@ -68,10 +68,10 @@ class Manalisa extends Kominfo_model
 	public function get_create($param = 0)
 	{
 		$this->db->select('*');
-		$this->db->from('tbl_nm');
-		$this->db->join('tbl_konversi', 'tbl_nm.id_nama = tbl_konversi.id_nama', 'left');
+		$this->db->from('tbl_tes');
+		$this->db->join('tbl_konversi', 'tbl_tes.id_tes = tbl_konversi.id_tes', 'left');
 
-		$this->db->where('tbl_nm.id_nama', $param);
+		$this->db->where('tbl_tes.id_tes', $param);
 		//$this->db->order_by('nilai', 'desc');
 		return $this->db->get()->result();
 	}
@@ -86,14 +86,62 @@ class Manalisa extends Kominfo_model
 	{
 		$data = array(
 			'kd_pelamar'   => $this->input->post('kd_pelamar'),
-			'wawancara'    => $this->input->post('wawancara'),
-			'tes_tertulis' => $this->input->post('tes_tertulis'),
-			'tes_praktek1' => $this->input->post('tes_praktek1'),
-			'tes_praktek2' => $this->input->post('tes_praktek2'),
-			'tes_keahlian' => $this->input->post('tes_keahlian'),
+			'id_konversi'    => $this->input->post('id_konversi'),
 			
 		);
-		$this->db->insert('tbl_analisa', $data);
+		
+		$this->db->insert('tbl_nilai', $data);
+
+		foreach (explode(',', $this->input->post('id_konversi[]')) as $key => $value) 
+		{
+			$key = array(
+				'kd_pelamar'   => $this->input->post('kd_pelamar'),
+				'id_konversi'    => $this->input->post('id_konversi'),
+				
+			);
+			$this->db->insert('tbl_nilai', $key);
+		}
+
+		// foreach (explode(',', $this->input->post('id_konversi[]')) as $key => $value) 
+		// {
+		// 	$data2 = array(
+		// 		'kd_pelamar'   => $this->input->post('kd_pelamar'),
+		// 		'id_konversi'    => $this->input->post('id_konversi'),
+				
+		// 	);
+		// 	$this->db->insert('tbl_nilai', $data2);
+		// }
+
+		// foreach (explode(',', $this->input->post('id_konversi[]')) as $key => $value) 
+		// {
+		// 	$data3 = array(
+		// 		'kd_pelamar'   => $this->input->post('kd_pelamar'),
+		// 		'id_konversi'    => $this->input->post('id_konversi'),
+				
+		// 	);
+		// 	$this->db->insert('tbl_nilai', $data3);
+		// }
+
+		// foreach (explode(',', $this->input->post('id_konversi[]')) as $key => $value) 
+		// {
+		// 	$data4 = array(
+		// 		'kd_pelamar'   => $this->input->post('kd_pelamar'),
+		// 		'id_konversi'    => $this->input->post('id_konversi'),
+				
+		// 	);
+		// 	$this->db->insert('tbl_nilai', $data4);
+		// }
+
+		// foreach (explode(',', $this->input->post('id_konversi[]')) as $key => $value) 
+		// {
+		// 	$data5 = array(
+		// 		'kd_pelamar'   => $this->input->post('kd_pelamar'),
+		// 		'id_konversi'    => $this->input->post('id_konversi'),
+				
+		// 	);
+		// 	$this->db->insert('tbl_nilai', $data5);
+		// }
+		
 
 		$data2 = array(
 			'kd_pelamar' => $this->input->post('kd_pelamar'),
@@ -115,6 +163,10 @@ class Manalisa extends Kominfo_model
 				array('type' => 'warning','icon' => 'warning')
 			);
 		}
+		echo "<pre>";
+
+
+		// print_r($this->input->post('id_konversi'));
 	}
 
 	public function delete($param = 0)

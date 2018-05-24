@@ -31,9 +31,9 @@ class Mkonversi extends Kominfo_model
 	{
 		$this->db->select('*');
 		$this->db->from('tbl_konversi');
-		$this->db->join('tbl_nm', 'tbl_nm.id_nama = tbl_konversi.id_nama','LEFT');
+		$this->db->join('tbl_tes', 'tbl_tes.id_tes = tbl_konversi.id_tes','LEFT');
 
-		//$this->db->group_by('id_nama');
+		//$this->db->group_by('id_tes');
 		// $this->db->order_by('nilai', 'ASC');
 		// $this->db->order_by('nama', 'desc');
 		
@@ -47,14 +47,14 @@ class Mkonversi extends Kominfo_model
 
 	public function get_nm($param = 0)
 	{
-		return $this->db->get_where('tbl_nm', array('id_nama' => $param))->num_rows();
+		return $this->db->get_where('tbl_tes', array('id_nama' => $param))->num_rows();
 	}
 
 	public function get_update($param = 0)
 	{
 		$this->db->select('*');
 		$this->db->from('tbl_konversi');
-		$this->db->join('tbl_nm', 'tbl_nm.id_nama = tbl_konversi.id_nama','LEFT');
+		$this->db->join('tbl_tes', 'tbl_tes.id_nama = tbl_konversi.id_nama','LEFT');
 
 		//$this->db->group_by('id_nama');
 		$this->db->order_by('nama', 'desc');
@@ -113,7 +113,7 @@ class Mkonversi extends Kominfo_model
 	public function update($param = 0)
 	{
 		$data = array(
-			'id_nama' => $this->input->post('id_nama'),
+			'id_tes' => $this->input->post('id_tes'),
 			'nilai' => $this->input->post('nilai'),
 			'range' => $this->input->post('range'),
 			

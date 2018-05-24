@@ -153,6 +153,14 @@ echo form_open_multipart(current_url(), array('class' => 'form-horizontal'));
 						<input type="file" name="foto" class="form-control">
 					</div>
 				</div>
+				<div class="form-group">
+					<label for="telepon" class="control-label col-md-3 col-xs-12">Berkas Lamaran : <strong class="text-blue">*</strong></label>
+					<div class="col-md-4">
+						<input type="file" name="file" class="form-control">
+						<small style="font-weight:bold ;"><I><strong class="text-red">*) </strong>File Berkas Lamaran Di jadikan Satu dalam Format PDF</I></small>
+					</div>
+
+				</div>
 
 			</div>
 
@@ -171,6 +179,7 @@ echo form_open_multipart(current_url(), array('class' => 'form-horizontal'));
 			<div class="box-footer with-border">
 					<small><strong class="text-red">*</strong>	Field wajib diisi!</small> <br>
 					<small><strong class="text-blue">*</strong>	Field Optional</small>
+					
 			</div>
 <?php  
 // End Form
