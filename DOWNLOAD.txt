@@ -1,0 +1,17 @@
+VIEW 
+<a href="<?php echo base_url(')?>assets/save_files/$s->file_name">Download</a>
+
+CONTROLLER
+public function get_all_data()
+{
+ $data['result'] = $this->model->get_data(); // 
+$this->load->view('index',$data); //past the data to the view
+}
+
+MODEL
+
+public function get_data()
+{
+$query = $this->db->get('table_name');
+return $query->result();
+}
