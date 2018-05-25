@@ -67,6 +67,16 @@
 		.text-shadow {
     		text-shadow: 2px 1px 2px  black;
 		}
+
+
+		.tebal {
+			font-weight: bold;
+			font-size: 24px;
+		}
+		div.border{
+			border-left: 3pt solid #EEB715;
+			border-right: 3pt solid #EEB715;
+		}
 	</style>
 </head>
 <body>
@@ -90,9 +100,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 pull-right" >
-				<div class="box box-primary shadow">
+				<div class="box shadow border">
 					<div class="col-md-8 col-md-offset-2 col-xs-12"><?php echo $this->session->flashdata('alert'); ?></div>
 					<div class="box-body">
+						<h4 class="text-center arial tebal" style="padding-bottom: 10px;">Daftar Akun</h4>
 						<form  action="<?php echo current_url('daftar/create') ?>" method="POST" role="form">
 							<div class="form-group">
 								<label>Nama lengkap</label>

@@ -6,7 +6,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="row">
 <div class="col-md-8 col-md-offset-2 col-xs-12"><?php echo $this->session->flashdata('alert'); ?></div>
 	<div class="col-md-12">
-		<a href="<?php echo base_url('pelamar/download') ?>">Download file</a>
 		<div class="box box-primary">
 			<div class="box-header with-border">
 				<div class="col-md-7">
@@ -62,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<?php foreach ($pelamar as $row) : ?>
 						<tr style="vertical-align: top">
 							<td><?php echo ++$this->page ?>.</td>
-							<td><?php echo $row->kd_pelamar ?></td>
+							<td><?php echo $row->kd_pelamar ?>/PL/2018</td>
 							<td><?php echo $row->nama_lengkap ?></td>
 							<td><?php echo $row->no_ktp ?></td>
 							<td><?php echo ucwords($row->tmp_lahir).', '.date_id($row->tgl_lahir) ?></td>
@@ -76,7 +75,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<td><?php echo $this->pelamar->kabupaten($row->kabupaten)->name;  ?></td>
 							<td><?php echo $this->pelamar->provinsi($row->provinsi)->name; ?></td>
 							<td><?php echo $row->pend_terakhir ?></td>
-							<td><?php echo $row->file; ?></td>							
+							<td>
+								<a class="btn btn-xs btn-danger" href="<?php echo base_url('assets/images/documen/'.$row->file) ?>">download</a>
+							</td>							
 							
 							<td>
 								<a href="<?php echo site_url("pelamar/update/{$row->kd_pelamar}") ?>" class="btn btn-xs btn-primary" style="margin-right: 10px" data-toggle="tooltip" data-placement="top" title="Sunting">

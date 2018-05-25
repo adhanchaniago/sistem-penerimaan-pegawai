@@ -21,10 +21,12 @@ class Mdaftar extends CI_Model {
 
 		$this->db->insert('users', $data);
 
+
+
 		if($this->db->affected_rows())
 		{
 			$this->template->alert(
-				'Anda Telah Terdaftar.', 
+				'Akun Anda Telah Terdaftar Silakan Login.', 
 				array('type' => 'success','icon' => 'check')
 			);
 		} else {
@@ -33,6 +35,7 @@ class Mdaftar extends CI_Model {
 				array('type' => 'warning','icon' => 'warning')
 			);
 		}
+		redirect(base_url('login'));
 	}
 
 }

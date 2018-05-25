@@ -84,64 +84,19 @@ class Manalisa extends Kominfo_model
 
 	public function create()
 	{
-		$data = array(
-			'kd_pelamar'   => $this->input->post('kd_pelamar'),
-			'id_konversi'    => $this->input->post('id_konversi'),
-			
-		);
 		
-		$this->db->insert('tbl_nilai', $data);
 
-		foreach (explode(',', $this->input->post('id_konversi[]')) as $key => $value) 
+// Loop nilai berganda
+		$dataNilai = array();
+		foreach ($this->input->post('id_konversi') as $key => $value) 
 		{
-			$key = array(
-				'kd_pelamar'   => $this->input->post('kd_pelamar'),
-				'id_konversi'    => $this->input->post('id_konversi'),
-				
+			$dataNilai[] = array(
+				'kd_pelamar' => $this->input->post('kd_pelamar'),
+				'id_konversi' => $value
 			);
-			$this->db->insert('tbl_nilai', $key);
 		}
 
-		// foreach (explode(',', $this->input->post('id_konversi[]')) as $key => $value) 
-		// {
-		// 	$data2 = array(
-		// 		'kd_pelamar'   => $this->input->post('kd_pelamar'),
-		// 		'id_konversi'    => $this->input->post('id_konversi'),
-				
-		// 	);
-		// 	$this->db->insert('tbl_nilai', $data2);
-		// }
-
-		// foreach (explode(',', $this->input->post('id_konversi[]')) as $key => $value) 
-		// {
-		// 	$data3 = array(
-		// 		'kd_pelamar'   => $this->input->post('kd_pelamar'),
-		// 		'id_konversi'    => $this->input->post('id_konversi'),
-				
-		// 	);
-		// 	$this->db->insert('tbl_nilai', $data3);
-		// }
-
-		// foreach (explode(',', $this->input->post('id_konversi[]')) as $key => $value) 
-		// {
-		// 	$data4 = array(
-		// 		'kd_pelamar'   => $this->input->post('kd_pelamar'),
-		// 		'id_konversi'    => $this->input->post('id_konversi'),
-				
-		// 	);
-		// 	$this->db->insert('tbl_nilai', $data4);
-		// }
-
-		// foreach (explode(',', $this->input->post('id_konversi[]')) as $key => $value) 
-		// {
-		// 	$data5 = array(
-		// 		'kd_pelamar'   => $this->input->post('kd_pelamar'),
-		// 		'id_konversi'    => $this->input->post('id_konversi'),
-				
-		// 	);
-		// 	$this->db->insert('tbl_nilai', $data5);
-		// }
-		
+		$this->db->insert_batch('tbl_nilai', $dataNilai);
 
 		$data2 = array(
 			'kd_pelamar' => $this->input->post('kd_pelamar'),
@@ -163,11 +118,8 @@ class Manalisa extends Kominfo_model
 				array('type' => 'warning','icon' => 'warning')
 			);
 		}
-		echo "<pre>";
-
-
-		// print_r($this->input->post('id_konversi'));
 	}
+//Tutup Loop nilai berganda
 
 	public function delete($param = 0)
 	{	

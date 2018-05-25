@@ -33,7 +33,8 @@ class Pelamar extends Kominfo
 			'title' => "Data Pelamar", 
 			'breadcrumb' => $this->breadcrumbs->show(),
 			'page_title' => $this->page_title->show(),
-			'pelamar' => $this->pelamar->get_all($this->per_page, $this->page, 'result'),		
+			'pelamar' => $this->pelamar->get_all($this->per_page, $this->page, 'result'),
+			//'download' => $this->pelamar->get_download(),		
 		);
 
 		$this->template->view('Kominfo/pelamar/data-pelamar', $this->data);
@@ -161,20 +162,25 @@ class Pelamar extends Kominfo
 	  	$this->pelamar->get_no_invoice();
 	  }
 
-	  // public function download()
-	  // {
-	  // 	if ($fileName) {
-		 //    $file = realpath ( "download" ) . "\\" . $fileName;
-		 //    // check file exists    
-		 //    if (file_exists ( $file )) {
-		 //     // get file content
-		 //     $data = file_get_contents ( $file );
-		 //     //force download
-		 //     force_download ( $fileName, $data );
-		 //    } else {
-		 //     // Redirect to base url
-		 //     redirect ( base_url () );
-	  // }
+	//   public function download()
+	//   {
+	//   	if ($file) 
+	//   	{
+	// 	    $file = realpath ( "download" ) . "\\" . $file;
+	// 	    // check file exists    
+	// 	    if (file_exists($file)) 
+	// 	    {
+	// 	     // get file content
+	// 	     $data = file_get_contents($file);
+	// 	     //force download
+	// 	     force_download($file,$data);
+	// 	    } else
+	// 	    {
+	// 	     // Redirect to base url
+	// 	     redirect (base_url());
+	//   		}
+	// 	}
+	// }
 
 }
 

@@ -104,7 +104,7 @@
 	</nav>
 	
 	<div class="container">
-		<div class="col-md-4 col-md-offset-4 box-login pull-right" style="margin-top: -10px;">
+		<div class="col-md-4 col-md-offset-4 box-login pull-right" style="margin-top: 20px;">
 	      	<?php  
 	      	/**
 	      	 * undocumented class variable

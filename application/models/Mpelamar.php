@@ -43,6 +43,11 @@ class Mpelamar extends Kominfo_model
 		
 	}
 
+	// public function get_download()
+	// {
+	// 	return $this->db->get_where('tbl_pelamar', array('kd_pelamar' => $param))->result();
+		
+	// }
 
 	public function create()
 	{

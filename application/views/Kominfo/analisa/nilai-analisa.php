@@ -91,20 +91,20 @@ echo form_hidden('kd_pelamar', $get->kd_pelamar );
 			                  <option value="<?php echo $get->id_konversi ?>"><?php echo $get->range ?></option> 
 			                <?php endforeach; ?>
 			            </select>
-			            <p class="help-block"><?php echo form_error('wawancara', '<small class="text-danger">', '</small>'); ?></p>
+			            <p class="help-block"><?php echo form_error('id_konversi[1]', '<small class="text-danger">', '</small>'); ?></p>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="no_sk" class="control-label col-md-3 col-xs-12">Tes Tertulis : <strong class="text-red">*</strong></label>
 					<div class="col-md-8">
-						<select name="id_konversi[id_konversi][2]" class="form-control select2" style="width: 100%;">
+						<select name="id_konversi[2]" class="form-control select2" style="width: 100%;">
 			                <option value="">==== Pilih Nilai ====</option>
 			                <?php foreach($create_nilai2 as $get) :?>
 			                  <option value="<?php echo $get->id_konversi ?>"><?php echo $get->range ?></option> 
 			                <?php endforeach; ?>
 			            </select>
-				        <p class="help-block"><?php echo form_error('tes_tertulis', '<small class="text-danger">', '</small>'); ?></p>
+				        <p class="help-block"><?php echo form_error('id_konversi[2]', '<small class="text-danger">', '</small>'); ?></p>
 			    	</div>
 				</div>
 
@@ -112,13 +112,13 @@ echo form_hidden('kd_pelamar', $get->kd_pelamar );
 					<label for="no_sk" class="control-label col-md-3 col-xs-12">Tes Praktek Word : <strong class="text-red">*</strong></label>
 					<div class="col-md-8">
 						
-						<select name="id_konversi[id_konversi][3]" class="form-control select2" style="width: 100%;">
+						<select name="id_konversi[3]" class="form-control select2" style="width: 100%;">
 			                <option value="">==== Pilih Nilai ====</option>
 			                <?php foreach($create_nilai3 as $get) :?>
 			                  <option value="<?php echo $get->id_konversi ?>"><?php echo $get->range ?></option> 
 			                <?php endforeach; ?>
 			            </select>
-				        <p class="help-block"><?php echo form_error('tes_praktek1', '<small class="text-danger">', '</small>'); ?></p>
+				        <p class="help-block"><?php echo form_error('id_konversi[3]', '<small class="text-danger">', '</small>'); ?></p>
 					</div>
 				</div>
 
@@ -126,13 +126,13 @@ echo form_hidden('kd_pelamar', $get->kd_pelamar );
 					<label for="no_sk" class="control-label col-md-3 col-xs-12">Tes Praktek Excel : <strong class="text-red">*</strong></label>
 					<div class="col-md-8">
 						
-						<select name="id_konversi[id_konversi][4]" class="form-control select2" style="width: 100%;">
+						<select name="id_konversi[4]" class="form-control select2" style="width: 100%;">
 			                <option value="">==== Pilih Nilai ====</option>
 			                <?php foreach($create_nilai4 as $get) :?>
 			                  <option value="<?php echo $get->id_konversi ?>"><?php echo $get->range ?></option> 
 			                <?php endforeach; ?>
 			            </select>
-				        <p class="help-block"><?php echo form_error('tes_praktek2', '<small class="text-danger">', '</small>'); ?></p>
+				        <p class="help-block"><?php echo form_error('id_konversi[4]', '<small class="text-danger">', '</small>'); ?></p>
 					</div>
 				</div>
 
@@ -140,13 +140,13 @@ echo form_hidden('kd_pelamar', $get->kd_pelamar );
 					<label for="no_sk" class="control-label col-md-3 col-xs-12">Tes Keahlian : <strong class="text-blue">*</strong></label>
 					<div class="col-md-8">
 						
-						<select name="id_konversi[id_konversi][5]" class="form-control select2" style="width: 100%;">
+						<select name="id_konversi[5]" class="form-control select2" style="width: 100%;">
 			                <option value="">==== Pilih Nilai ====</option>
 			                <?php foreach($create_nilai5 as $get) :?>
 			                  <option value="<?php echo $get->id_konversi ?>"><?php echo $get->range ?></option> 
 			                <?php endforeach; ?>
 			            </select>
-				        <p class="help-block"><?php echo form_error('tes_keahlian', '<small class="text-danger">', '</small>'); ?></p>
+				        <p class="help-block"><?php echo form_error('id_konversi[5]', '<small class="text-danger">', '</small>'); ?></p>
 					</div>
 				</div>
 
