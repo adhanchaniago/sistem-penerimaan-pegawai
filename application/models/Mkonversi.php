@@ -56,7 +56,7 @@ class Mkonversi extends Kominfo_model
 		$this->db->from('tbl_konversi');
 		$this->db->join('tbl_tes', 'tbl_tes.id_tes = tbl_konversi.id_tes','LEFT');
 
-		//$this->db->group_by('id_nama');
+		$this->db->group_by('tbl_konversi.id_tes');
 		$this->db->order_by('nama', 'desc');
 		
 		return $this->db->get()->result();
@@ -68,9 +68,11 @@ class Mkonversi extends Kominfo_model
 					
 		if($type == 'result')
 		{
+			$this->db->group_by('id_tes');
 			return $this->db->get('tbl_tes', $limit, $offset)->result();
 			
 		} else {
+			$this->db->group_by('id_tes');
 			return $this->db->get('tbl_tes')->num_rows();
 		}
 	}
@@ -83,7 +85,7 @@ class Mkonversi extends Kominfo_model
 	public function create()
 	{
 		$data = array(
-			'id_nama' => $this->input->post('id_nama'),
+			'id_tes' => $this->input->post('id_tes'),
 			'nilai' => $this->input->post('nilai'),
 			'range' => $this->input->post('range'),
 			

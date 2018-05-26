@@ -16,26 +16,17 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
   <?php //print_r($nama) ?>
 </pre> -->
       <div class="box-body" style="margin-top: 10px;">
-   <!--      <div class="form-group">
-            <label for="nomor" class="control-label col-md-3 col-xs-12">Nama variabel : <strong class="text-red">*</strong></label>
-            <div class="col-md-8">
-              <input type="text"  class="form-control" autofocus name="nama_konversi" value="<?php echo set_value('nama_konversi'); ?>" placeholder="Nama variabel">
-              <p class="help-block"><?php echo form_error('nama_konversi', '<small class="text-danger">', '</small>'); ?></p>         
-            </div>
-        </div> -->
-
         <div class="form-group">
           <label for="nomor" class="control-label col-md-3 col-xs-12">Nama variabel : <strong class="text-red">*</strong></label>
             <div class="col-md-8">
-              <select name="id_nama" class="form-control select2" multiple="multiple" data-placeholder="Pilih Nama Variabel" style="width: 100%;">
+              <select name="id_tes" class="form-control select2" data-placeholder="Pilih Nama Variabel" style="width: 100%;">
                <option value="<?php echo set_value('nama'); ?>"></option>
                 <?php foreach($nama as $key => $get) :?>
-                  <option value="<?php echo $get->id_nama ?>"><?php echo $get->nama ?></option> 
+                  <option value="<?php echo $get->id_tes ?>"><?php echo $get->nama ?></option> 
                 <?php endforeach; ?>
                 
               </select>
-              <p class="help-block"><?php echo form_error('id_nama', '<small class="text-danger">', '</small>'); ?></p>
-              <!-- <input id="input" value="Hello world!" /> -->
+              <p class="help-block"><?php echo form_error('id_tes', '<small class="text-danger">', '</small>'); ?></p>
           </div>
         </div>
 
@@ -43,7 +34,7 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
         <div class="form-group">
             <label for="nomor" class="control-label col-md-3 col-xs-12">Nilai Konversi : <strong class="text-red">*</strong></label>
             <div class="col-md-8">
-              <input type="text"  class="form-control" autofocus name="nilai" value="<?php echo set_value('nilai'); ?>" placeholder="Nilai Konversi">
+              <input type="text"  class="form-control" name="nilai" value="<?php echo set_value('nilai'); ?>" placeholder="Nilai Konversi">
               <p class="help-block"><?php echo form_error('nilai', '<small class="text-danger">', '</small>'); ?></p>         
             </div>
         </div>
@@ -51,7 +42,7 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
         <div class="form-group">
             <label for="nomor" class="control-label col-md-3 col-xs-12">Range Nilai : <strong class="text-red">*</strong></label>
             <div class="col-md-8">
-              <input type="text"  class="form-control" autofocus name="range" value="<?php echo set_value('range'); ?>" placeholder="Range Nilai">
+              <input type="text"  class="form-control" name="range" value="<?php echo set_value('range'); ?>" placeholder="Range Nilai">
               <p class="help-block"><?php echo form_error('range', '<small class="text-danger">', '</small>'); ?></p>         
             </div>
         </div>
@@ -80,8 +71,3 @@ echo form_close();
     </div>
   </div>
 </div>
-<script type="text/javascript">
-var input = document.getElementById('input');
-input.focus();
-input.select();
-</script>

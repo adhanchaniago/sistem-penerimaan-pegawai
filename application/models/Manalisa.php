@@ -17,13 +17,15 @@ class Manalisa extends Kominfo_model
 			$this->db->like('tbl_pelamar.kd_pelamar', $this->input->get('query'))
 						->or_like('tbl_pelamar.nama_lengkap', $this->input->get('query'));
 
-		$this->db->select('tbl_pelamar.*, notifikasi.id_notifikasi AS status, notifikasi.id_notifikasi  AS id_status, notifikasi.id_notifikasi AS id_status, notifikasi.status,tbl_analisa.*,tbl_pelamar.*,notifikasi.*, tbl_pelamar.kd_pelamar AS id');
+		$this->db->select('tbl_pelamar.*, notifikasi.id_notifikasi AS status, notifikasi.id_notifikasi  AS id_status, notifikasi.id_notifikasi AS id_status, notifikasi.status,tbl_nilai.*,tbl_pelamar.*,notifikasi.*, tbl_pelamar.kd_pelamar AS id');
 
 		//$this->db->from('tbl_pelamar');
 
 		$this->db->join('notifikasi', 'tbl_pelamar.kd_pelamar = notifikasi.kd_pelamar', 'left');
 
-		$this->db->join('tbl_analisa', 'notifikasi.kd_pelamar = tbl_analisa.kd_pelamar', 'left');
+		$this->db->join('tbl_nilai', 'notifikasi.kd_pelamar = tbl_nilai.kd_pelamar', 'left');
+
+		$this->db->group_by('tbl_nilai.kd_pelamar');
 
 		// $this->db->order_by('kd_pelamar', 'ASC');
 
@@ -95,7 +97,6 @@ class Manalisa extends Kominfo_model
 	public function create()
 	{
 		
-
 // Loop nilai berganda
 		$dataNilai = array();
 		foreach ($this->input->post('id_konversi') as $key => $value) 
@@ -157,9 +158,14 @@ class Manalisa extends Kominfo_model
 		return $this->db->get_where('tbl_konversi', array('id_konversi' => $value ))->row();
 	}
 
-	public function get_kre($value= 0)
+	public function get_Subkriteria($param = 0)
 	{
-		return $this->db->get_where('tbl_sub_kriteria', array('id_sub_kriteria' => $value ))->row();
+		return $this->db->get_where('tbl_sub_kriteria', array('id_sub_kriteria', $param ))->row();
+	}
+
+	public function get_kriteria($param = 0)
+	{
+		return $this->db->get_where('tbl_kriteria', array('id_kriteria', $param))->row();
 	}
 
 	public function get_Profil($param = 0)
@@ -177,21 +183,27 @@ class Manalisa extends Kominfo_model
 		return $this->db->get()->result();
 	}
 
-	public function get_sub_urut()
+	public function get_sub_urut($param = 0)
 	{
 		$this->db->select('*');
 		$this->db->from('tbl_sub_kriteria');
 		$this->db->join('tbl_kriteria', '.tbl_kriteria.id_kriteria = tbl_sub_kriteria.id_kriteria','LEFT');
-		//$this->db->where('tbl_kriteria.id_kriteria');
-		$this->db->order_by('tbl_kriteria.id_kriteria', 'ASC');
+		//$this->db->where('tbl_sub_kriteria.id_kriteria');
+		$this->db->order_by('tbl_kriteria.id_kriteria', 'ASC'); //ASC Dari Kecil Ke besar DESC Dari Besar Ke kecil
 		return $this->db->get()->result();
 
 	}
 
-	public function pengurangan_nilai($value=0)
-	{
-		
-	}
+	// public function pengurangan_nilai($value=0)
+	// {
+	// 	$this->db->select('*');
+	// 	$this->db->from('tbl_sub_kriteria');
+	// 	$this->db->join('tbl_kriteria', '.tbl_kriteria.id_kriteria = tbl_sub_kriteria.id_kriteria','LEFT');
+	// 	$this->db->where('tbl_kriteria.id_kriteria' , $value);
+	// 	//$this->db->order_by('tbl_kriteria.id_kriteria', 'ASC'); //ASC Dari Kecil Ke besar DESC Dari Besar Ke kecil
+	// 	return $this->db->get()->result();
+
+	// }
 
 
 }

@@ -3,7 +3,8 @@
 </pre>
 <pre>
   <?php print_r($sub_kriteria) ?>
-</pre>  
+</pre>
+   
   <div class="row">
     <div class="col-md-4">
       <div class="box box-primary">
@@ -108,10 +109,10 @@
               <!-- tabel hasil pengurangan nilai konversi dan nilai profile  -->
               <tr style="font-weight: bold;">
                 <td class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></td>
+               
               </tr>
           </table>
         </div>
       </div>
     </div> 
-
   </div>
