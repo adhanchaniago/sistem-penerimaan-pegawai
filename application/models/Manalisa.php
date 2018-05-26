@@ -54,12 +54,22 @@ class Manalisa extends Kominfo_model
 		return $this->db->get_where('tbl_pelamar', array('kd_pelamar' => $param))->result();
 	}
 
+	// public function get_analisa($param = 0)
+	// {
+	// 	$this->db->select('*');
+	// 	$this->db->from('tbl_analisa');
+	// 	$this->db->join('tbl_pelamar', 'tbl_analisa.kd_pelamar = tbl_pelamar.kd_pelamar', 'left');
+	// 	$this->db->where('tbl_analisa.kd_pelamar', $param);
+
+	// 	return $this->db->get()->row();
+	// }
+
 	public function get_analisa($param = 0)
 	{
 		$this->db->select('*');
-		$this->db->from('tbl_analisa');
-		$this->db->join('tbl_pelamar', 'tbl_analisa.kd_pelamar = tbl_pelamar.kd_pelamar', 'left');
-		$this->db->where('tbl_analisa.kd_pelamar', $param);
+		$this->db->from('tbl_nilai');
+		$this->db->join('tbl_pelamar', 'tbl_nilai.kd_pelamar = tbl_pelamar.kd_pelamar', 'left');
+		$this->db->where('tbl_nilai.kd_pelamar', $param);
 
 		return $this->db->get()->row();
 	}
@@ -125,8 +135,8 @@ class Manalisa extends Kominfo_model
 	{	
 		
 		$this->db->delete('tbl_pelamar', array('kd_pelamar' => $param));
-		$this->db->delete('tbl_analisa', array('id_analisa' => $param));
-		$this->db->delete('notifikasi', array('id_notifikasi' => $param));
+		// $this->db->delete('tbl_analisa', array('id_analisa' => $param));
+		// $this->db->delete('notifikasi', array('id_notifikasi' => $param));
 
 		if($this->db->affected_rows())
 		{
@@ -151,6 +161,39 @@ class Manalisa extends Kominfo_model
 	{
 		return $this->db->get_where('tbl_sub_kriteria', array('id_sub_kriteria' => $value ))->row();
 	}
+
+	public function get_Profil($param = 0)
+	{
+		return $this->db->get_where('tbl_nilai', array('id_nilai' => $param))->row();
+	}
+
+	public function join($param = 0)
+	{
+		$this->db->select('*');
+		$this->db->from('tbl_nilai');
+		$this->db->join('tbl_konversi', 'tbl_nilai.id_konversi = tbl_konversi.id_konversi', 'left');
+
+		$this->db->where('tbl_nilai.kd_pelamar', $param);
+		return $this->db->get()->result();
+	}
+
+	public function get_sub_urut()
+	{
+		$this->db->select('*');
+		$this->db->from('tbl_sub_kriteria');
+		$this->db->join('tbl_kriteria', '.tbl_kriteria.id_kriteria = tbl_sub_kriteria.id_kriteria','LEFT');
+		//$this->db->where('tbl_kriteria.id_kriteria');
+		$this->db->order_by('tbl_kriteria.id_kriteria', 'ASC');
+		return $this->db->get()->result();
+
+	}
+
+	public function pengurangan_nilai($value=0)
+	{
+		
+	}
+
+
 }
 
 /* End of file Manalisa.php */

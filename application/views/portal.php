@@ -106,6 +106,7 @@
 	  		<div class="col-md-12 text-center" >
 	  			<br>
 	  			<h2 class="welcome"><b>Selamat Datang di Sistem Informasi Penerimaan Karyawan Kementerian Komunikasi dan Informatika Bangka Belitung</b></h2> <br>
+	  			
 	  		</div>
 			
 

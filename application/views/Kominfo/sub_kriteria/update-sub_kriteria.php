@@ -52,7 +52,7 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
                 <div class="form-group">
                    <label for="deskripsi" class="control-label col-md-3 col-xs-12">Nilai Ideal : <strong class="text-red">*</strong></label>
                     <div class="col-md-8">
-                    	<input type="text"  class="form-control"  name="nilai" value="<?php echo $sub->nilai ?>" placeholder="Nilai">
+                    	<input type="text"  class="form-control"  name="nilai_ideal" value="<?php echo $sub->nilai_ideal ?>" placeholder="Nilai">
                     	<p class="help-block"><?php echo form_error('nilai', '<small class="text-danger">', '</small>'); ?></p>         
                     </div>              
                 </div>

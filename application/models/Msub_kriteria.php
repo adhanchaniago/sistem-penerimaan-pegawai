@@ -17,6 +17,7 @@ class Msub_kriteria extends Kominfo_model
 		$this->db->join('tbl_kriteria', '.tbl_kriteria.id_kriteria = tbl_sub_kriteria.id_kriteria','LEFT');
 
 		//$this->db->group_by('id_kriteria');
+		//$this->db->order_by('tbl_kriteria.id_kriteria', 'ASC');
 
 		return $this->db->get()->result();
 
@@ -66,7 +67,7 @@ class Msub_kriteria extends Kominfo_model
 		$data = array(
 			'id_kriteria' => $this->input->post('nama_kriteria'),
 			'nama_subkriteria' => $this->input->post('nama_subkriteria'),
-			'nilai' =>$this->input->post('nilai'),
+			'nilai_ideal' =>$this->input->post('nilai_ideal'),
 			
 		);
 
@@ -92,7 +93,7 @@ class Msub_kriteria extends Kominfo_model
 		$data = array(
 			'id_kriteria' => $this->input->post('nama_kriteria'),
 			'nama_subkriteria' => $this->input->post('nama_subkriteria'),
-			'nilai' =>$this->input->post('nilai'),
+			'nilai_ideal' =>$this->input->post('nilai_ideal'),
 			
 		);
 

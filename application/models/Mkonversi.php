@@ -47,14 +47,14 @@ class Mkonversi extends Kominfo_model
 
 	public function get_nm($param = 0)
 	{
-		return $this->db->get_where('tbl_tes', array('id_nama' => $param))->num_rows();
+		return $this->db->get_where('tbl_tes', array('id_tes' => $param))->num_rows();
 	}
 
 	public function get_update($param = 0)
 	{
 		$this->db->select('*');
 		$this->db->from('tbl_konversi');
-		$this->db->join('tbl_tes', 'tbl_tes.id_nama = tbl_konversi.id_nama','LEFT');
+		$this->db->join('tbl_tes', 'tbl_tes.id_tes = tbl_konversi.id_tes','LEFT');
 
 		//$this->db->group_by('id_nama');
 		$this->db->order_by('nama', 'desc');
@@ -68,10 +68,10 @@ class Mkonversi extends Kominfo_model
 					
 		if($type == 'result')
 		{
-			return $this->db->get('tbl_nm', $limit, $offset)->result();
+			return $this->db->get('tbl_tes', $limit, $offset)->result();
 			
 		} else {
-			return $this->db->get('tbl_nm')->num_rows();
+			return $this->db->get('tbl_tes')->num_rows();
 		}
 	}
 

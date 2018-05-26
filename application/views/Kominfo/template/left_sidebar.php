@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </a>
       </li>
 
-      <li class="treeview <?php echo active_link_multiple(array('bobot','kriteria','sub_kriteria','analisa','konversi')); ?>">
+      <li class="treeview <?php echo active_link_multiple(array('bobot','kriteria','sub_kriteria','analisa','konversi','hasil')); ?>">
         <a href="#">
           <i class="fa fa-wrench"></i> <span> Master Penilaian</span>
           <span class="pull-right-container">
@@ -70,8 +70,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <li class="<?php echo active_link_controller('analisa') ?>">
             <a href="<?php echo site_url('analisa') ?>"><i class="fa fa-angle-double-right"></i> Analisa</a>
           </li>
-          <li class="">
-            <a href=""><i class="fa fa-angle-double-right"></i> Hasil</a>
+          <li class="<?php echo active_link_controller('hasil') ?>">
+            <a href="<?php echo site_url('hasil') ?>"><i class="fa fa-angle-double-right"></i> Hasil</a>
           </li>
         </ul>
       </li>
@@ -107,12 +107,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <i class="fa fa-home"></i> <span>Home</span>
         </a>
       </li>
-
-      <li class="<?php echo active_link_method('index','panduan').active_link_method('create'); ?>">
+      <li class="<?php echo active_link_method('create','pelamar'); ?>">
+        <a href="<?php  echo site_url('pelamar/create') ?>">
+          <i class="fa fa-user"></i> <span>Input Data Pelamar</span>
+        </a>
+      </li>
+      <li class="<?php echo active_link_method('index','panduan').active_link_method('create','panduan'); ?>">
         <a href="<?php  echo site_url('panduan') ?>">
           <i class="fa fa-book"></i> <span>Panduan Sistem</span>
         </a>
       </li>
+      <!-- <li class="<?php echo active_link_controller('analisa') ?>">
+        <a href="<?php echo site_url('analisa') ?>">
+          <i class="fa fa-home"></i> <span>Hasil</span>
+        </a>
+      </li> -->
       <li class="#">
         <a href="#">
           <i class="fa fa-home"></i> <span>Pengumuman</span>

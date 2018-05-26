@@ -44,14 +44,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<th rowspan="2" class="text-center" style="vertical-align: middle;">Jenis Kelamin</th>
 							<th rowspan="2" class="text-center" style="vertical-align: middle;">Alamat</th>
 							<th rowspan="2" class="text-center" style="vertical-align: middle;">Agama</th>
-							<th rowspan="2" class="text-center" style="vertical-align: middle;">RT</th>
-							<th rowspan="2" class="text-center" style="vertical-align: middle;">RW</th>
 							<th rowspan="2" class="text-center" style="vertical-align: middle;">Desa</th>
 							<th rowspan="2" class="text-center" style="vertical-align: middle;">Kecamatan</th>
 							<th rowspan="2" class="text-center" style="vertical-align: middle;">Kabupaten</th>
 							<th rowspan="2" class="text-center" style="vertical-align: middle;">Provinsi</th>
 							<th style="vertical-align: middle;">Pdk. Terakhir</th>
-
+							<th>Berkas Lamaran</th>
 							<th></th>
 						</tr>
 
@@ -61,22 +59,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<?php foreach ($pelamar as $row) : ?>
 						<tr style="vertical-align: top">
 							<td><?php echo ++$this->page ?>.</td>
-							<td><?php echo $row->kd_pelamar ?>/PL/2018</td>
+							<td><?php echo $row->kd_pelamar ?>/Kominfo/2018</td>
 							<td><?php echo $row->nama_lengkap ?></td>
 							<td><?php echo $row->no_ktp ?></td>
 							<td><?php echo ucwords($row->tmp_lahir).', '.date_id($row->tgl_lahir) ?></td>
 							<td><?php echo ucwords($row->jenis_kelamin )?></td>
 							<td><?php echo ucwords($row->alamat) ?></td>
 							<td><?php echo $row->agama ?></td>
-							<td><?php echo $row->rt ?></td>
-							<td><?php echo $row->rw ?></td>
 							<td><?php echo $this->pelamar->desa($row->desa)->name;  ?></td>
 							<td><?php echo $this->pelamar->kecamatan($row->kecamatan)->name;  ?></td>
 							<td><?php echo $this->pelamar->kabupaten($row->kabupaten)->name;  ?></td>
 							<td><?php echo $this->pelamar->provinsi($row->provinsi)->name; ?></td>
 							<td><?php echo $row->pend_terakhir ?></td>
 							<td>
-								<a class="btn btn-xs btn-danger" href="<?php echo base_url('assets/images/documen/'.$row->file) ?>">download</a>
+								<a class="btn btn-xs btn-danger" href="<?php echo base_url('assets/images/documen/'.$row->file) ?>" >download</a>
 							</td>							
 							
 							<td>

@@ -53,10 +53,10 @@ echo form_open_multipart(current_url(), array('class' => 'form-horizontal'));
 					<label for="gender" class="control-label col-md-3">Jenis Kelamin : <strong class="text-red">*</strong></label>
 					<div class="col-md-6">
 				       	<div class="radio radio-inline radio-primary">
-				           <input name="jenis_kelamin" type="radio" value="LAKI-LAKI" <?php if($get->jenis_kelamin =='LAKI-LAKI') echo "checked"; ?>> <label for="gender"> Laki-laki</label>
+				           <input name="jenis_kelamin" type="radio" value="Laki-Laki" <?php if($get->jenis_kelamin =='Laki-Laki') echo "checked"; ?>> <label for="gender"> Laki-Laki</label>
 				       	</div>
 				       	<div class="radio radio-inline radio-primary">
-				           <input name="jenis_kelamin" type="radio" value="PEREMPUAN" <?php if($get->jenis_kelamin =='PEREMPUAN') echo "checked"; ?>> <label for="gender"> Perempuan</label>
+				           <input name="jenis_kelamin" type="radio" value="Perempuan" <?php if($get->jenis_kelamin =='Perempuan') echo "checked"; ?>> <label for="gender"> Perempuan</label>
 				       	</div>
 				       	<p class="help-block"><?php echo form_error('gender', '<small class="text-red">', '</small>'); ?></p>
 					</div>

@@ -34,7 +34,7 @@ class Sub_kriteria extends Kominfo
 		$this->form_validation->set_rules('nama_kriteria', 'Nama Kriteria', 'trim|required');
 		$this->form_validation->set_rules('nama_subkriteria', 'Nama Sub Kriteria', 'trim|required');
 		//$this->form_validation->set_rules('jenis_kriteria', 'Jenis Kriteria', 'trim|required');
-		$this->form_validation->set_rules('nilai', 'Nilai', 'trim|required');
+		$this->form_validation->set_rules('nilai_ideal', 'Nilai', 'trim|required');
 
 
 		if ($this->form_validation->run() == TRUE)
@@ -62,7 +62,7 @@ class Sub_kriteria extends Kominfo
 		$this->form_validation->set_rules('nama_kriteria', 'Nama Kriteria', 'trim|required');
 		$this->form_validation->set_rules('nama_subkriteria', 'Nama Sub Kriteria', 'trim|required');
 		//$this->form_validation->set_rules('jenis_kriteria', 'Jenis Kriteria', 'trim|required');
-		$this->form_validation->set_rules('nilai', 'Nilai', 'trim|required');
+		$this->form_validation->set_rules('nilai_ideal', 'Nilai', 'trim|required');
 
 
 		if ($this->form_validation->run() == TRUE)
