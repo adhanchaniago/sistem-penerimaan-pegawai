@@ -81,9 +81,9 @@ class Manalisa extends Kominfo_model
 	{
 		$this->db->select('*');
 		$this->db->from('tbl_tes');
-		$this->db->join('tbl_konversi', 'tbl_tes.id_tes = tbl_konversi.id_tes', 'left');
+		$this->db->join('tbl_konversi', 'tbl_tes.id_kriteria = tbl_konversi.id_kriteria', 'left');
 
-		$this->db->where('tbl_tes.id_tes', $param);
+		$this->db->where('tbl_tes.id_kriteria', $param);
 		//$this->db->order_by('nilai', 'desc');
 		return $this->db->get()->result();
 	}
@@ -195,16 +195,16 @@ class Manalisa extends Kominfo_model
 
 	}
 
-	public function pengurangan_nilai()
+	public function pengurangan_nilai($param = 0)
 	{
-		// $this->db->select('*');
-		// $this->db->from('tbl_sub_kriteria');
-		// $this->db->join('tbl_kriteria', '.tbl_kriteria.id_kriteria = tbl_sub_kriteria.id_kriteria','LEFT');
-		// $this->db->where('tbl_sub_kriteria.id_kriteria');
-		// //$this->db->order_by('tbl_kriteria.id_kriteria', 'ASC'); //ASC Dari Kecil Ke besar DESC Dari Besar Ke kecil
-		// return $this->db->get()->row();
+		$this->db->select('*');
+		$this->db->from('tbl_konversi');
+		$this->db->join('tbl_sub_kriteria', 'tbl_konversi.id_kriteria = tbl_sub_kriteria.id_kriteria', 'left');
 
-		return $this->db->get_where('tbl_nilai', array('id_nilai'))->result();
+		$this->db->where('tbl_sub_kriteria.id_kriteria', $param);
+		return $this->db->get()->row();
+
+		//return $this->db->get_where('tbl_nilai', array('id_nilai'))->result();
 
 	}
 

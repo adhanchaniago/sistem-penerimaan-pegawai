@@ -31,7 +31,7 @@ class Mkonversi extends Kominfo_model
 	{
 		$this->db->select('*');
 		$this->db->from('tbl_konversi');
-		$this->db->join('tbl_tes', 'tbl_tes.id_tes = tbl_konversi.id_tes','LEFT');
+		$this->db->join('tbl_tes', 'tbl_tes.id_kriteria = tbl_konversi.id_kriteria','LEFT');
 
 		//$this->db->group_by('id_tes');
 		// $this->db->order_by('nilai', 'ASC');
@@ -85,7 +85,8 @@ class Mkonversi extends Kominfo_model
 	public function create()
 	{
 		$data = array(
-			'id_tes' => $this->input->post('id_tes'),
+			//'id_tes' => $this->input->post('id_tes'),
+			'id_kriteria' => $this->input->post('id_kriteria'),
 			'nilai' => $this->input->post('nilai'),
 			'range' => $this->input->post('range'),
 			

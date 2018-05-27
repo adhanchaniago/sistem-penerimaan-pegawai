@@ -1,9 +1,9 @@
    <pre>
   <?php print_r($get_penilaian); ?>
 </pre>
-<!-- <pre>
-  <?php print_r($this->analisa->pengurangan_nilai()) ?>
-</pre> -->
+ <pre>
+  <?php print_r($tampil) ?>
+</pre> 
    
   <div class="row">
     <div class="col-md-4">
