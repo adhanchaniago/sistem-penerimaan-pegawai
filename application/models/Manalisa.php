@@ -202,7 +202,7 @@ class Manalisa extends Kominfo_model
 		$this->db->join('tbl_sub_kriteria', 'tbl_konversi.id_kriteria = tbl_sub_kriteria.id_kriteria', 'left');
 
 		$this->db->where('tbl_sub_kriteria.id_kriteria', $param);
-		return $this->db->get()->row();
+		return $this->db->get()->result();
 
 		//return $this->db->get_where('tbl_nilai', array('id_nilai'))->result();
 
