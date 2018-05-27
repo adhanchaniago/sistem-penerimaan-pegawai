@@ -48,7 +48,7 @@ class Sub_kriteria extends Kominfo
 			'title' => "Tambah Sub Kriteria", 
 			'breadcrumb' => $this->breadcrumbs->show(),
 			'page_title' => $this->page_title->show(),
-			'kriteria' => $this->kriteria->get_all($this->per_page, $this->page,'result'),
+			'kriteria' => $this->kriteria->get_all(),
 			'get_core' => $this->kriteria->get_core($this->per_page, $this->page,'result'),
 		);
 

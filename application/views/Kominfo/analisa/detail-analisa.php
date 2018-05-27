@@ -1,9 +1,9 @@
    <pre>
   <?php print_r($get_penilaian); ?>
 </pre>
-<pre>
-  <?php print_r($sub_kriteria) ?>
-</pre>
+<!-- <pre>
+  <?php print_r($this->analisa->pengurangan_nilai()) ?>
+</pre> -->
    
   <div class="row">
     <div class="col-md-4">
@@ -103,13 +103,13 @@
               <!-- tabel nilai profil ideal perusahaan -->
               <th class="color text-center">Nilai Profile</th>
               <?php foreach ($sub_kriteria as $row) : ?>
-              <th class="color text-center"><?php echo $row->id_kriteria ?></th>
+              <th class="color text-center"><?php echo $row->nilai_ideal ?></th>
               <?php endforeach; ?>
               
               <!-- tabel hasil pengurangan nilai konversi dan nilai profile  -->
               <tr style="font-weight: bold;">
                 <td class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></td>
-               
+               <td class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nilai; ?></td>
               </tr>
           </table>
         </div>

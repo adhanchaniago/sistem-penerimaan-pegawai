@@ -32,7 +32,7 @@
                     <td><?php echo ucwords($row->nama_kriteria); ?></td>
                     <td><?php echo ucwords($row->nama_subkriteria); ?></td>
                     <td><?php echo ucwords($row->jenis_kriteria); ?></td>
-                    <td><?php echo $row->nilai; ?></td>
+                    <td><?php echo $row->nilai_ideal; ?></td>
                     <td>
                       <a href="<?php echo site_url("sub_kriteria/update/{$row->id_sub_kriteria}") ?>" class="icon-button text-blue" data-toggle="tooltip" data-placement="top" title="Sunting"><i class="fa fa-pencil"></i></a>
                       <a href="javascript:void(0)" id="delete-sub_kriteria" data-id="<?php echo $row->id_sub_kriteria ?>" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus">

@@ -2,9 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 ?>
-<!-- <pre>
-	<?php print_r($test) ?>
-</pre> -->
+ <pre>
+	<?php print_r($create_nilai1) ?>
+</pre>
 <div class="row">
 <div class="col-md-8 col-md-offset-2 col-xs-12"><?php echo $this->session->flashdata('alert'); ?></div>
     <div class="col-md-4">

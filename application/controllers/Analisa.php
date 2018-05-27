@@ -97,7 +97,7 @@ class Analisa extends Kominfo
 			'get' => $this->db->get_where('tbl_pelamar', array('kd_pelamar'=> $param))->row(),
 			'analisa_nilai' => $this->analisa->get_analisa($param),
 			'konversi' => $this->konversi->gett_all($param),
-			'sub_kriteria' => $this->analisa->get_sub_urut($this->per_page, $this->page,'result'),
+			'sub_kriteria' => $this->analisa->get_sub_urut(),
 			'get_k' => $this->analisa->get_subkriteria($param),
 			'id_pelamar' => $param,
 			//'tampil' => $this->db->get_where('tbl_nilai', array('id_nilai' => $param))->row(),

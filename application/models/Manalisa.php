@@ -103,7 +103,8 @@ class Manalisa extends Kominfo_model
 		{
 			$dataNilai[] = array(
 				'kd_pelamar' => $this->input->post('kd_pelamar'),
-				'id_konversi' => $value
+				'id_konversi' => $value,
+				'nilai' => $key
 			);
 		}
 
@@ -194,16 +195,18 @@ class Manalisa extends Kominfo_model
 
 	}
 
-	// public function pengurangan_nilai($value=0)
-	// {
-	// 	$this->db->select('*');
-	// 	$this->db->from('tbl_sub_kriteria');
-	// 	$this->db->join('tbl_kriteria', '.tbl_kriteria.id_kriteria = tbl_sub_kriteria.id_kriteria','LEFT');
-	// 	$this->db->where('tbl_kriteria.id_kriteria' , $value);
-	// 	//$this->db->order_by('tbl_kriteria.id_kriteria', 'ASC'); //ASC Dari Kecil Ke besar DESC Dari Besar Ke kecil
-	// 	return $this->db->get()->result();
+	public function pengurangan_nilai()
+	{
+		// $this->db->select('*');
+		// $this->db->from('tbl_sub_kriteria');
+		// $this->db->join('tbl_kriteria', '.tbl_kriteria.id_kriteria = tbl_sub_kriteria.id_kriteria','LEFT');
+		// $this->db->where('tbl_sub_kriteria.id_kriteria');
+		// //$this->db->order_by('tbl_kriteria.id_kriteria', 'ASC'); //ASC Dari Kecil Ke besar DESC Dari Besar Ke kecil
+		// return $this->db->get()->row();
 
-	// }
+		return $this->db->get_where('tbl_nilai', array('id_nilai'))->result();
+
+	}
 
 
 }
