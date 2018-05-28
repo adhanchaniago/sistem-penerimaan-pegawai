@@ -1,9 +1,7 @@
    <pre>
   <?php print_r($get_penilaian); ?>
 </pre>
- <pre>
-  <?php print_r($tampil) ?>
-</pre> 
+ 
    
   <div class="row">
     <div class="col-md-4">
@@ -109,7 +107,7 @@
               <!-- tabel hasil pengurangan nilai konversi dan nilai profile  -->
               <tr style="font-weight: bold;">
                 <td class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></td>
-               <td class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nilai; ?></td>
+                <td class="text-center"></td>
               </tr>
           </table>
         </div>
