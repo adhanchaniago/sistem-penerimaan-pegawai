@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Bulan Mei 2018 pada 21.58
+-- Waktu pembuatan: 29 Bulan Mei 2018 pada 00.16
 -- Versi server: 10.1.31-MariaDB
 -- Versi PHP: 7.2.4
 
@@ -7154,7 +7154,7 @@ CREATE TABLE `notifikasi` (
 --
 
 INSERT INTO `notifikasi` (`id_notifikasi`, `kd_pelamar`, `status`) VALUES
-(15, '0001', 'telah');
+(16, '0001', 'telah');
 
 -- --------------------------------------------------------
 
@@ -7852,8 +7852,7 @@ INSERT INTO `tbl_konversi` (`id_konversi`, `id_kriteria`, `nilai`, `range`) VALU
 (53, '5', '2', '30-40'),
 (54, '5', '3', '50-60'),
 (55, '5', '4', '70-80'),
-(56, '5', '5', '90-100'),
-(58, '1', '10', '30');
+(56, '5', '5', '90-100');
 
 -- --------------------------------------------------------
 
@@ -7896,11 +7895,11 @@ CREATE TABLE `tbl_nilai` (
 --
 
 INSERT INTO `tbl_nilai` (`id_nilai`, `kd_pelamar`, `id_konversi`, `nilai`) VALUES
-(224, '0001', '58', '1'),
-(225, '0001', '38', '2'),
-(226, '0001', '43', '3'),
-(227, '0001', '48', '4'),
-(228, '0001', '53', '5');
+(229, '0001', '32', '1'),
+(230, '0001', '38', '2'),
+(231, '0001', '44', '3'),
+(232, '0001', '50', '4'),
+(233, '0001', '56', '5');
 
 -- --------------------------------------------------------
 
@@ -7935,7 +7934,20 @@ CREATE TABLE `tbl_pelamar` (
 --
 
 INSERT INTO `tbl_pelamar` (`id`, `kd_pelamar`, `nama_lengkap`, `no_ktp`, `tmp_lahir`, `tgl_lahir`, `jenis_kelamin`, `alamat`, `rt`, `rw`, `desa`, `kecamatan`, `kabupaten`, `provinsi`, `agama`, `pend_terakhir`, `tanggal`, `foto`, `file`) VALUES
-(17, '0001', 'lili', '3456087677876', 'semulut', '2018-06-03', 'Laki-Laki', 'sdfgsfdg', '1', '2', 1104011001, 1104011, 1104, 11, 'islam', 'S2', '2018-05-27 16:57:48', 'raichu_by_kitty_23.png', 'HASIL_TES.pdf');
+(17, '0001', 'lili', '3456087677876', 'semulut', '2018-06-03', 'Laki-Laki', 'sdfgsfdg', '1', '2', 1104011001, 1104011, 1104, 11, 'islam', 'S2', '2018-05-27 16:57:48', 'raichu_by_kitty_23.png', 'HASIL_TES.pdf'),
+(18, '0002', 'yuranda', '1212312312', 'pangkalpinang', '2018-05-20', 'Laki-Laki', '-', '2', '1', 1102011001, 1102011, 1102, 11, 'islam', 'S1', '2018-05-28 20:08:43', 'shanghai-china-city-skyline-silhouette-vector-1685255.jpg', 'HASIL_TES1.pdf');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_profile_standar`
+--
+
+CREATE TABLE `tbl_profile_standar` (
+  `ID_NPS` int(50) NOT NULL,
+  `id_kriteria` varchar(50) DEFAULT NULL,
+  `NPS` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -7978,11 +7990,11 @@ CREATE TABLE `tbl_tes` (
 --
 
 INSERT INTO `tbl_tes` (`id_tes`, `id_kriteria`, `nama`) VALUES
-(1, '1', 'Wawancara'),
+(1, '1', 'wawancara'),
 (2, '2', 'Tes Tertulis'),
-(3, '3', 'Tes Microsoft Word'),
-(4, '4', 'Tes Microsoft Excel'),
-(5, '5', 'Tes Keahlian');
+(3, '3', 'Microsoft Word'),
+(4, '4', 'Microsoft Excel'),
+(5, '5 ', 'Tes Keahlian');
 
 -- --------------------------------------------------------
 
@@ -90209,6 +90221,12 @@ ALTER TABLE `tbl_pelamar`
   ADD UNIQUE KEY `kd_pelamar` (`kd_pelamar`);
 
 --
+-- Indeks untuk tabel `tbl_profile_standar`
+--
+ALTER TABLE `tbl_profile_standar`
+  ADD PRIMARY KEY (`ID_NPS`);
+
+--
 -- Indeks untuk tabel `tbl_sub_kriteria`
 --
 ALTER TABLE `tbl_sub_kriteria`
@@ -90241,7 +90259,7 @@ ALTER TABLE `villages`
 -- AUTO_INCREMENT untuk tabel `notifikasi`
 --
 ALTER TABLE `notifikasi`
-  MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_notifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `panduan`
@@ -90265,25 +90283,31 @@ ALTER TABLE `tbl_bobot`
 -- AUTO_INCREMENT untuk tabel `tbl_konversi`
 --
 ALTER TABLE `tbl_konversi`
-  MODIFY `id_konversi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_konversi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_kriteria`
 --
 ALTER TABLE `tbl_kriteria`
-  MODIFY `id_kriteria` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_kriteria` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_nilai`
 --
 ALTER TABLE `tbl_nilai`
-  MODIFY `id_nilai` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=229;
+  MODIFY `id_nilai` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=234;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_pelamar`
 --
 ALTER TABLE `tbl_pelamar`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_profile_standar`
+--
+ALTER TABLE `tbl_profile_standar`
+  MODIFY `ID_NPS` int(50) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_sub_kriteria`
@@ -90295,7 +90319,7 @@ ALTER TABLE `tbl_sub_kriteria`
 -- AUTO_INCREMENT untuk tabel `tbl_tes`
 --
 ALTER TABLE `tbl_tes`
-  MODIFY `id_tes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_tes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

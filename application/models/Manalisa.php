@@ -56,7 +56,7 @@ class Manalisa extends Kominfo_model
 		return $this->db->get_where('tbl_pelamar', array('kd_pelamar' => $param))->result();
 	}
 
-	// public function get_analisa($param = 0)
+	// public function get_data1($param = 0)
 	// {
 	// 	$this->db->select('*');
 	// 	$this->db->from('tbl_analisa');
@@ -92,7 +92,6 @@ class Manalisa extends Kominfo_model
 	{
 		return $this->db->get('tbl_pelamar', array('kd_pelamar' => $param))->row();
 	}
-
 
 	public function create()
 	{
@@ -164,9 +163,9 @@ class Manalisa extends Kominfo_model
 		return $this->db->get_where('tbl_sub_kriteria', array('id_sub_kriteria', $param ))->row();
 	}
 
-	public function get_kriteria($param = 0)
+	public function get_kriteria($id = 0)
 	{
-		return $this->db->get_where('tbl_kriteria', array('id_kriteria', $param))->row();
+		return $this->db->get_where('tbl_kriteria', array('id_kriteria', $id))->row();
 	}
 
 	public function get_Profil($param = 0)

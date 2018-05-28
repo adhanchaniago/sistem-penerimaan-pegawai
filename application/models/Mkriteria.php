@@ -51,7 +51,14 @@ class Mkriteria extends Kominfo_model
 			
 		);
 		 $this->db->insert('tbl_kriteria', $data);
-		
+
+		$data1 = array(
+			'id_kriteria' => $this->input->post('nama_kriteria'),
+			'nama' => $this->input->post('nama_kriteria'),
+			
+		);
+		 $this->db->insert('tbl_tes', $data1);
+
 
 		if($this->db->affected_rows())
 		{
@@ -95,7 +102,9 @@ class Mkriteria extends Kominfo_model
 	public function delete($param = 0)
 	{
 		$this->db->delete('tbl_kriteria', array('id_kriteria' => $param));
-		//$this->db->delete('tbl_sub_kriteria', array('id_sub_kriteria' => $param));
+		$this->db->delete('tbl_sub_kriteria', array('id_kriteria' => $param));
+		$this->db->delete('tbl_profile_standar', array('id_kriteria' => $param));
+		$this->db->delete('tbl_tes', array('id_tes' => $param));
 
 		if($this->db->affected_rows())
 		{

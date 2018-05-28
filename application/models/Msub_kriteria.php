@@ -10,13 +10,13 @@ class Msub_kriteria extends Kominfo_model
 	}
 
 // ini tabel join
-	public function get_all($param=0)
+	public function get_all($param = 0)
 	{
 		$this->db->select('*');
 		$this->db->from('tbl_sub_kriteria');
 		$this->db->join('tbl_kriteria', '.tbl_kriteria.id_kriteria = tbl_sub_kriteria.id_kriteria','LEFT');
 
-		$this->db->group_by('tbl_kriteria.nama_kriteria', $param);
+		//$this->db->group_by('tbl_kriteria.nama_kriteria', $param);
 		$this->db->order_by('tbl_kriteria.id_kriteria', 'ASC');
 
 		return $this->db->get()->result();
@@ -73,6 +73,21 @@ class Msub_kriteria extends Kominfo_model
 
 		$this->db->insert('tbl_sub_kriteria', $data);
 
+		$data1 = array(
+			'id_kriteria' => $this->input->post('nama_kriteria'),
+			'NPS' =>$this->input->post('nilai_ideal'),
+			
+		);
+
+		$this->db->insert('tbl_profile_standar', $data1);
+		
+		// $data2 = array(
+		// 	'id_kriteria' => $this->input->post('nama_kriteria'),
+		// 	'nama' => $this->input->post('nama_kriteria'),
+			
+		// );
+		//  $this->db->insert('tbl_tes', $data2);
+
 		if($this->db->affected_rows())
 		{
 			$this->template->alert(
@@ -99,6 +114,15 @@ class Msub_kriteria extends Kominfo_model
 
 		$this->db->update('tbl_sub_kriteria', $data, array('id_sub_kriteria' => $param));
 
+		$data1 = array(
+			'id_kriteria' => $this->input->post('nama_kriteria'),
+			'NPS' =>$this->input->post('nilai_ideal'),
+			
+		);
+
+		$this->db->update('tbl_profile_standar', $data1);
+		
+		
 		if($this->db->affected_rows())
 		{
 			$this->template->alert(
@@ -118,6 +142,7 @@ class Msub_kriteria extends Kominfo_model
 	{
 		
 		$this->db->delete('tbl_sub_kriteria', array('id_sub_kriteria' => $param));
+		//$this->db->delete('tbl_profile_standar', array('ID_NPS' => $param));
 
 		if($this->db->affected_rows())
 		{

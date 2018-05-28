@@ -21,7 +21,7 @@ class Sub_kriteria extends Kominfo
 			'title' => "Data Sub Kriteria", 
 			'breadcrumb' => $this->breadcrumbs->show(),
 			'page_title' => $this->page_title->show(),
-			'sub_kriteria' => $this->sub_kriteria->get_all($this->per_page, $this->page,'result'),	
+			'sub_kriteria' => $this->sub_kriteria->get_all(),	
 		);
 
 		$this->template->view('Kominfo/Sub_kriteria/data-sub_kriteria', $this->data);
