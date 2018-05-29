@@ -1,10 +1,6 @@
     <pre>
   <?php print_r($this->analisa->pengurangan_nilai($id_pelamar)) ?>
 </pre>
-<pre>
-  <?php print_r($analisa_nilai) ?>
-</pre>
-   
   <div class="row">
     <div class="col-md-4">
       <div class="box box-primary">
@@ -114,9 +110,10 @@
                 <?php endforeach; ?>
                
               </tr>
-             <!-- <tr style="font-weight: bold;">
-                <td class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></td>
-               <td class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nilai ?></td>
+            <!--  <tr style="font-weight: bold;">
+                <td class="text-center"><?php echo $analisa_nilai->nama_lengkap; ?></td>
+                <th class="text-center"><?php echo $this->analisa->get_konversi($analisa_nilai->tes_tertulis)->nilai ?></th>
+               
                
               </tr> -->
           </table>

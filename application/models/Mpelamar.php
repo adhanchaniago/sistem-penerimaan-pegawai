@@ -187,8 +187,9 @@ class Mpelamar extends Kominfo_model
 			@unlink("assets/images/documen/{$get->file}");
 
 		$this->db->delete('tbl_pelamar', array('kd_pelamar' => $param));
+		$this->db->delete('tbl_nilai', array('kd_pelamar' => $param));
 		// $this->db->delete('tbl_analisa', array('id_analisa' => $param));
-		// $this->db->delete('notifikasi', array('id_notifikasi' => $param));
+		 $this->db->delete('notifikasi', array('kd_pelamar' => $param));
 
 		if($this->db->affected_rows())
 		{
