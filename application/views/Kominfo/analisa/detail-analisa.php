@@ -1,7 +1,6 @@
-   <pre>
-  <?php print_r($get_penilaian); ?>
+    <pre>
+  <?php print_r($this->analisa->pengurangan_nilai($id_pelamar)) ?>
 </pre>
- 
    
   <div class="row">
     <div class="col-md-4">
@@ -91,23 +90,26 @@
 
               <!-- tabel nilai asli karyawan baru setela di konversikan -->
               <tbody>
-                    <th class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></th>
-                    <?php foreach ($get_penilaian as $row) : ?>
-                    <td class="text-center"><?php echo $row->nilai ?></td>
-                    <?php endforeach; ?>
+                <th class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></th>
+                <?php foreach ($this->analisa->pengurangan_nilai($id_pelamar) as $row) : ?>
+                <td class="text-center"><?php echo $row->nilai ?></td>
+                <?php endforeach; ?>
                     
               </tbody>
               
               <!-- tabel nilai profil ideal perusahaan -->
               <th class="color text-center">Nilai Profile</th>
-              <?php foreach ($sub_kriteria as $row) : ?>
-              <th class="color text-center"><?php echo $row->nilai_ideal ?></th>
-              <?php endforeach; ?>
+              <?php foreach ($this->analisa->pengurangan_nilai($id_pelamar) as $row) : ?>
+                <td class="color text-center"><?php echo $row->nilai_ideal ?></td>
+                <?php endforeach; ?>
               
               <!-- tabel hasil pengurangan nilai konversi dan nilai profile  -->
               <tr style="font-weight: bold;">
                 <td class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></td>
-                 <td></td>
+               <?php foreach ($this->analisa->pengurangan_nilai($id_pelamar) as $row) : ?>
+                <td class=" text-center"><?php echo $row->nilai-$row->nilai_ideal ?></td>
+                <?php endforeach; ?>
+               
               </tr>
           </table>
         </div>

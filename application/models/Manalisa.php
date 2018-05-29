@@ -17,9 +17,23 @@ class Manalisa extends Kominfo_model
 			$this->db->like('tbl_pelamar.kd_pelamar', $this->input->get('query'))
 						->or_like('tbl_pelamar.nama_lengkap', $this->input->get('query'));
 
+		// $this->db->select('tbl_pelamar.*, notifikasi.id_notifikasi AS status, notifikasi.id_notifikasi  AS id_status, notifikasi.id_notifikasi AS id_status, notifikasi.status,tbl_nilai.*,tbl_pelamar.*,notifikasi.*, tbl_pelamar.kd_pelamar AS id');
+
+		// //$this->db->from('tbl_pelamar.kd_pelamar');
+
+		// $this->db->join('notifikasi', 'tbl_pelamar.kd_pelamar = notifikasi.kd_pelamar', 'left');
+
+		// $this->db->join('tbl_nilai', 'notifikasi.kd_pelamar = tbl_nilai.kd_pelamar', 'left');
+
+		// $this->db->group_by('tbl_nilai.kd_pelamar');
+
+		// $this->db->order_by('kd_pelamar', 'ASC');
+
+		if($type == 'result')
+		{
 		$this->db->select('tbl_pelamar.*, notifikasi.id_notifikasi AS status, notifikasi.id_notifikasi  AS id_status, notifikasi.id_notifikasi AS id_status, notifikasi.status,tbl_nilai.*,tbl_pelamar.*,notifikasi.*, tbl_pelamar.kd_pelamar AS id');
 
-		//$this->db->from('tbl_pelamar');
+		$this->db->from('tbl_pelamar');
 
 		$this->db->join('notifikasi', 'tbl_pelamar.kd_pelamar = notifikasi.kd_pelamar', 'left');
 
@@ -27,15 +41,28 @@ class Manalisa extends Kominfo_model
 
 		$this->db->group_by('tbl_nilai.kd_pelamar');
 
-		// $this->db->order_by('kd_pelamar', 'ASC');
-
-		if($type == 'result')
-		{
-			return $this->db->get('tbl_pelamar', $limit, $offset)->result();
+		$this->db->limit($limit, $offset);
+		
+		return $this->db->get()->result();
+			// return $this->db->get('tbl_pelamar', $limit, $offset)->result();
 
 		} else {
 			
-			return $this->db->get('tbl_pelamar')->num_rows();
+			$this->db->select('tbl_pelamar.*, notifikasi.id_notifikasi AS status, notifikasi.id_notifikasi  AS id_status, notifikasi.id_notifikasi AS id_status, notifikasi.status,tbl_nilai.*,tbl_pelamar.*,notifikasi.*, tbl_pelamar.kd_pelamar AS id');
+
+		$this->db->from('tbl_pelamar');
+
+		$this->db->join('notifikasi', 'tbl_pelamar.kd_pelamar = notifikasi.kd_pelamar', 'left');
+
+		$this->db->join('tbl_nilai', 'notifikasi.kd_pelamar = tbl_nilai.kd_pelamar', 'left');
+
+		$this->db->group_by('tbl_nilai.kd_pelamar');
+
+		$this->db->limit($limit, $offset);
+
+			return $this->db->get()->num_rows();
+
+			//return $this->db->get('tbl_pelamar')->num_rows();
 		}
 	}
 
@@ -108,7 +135,6 @@ class Manalisa extends Kominfo_model
 		}
 
 		$this->db->insert_batch('tbl_nilai', $dataNilai);
-
 		$data2 = array(
 			'kd_pelamar' => $this->input->post('kd_pelamar'),
 			'status' => 'telah',
@@ -163,10 +189,10 @@ class Manalisa extends Kominfo_model
 		return $this->db->get_where('tbl_sub_kriteria', array('id_sub_kriteria', $param ))->row();
 	}
 
-	public function get_kriteria($id = 0)
-	{
-		return $this->db->get_where('tbl_kriteria', array('id_kriteria', $id))->row();
-	}
+	// public function get_kriteria($id = 0)
+	// {
+	// 	return $this->db->get_where('tbl_kriteria', array('id_kriteria', $id))->row();
+	// }
 
 	public function get_Profil($param = 0)
 	{
@@ -194,19 +220,22 @@ class Manalisa extends Kominfo_model
 
 	}
 
-	public function pengurangan_nilai($param = 0)
+	public function pengurangan_nilai($param=0)
 	{
 		$this->db->select('*');
 		$this->db->from('tbl_konversi');
-		$this->db->join('tbl_sub_kriteria', 'tbl_konversi.id_kriteria = tbl_sub_kriteria.id_kriteria', 'left');
+		$this->db->join('tbl_sub_kriteria', 'tbl_sub_kriteria.id_kriteria = tbl_konversi.id_kriteria ', 'left');
+		$this->db->join('tbl_nilai', 'tbl_konversi.id_konversi = tbl_nilai.id_konversi', 'left');
 
-		$this->db->where('tbl_sub_kriteria.id_kriteria', $param);
+		$this->db->where('tbl_nilai.kd_pelamar', $param);
+		$this->db->order_by('tbl_konversi.id_konversi', 'DESC');
 		return $this->db->get()->result();
 
-		//return $this->db->get_where('tbl_nilai', array('id_nilai'))->result();
+		//return $this->db->get_where('tbl_sub_kriteria.id_kriteria', array('id_kriteria'))->result();
 
 	}
 
+	
 
 }
 
