@@ -46,11 +46,11 @@ class Analisa extends Kominfo
 
 		$this->page_title->push('Penilaian', 'Form Penilaian calon Karyawan');
 
-		 $this->form_validation->set_rules('id_konversi[nilai]', 'Wawancara', 'trim|required');
-		 $this->form_validation->set_rules('id_konversi[nilai]', 'Tes Tertulis', 'trim|required');
-		 $this->form_validation->set_rules('id_konversi[nilai]', 'Tes Microsoft Word', 'trim|required');
-		 $this->form_validation->set_rules('id_konversi[nilai]', 'Tes Microsoft Excel','trim|required');
-		 $this->form_validation->set_rules('id_konversi[nilai]', 'Tes Keahilan', 'trim|required');
+		 $this->form_validation->set_rules('id_konversi[1]', 'Wawancara', 'trim|required');
+		 $this->form_validation->set_rules('id_konversi[2]', 'Tes Tertulis', 'trim|required');
+		 $this->form_validation->set_rules('id_konversi[3]', 'Tes Microsoft Word', 'trim|required');
+		 $this->form_validation->set_rules('id_konversi[4]', 'Tes Microsoft Excel','trim|required');
+		 $this->form_validation->set_rules('id_konversi[5]', 'Tes Keahilan', 'trim|required');
 		
 
 		if ($this->form_validation->run() == TRUE)

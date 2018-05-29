@@ -1,6 +1,9 @@
     <pre>
   <?php print_r($this->analisa->pengurangan_nilai($id_pelamar)) ?>
 </pre>
+<pre>
+  <?php print_r($analisa_nilai) ?>
+</pre>
    
   <div class="row">
     <div class="col-md-4">
@@ -60,7 +63,7 @@
              <tr class="text-center">
                 <td><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></td>
                 <?php foreach ($get_penilaian as $row) : ?>
-                  <th class="text-center"><?php echo $row->range ?></th>
+                  <th class="text-center"><?php echo $row->range.' - '.$row->nilai.' - '.$row->id_kriteria ?></th>
                 <?php endforeach; ?>
               </tr>
           </tbody>
@@ -92,7 +95,7 @@
               <tbody>
                 <th class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></th>
                 <?php foreach ($this->analisa->pengurangan_nilai($id_pelamar) as $row) : ?>
-                <td class="text-center"><?php echo $row->nilai ?></td>
+                <td class="text-center"><?php echo $row->nilai.' - '.$row->id_kriteria ?></td>
                 <?php endforeach; ?>
                     
               </tbody>
@@ -100,17 +103,22 @@
               <!-- tabel nilai profil ideal perusahaan -->
               <th class="color text-center">Nilai Profile</th>
               <?php foreach ($this->analisa->pengurangan_nilai($id_pelamar) as $row) : ?>
-                <td class="color text-center"><?php echo $row->nilai_ideal ?></td>
+                <td class="color text-center"><?php echo $row->nilai_ideal.' - '.$row->id_kriteria ?></td>
                 <?php endforeach; ?>
               
               <!-- tabel hasil pengurangan nilai konversi dan nilai profile  -->
               <tr style="font-weight: bold;">
                 <td class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></td>
                <?php foreach ($this->analisa->pengurangan_nilai($id_pelamar) as $row) : ?>
-                <td class=" text-center"><?php echo $row->nilai-$row->nilai_ideal ?></td>
+                <td class=" text-center"><?php echo $row->nilai - $row->nilai_ideal ?></td>
                 <?php endforeach; ?>
                
               </tr>
+             <!-- <tr style="font-weight: bold;">
+                <td class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></td>
+               <td class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nilai ?></td>
+               
+              </tr> -->
           </table>
         </div>
       </div>
