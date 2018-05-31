@@ -52,8 +52,15 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
                 <div class="form-group">
                    <label for="deskripsi" class="control-label col-md-3 col-xs-12">Nilai Ideal : <strong class="text-red">*</strong></label>
                     <div class="col-md-8">
-                    	<input type="text"  class="form-control"  name="nilai_ideal" value="<?php echo $sub->nilai_ideal ?>" placeholder="Nilai">
-                    	<p class="help-block"><?php echo form_error('nilai', '<small class="text-danger">', '</small>'); ?></p>         
+                    	<select name="nilai_ideal" class="form-control select2">
+							<option value="">-- PILIH --</option>
+							<option value="1" <?php if($sub->nilai_ideal =='1') echo "selected"; ?>>10-20</option>
+							<option value="2" <?php if($sub->nilai_ideal =='2') echo "selected"; ?>>30-40</option>
+							<option value="3" <?php if($sub->nilai_ideal =='3') echo "selected"; ?>>50-60</option>
+							<option value="4" <?php if($sub->nilai_ideal =='4') echo "selected"; ?>>70-80</option>
+							<option value="5" <?php if($sub->nilai_ideal =='5') echo "selected"; ?>>90-100</option>
+						</select>
+                    	<p class="help-block"><?php echo form_error('nilai_ideal', '<small class="text-danger">', '</small>'); ?></p>         
                     </div>              
                 </div>
 			</div>

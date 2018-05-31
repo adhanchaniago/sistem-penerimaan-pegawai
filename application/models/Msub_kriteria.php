@@ -106,6 +106,7 @@ class Msub_kriteria extends Kominfo_model
 	public function update($param = 0)
 	{
 		$data = array(
+			// 'id_sub_kriteria' => $this->input->post('id_sub_kriteria'),
 			'id_kriteria' => $this->input->post('nama_kriteria'),
 			'nama_subkriteria' => $this->input->post('nama_subkriteria'),
 			'nilai_ideal' =>$this->input->post('nilai_ideal'),

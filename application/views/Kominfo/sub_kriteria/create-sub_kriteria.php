@@ -49,8 +49,16 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
                 <div class="form-group">
                    <label for="deskripsi" class="control-label col-md-3 col-xs-12">Nilai Ideal : <strong class="text-red">*</strong></label>
                     <div class="col-md-8">
-                    	<input type="text"  class="form-control" autofocus name="nilai_ideal" value="<?php echo set_value('nilai'); ?>" placeholder="Nilai">
-                    	<p class="help-block"><?php echo form_error('nilai', '<small class="text-danger">', '</small>'); ?></p>         
+                    	<!-- <input type="text"  class="form-control" name="nilai_ideal" value="<?php echo set_value('nilai'); ?>" placeholder="Nilai"> -->
+                    	<select name="nilai_ideal" class="form-control select2">
+							<option value="">-- PILIH --</option>
+							<option value="1" <?php if(set_value('nilai_ideal')=='10-20') echo "selected"; ?>>10-20</option>
+							<option value="2" <?php if(set_value('nilai_ideal')=='30-40') echo "selected"; ?>>30-40</option>
+							<option value="3" <?php if(set_value('nilai_ideal')=='50-60') echo "selected"; ?>>50-60</option>
+							<option value="4" <?php if(set_value('nilai_ideal')=='70-80') echo "selected"; ?>>70-80</option>
+							<option value="5" <?php if(set_value('nilai_ideal')=='90-100') echo "selected"; ?>>90-100</option>
+						</select>
+                    	<p class="help-block"><?php echo form_error('nilai_ideal', '<small class="text-danger">', '</small>'); ?></p>         
                     </div>              
                 </div>
 			</div>
