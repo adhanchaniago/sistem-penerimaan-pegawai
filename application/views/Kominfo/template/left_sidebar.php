@@ -54,18 +54,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="<?php echo active_link_controller('index','bobot').active_link_controller('bobot','create').active_link_controller('bobot','update') ?>">
-            <a href="<?php echo site_url('bobot') ?>"><i class="fa fa-angle-double-right"></i> Bobot Gap</a>
-          </li>
-          <li class="<?php echo active_link_controller('konversi') ?>">
-            <a href="<?php echo site_url('konversi') ?>"><i class="fa fa-angle-double-right"></i>Konversi Nilai</a>
-          </li>
           <li class="<?php echo active_link_controller('kriteria') ?>">
             <a href="<?php echo site_url('kriteria') ?>"><i class="fa fa-angle-double-right"></i>Kriteria</a>
           </li>
 
           <li class="<?php echo active_link_controller('sub_kriteria') ?>">
             <a href="<?php echo site_url('sub_kriteria') ?>"><i class="fa fa-angle-double-right"></i> Sub_Kriteria</a>
+          </li>
+          <li class="<?php echo active_link_controller('konversi') ?>">
+            <a href="<?php echo site_url('konversi') ?>"><i class="fa fa-angle-double-right"></i>Konversi Nilai</a>
+          </li>
+          <li class="<?php echo active_link_controller('index','bobot').active_link_controller('bobot','create').active_link_controller('bobot','update') ?>">
+            <a href="<?php echo site_url('bobot') ?>"><i class="fa fa-angle-double-right"></i> Bobot Gap</a>
           </li>
           <li class="<?php echo active_link_controller('analisa') ?>">
             <a href="<?php echo site_url('analisa') ?>"><i class="fa fa-angle-double-right"></i> Analisa</a>

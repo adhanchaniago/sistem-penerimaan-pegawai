@@ -1,4 +1,4 @@
-    <pre>
+<pre>
   <?php print_r($this->analisa->pengurangan_nilai($id_pelamar)) ?>
 </pre>
   <div class="row">
@@ -59,7 +59,7 @@
              <tr class="text-center">
                 <td><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></td>
                 <?php foreach ($get_penilaian as $row) : ?>
-                  <th class="text-center"><?php echo $row->range.' - '.$row->nilai.' - '.$row->id_kriteria ?></th>
+                  <th class="text-center"><?php echo $row->range?></th>
                 <?php endforeach; ?>
               </tr>
           </tbody>
@@ -71,7 +71,7 @@
     <div class="col-md-8" style="margin-top: 2px;">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Perhitungan Nilai Gap Setelah Di Konversikan</h3>
+          <h3 class="box-title">Data Konversi Perhitungan Gap </h3>
         </div>
         <!-- /.box-header -->
          <div class="box-body">
@@ -91,7 +91,7 @@
               <tbody>
                 <th class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></th>
                 <?php foreach ($this->analisa->pengurangan_nilai($id_pelamar) as $row) : ?>
-                <td class="text-center"><?php echo $row->nilai.' - '.$row->id_kriteria ?></td>
+                <td class="text-center"><?php echo $row->nilai?></td>
                 <?php endforeach; ?>
                     
               </tbody>
@@ -99,7 +99,7 @@
               <!-- tabel nilai profil ideal perusahaan -->
               <th class="color text-center">Nilai Profile</th>
               <?php foreach ($this->analisa->pengurangan_nilai($id_pelamar) as $row) : ?>
-                <td class="color text-center"><?php echo $row->nilai_ideal.' - '.$row->id_kriteria ?></td>
+                <td class="color text-center"><?php echo $row->nilai_ideal ?></td>
                 <?php endforeach; ?>
               
               <!-- tabel hasil pengurangan nilai konversi dan nilai profile  -->
@@ -110,14 +110,37 @@
                 <?php endforeach; ?>
                
               </tr>
-            <!--  <tr style="font-weight: bold;">
-                <td class="text-center"><?php echo $analisa_nilai->nama_lengkap; ?></td>
-                <th class="text-center"><?php echo $this->analisa->get_konversi($analisa_nilai->tes_tertulis)->nilai ?></th>
-               
-               
-              </tr> -->
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8" style="margin-top: 2px;">
+      <div class="box box-primary">
+        <!-- /.box-header -->
+         <div class="box-body">
+          <table class="table table-bordered">
+               <thead style="font-weight: bold;" >
+                <tr class="bg-silver">
+                  <td>Calon Karyawan</td>
+                  <td>Wawancara</td>
+                  <td>Tes Tertulis</td>
+                  <td>Tes Microsoft Word</td>
+                  <td>Tes Microsoft Excel</td>
+                  <td>Tes Keahlian</td>  
+                </tr>
+              </thead>
+
+              <!-- tabel nilai asli karyawan baru setela di konversikan -->
+              <tbody>
+                <th class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></th>
+                 <?php foreach ($this->analisa->pengurangan_nilai($id_pelamar) as $row) : ?>
+                <td class=" text-center"><?php echo pembobotan($row->nilai - $row->nilai_ideal) ?></td>
+                <?php endforeach; ?>
+              </tbody>
           </table>
         </div>
       </div>
     </div> 
+
   </div>

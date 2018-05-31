@@ -8,7 +8,7 @@
 </pre> -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Bordered Table</h3>
+          <h3 class="box-title">Data Konversi</h3>
           <div class="pull-right">
             <a href="<?php echo site_url('konversi/create') ?>"  class="btn btn-warning hvr-shadow btn-flat btn-sm"><i class="fa fa-plus"></i> Tambah Baru</a>
           </div>

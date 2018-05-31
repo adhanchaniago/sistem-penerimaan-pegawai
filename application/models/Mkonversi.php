@@ -93,10 +93,10 @@ class Mkonversi extends Kominfo_model
 		);
 		$this->db->insert('tbl_konversi', $data);
 
-		// $data = array(
-		// 	'nama_konversi' => $this->input->post('nama_konversi'),
-		// );
-		// $this->db->insert('nm_konversi', $data);
+		$data = array(
+			'' => $this->input->post('nama_konversi'),
+		);
+		$this->db->insert('nm_konversi', $data);
 
 		if($this->db->affected_rows())
 		{
