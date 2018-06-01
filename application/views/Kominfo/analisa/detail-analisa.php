@@ -1,6 +1,6 @@
-<pre>
+<!-- <pre>
   <?php print_r($this->analisa->pengurangan_nilai($id_pelamar)) ?>
-</pre>
+</pre> -->
   <div class="row">
     <div class="col-md-4">
       <div class="box box-primary">
@@ -134,8 +134,22 @@
               <!-- tabel nilai asli karyawan baru setela di konversikan -->
               <tbody>
                 <th class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></th>
-                 <?php foreach ($this->analisa->pengurangan_nilai($id_pelamar) as $row) : ?>
-                <td class=" text-center"><?php echo pembobotan($row->nilai - $row->nilai_ideal) ?></td>
+
+                 <?php 
+                 $total = 0;
+                 $bagi = 2;
+                 $kali = 0.4;
+                 $dataSecondery = array();
+                 foreach ($this->analisa->pengurangan_nilai($id_pelamar) as $key =>$row) : 
+                  if ($key >= 2 && $key < 4)  {
+                    $total += pembobotan($row->nilai - $row->nilai_ideal);
+                    $dataSecondery[] = pembobotan($row->nilai - $row->nilai_ideal);
+                    $corefactor[] = pembobotan($row->nilai - $row->nilai_ideal);
+                    $pembagian = $total / $bagi;
+                    $hasil = $pembagian * $kali;
+                  }
+                  ?>
+                <td class=" text-center"><?php echo pembobotan($row->nilai - $row->nilai_ideal)  ?></td>
                 <?php endforeach; ?>
               </tbody>
           </table>
@@ -143,4 +157,83 @@
       </div>
     </div> 
 
+
+    <div class="col-md-8" style="margin-top: 2px;">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Data Konversi Perhitungan Gap </h3>
+        </div>
+        <!-- /.box-header -->
+         <div class="box-body">
+          <table class="table table-bordered">
+            <!--ini adalah corefaktor -->
+               <thead style="font-weight: bold;" >
+                <?php 
+                 $total1 = 0;
+                 $bagi1 = 3;
+                 $kali1 = 0.6;
+                 $corefactor = array();
+                 foreach ($this->analisa->pengurangan_nilai($id_pelamar) as $key =>$row) : 
+                  if ($key <= 1 or  $key == 4 )  {
+                    $total1 += pembobotan($row->nilai - $row->nilai_ideal);
+                    $corefactor[] = pembobotan($row->nilai - $row->nilai_ideal);
+                    $pembagian1 = $total1 / $bagi1;
+                    $hasil1 = $pembagian1 * $kali1;
+                  }
+                 
+                  ?>
+                <?php endforeach; ?>
+                <tr class="bg-silver">
+                  <td>Calon Karyawan</td>
+                  <td>Wawancara</td>
+                  <td>Tes Tertulis</td>
+                  <td>Tes Keahlian</td>
+                  <td>Nilai Core Factor</td>
+                  <td>Nilai Core Factor dibagi 3</td>
+                  <td>Pembagian (60%)</td>
+                </tr>
+              </thead>
+
+              <!-- tabel nilai asli karyawan baru setela di konversikan -->
+              <tbody>
+                <th class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></th>
+                <td class=" text-center"><?php echo $corefactor[0] ?></td>
+                <td class=" text-center"><?php echo $corefactor[1] ?></td>
+                <td class=" text-center"><?php echo $corefactor[2] ?></td>
+                <td class="text-center"><?php echo $total1; ?></td>
+                <td class="text-center"><?php echo $pembagian1 ?></td> 
+                <td class="text-center"><?php echo $hasil1; ?></td>
+             </tbody>
+          </table>
+          <!--ini adalah Tutup corefaktor -->
+
+        </div>
+        <div class="box-body">
+          <table class="table table-bordered">
+               <thead style="font-weight: bold;" >
+                <tr class="bg-silver">
+                  <td>Calon Karyawan</td>
+                  <td>Tes Microsoft Word</td>
+                  <td>Tes Microsoft Excel</td>
+                  <td>Total Nilai Secondery</td>
+                  <td>Nilai Secondery dibagi 2</td>
+                  <td>Pembagian (40%)</td>
+                </tr>
+              </thead>
+
+              <!-- tabel nilai asli karyawan baru setela di konversikan -->
+              <tbody>
+                <th class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></th>
+                <td class=" text-center"><?php echo $dataSecondery[0]  ?></td>
+                <td class=" text-center"><?php echo $dataSecondery[1] ?></td>
+                <td class="text-center"><?php echo $total ?></td>
+                <td class="text-center"><?php echo $pembagian ?></td> 
+                <td class="text-center"><?php echo $hasil ?></td>
+                <td><?php echo $hasil + $hasil1; ?></td>
+                
+             </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
