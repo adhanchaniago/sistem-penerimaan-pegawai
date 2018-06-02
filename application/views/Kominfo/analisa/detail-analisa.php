@@ -141,7 +141,7 @@
                   if ($key >= 2 && $key < 4)  {
                     $total += pembobotan($row->nilai - $row->nilai_ideal);
                     $dataSecondery[] = pembobotan($row->nilai - $row->nilai_ideal);
-                    $corefactor[] = pembobotan($row->nilai - $row->nilai_ideal);
+                    //$corefactor[] = pembobotan($row->nilai - $row->nilai_ideal);
                     $pembagian = $total / $bagi;
                     $hasil = $pembagian * $kali;
                   }

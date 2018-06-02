@@ -1,6 +1,4 @@
-<pre>
-  <?php print_r($get) ?>
-</pre>
+
 <div class="row">
   <div class="col-md-8 col-md-offset-2 col-xs-12"><?php echo $this->session->flashdata('alert'); ?></div>
   <div class="col-md-12">
@@ -25,28 +23,138 @@
           <table class="table table-bordered">
             <thead class="text-center bg-silver" style="font-weight: bold;">
                 <tr>
-                  <th>No</th>
-                  <th>Nama Lengkap</th>
-                  <th>Wawancara</th>
-                  <th>Tes Tertulis</th>
-                  <th>Tes Microsoft Word</th>
-                  <th>Tes Microsoft Excel</th>
-                  <th>Tes Keahlian</th>
-                  <th></th>
+                  <th class="text-center">No</th>
+                  <th class="text-center">Nama Lengkap</th>
+                  <th class="text-center">Wawancara</th>
+                  <th class="text-center">Tes Tertulis</th>
+                  <th class="text-center">Tes Microsoft Word</th>
+                  <th class="text-center">Tes Microsoft Excel</th>
+                  <th class="text-center">Tes Keahlian</th>
                 </tr>
             </thead>
             <tbody>
+             <!--  Nilai Asli Calon Karyawan -->
+              <?php 
+              foreach ($this->hasil->get_pelamar() as $key => $value): ?>
+                   <tr>
+                     <td class="text-center"> <?php echo ++$key ?></td>
+                     <td class="text-center"><?php echo $value->nama_lengkap ?></td>
+                      <?php foreach ($this->hasil->ngambil($value->kd_pelamar) as $key => $value): ?>
+                      <td class="text-center"><?php echo $value->range ?></td>
+                      <?php endforeach ?>  
+                   </tr>
+                <?php endforeach ?>  
+            </tbody>
+          </table>
+          <br>
+          <br>
+          <table class="table table-bordered">
+            <thead class="text-center bg-silver" style="font-weight: bold;">
+                <tr>
+                  <th class="text-center">No</th>
+                  <th class="text-center">Nama Lengkap</th>
+                  <th class="text-center">Wawancara</th>
+                  <th class="text-center">Tes Tertulis</th>
+                  <th class="text-center">Tes Microsoft Word</th>
+                  <th class="text-center">Tes Microsoft Excel</th>
+                  <th class="text-center">Tes Keahlian</th>
+                </tr>
+            </thead>
+            <tbody>
+             <!--  Nilai Setelah Dikonversikan -->
+              <?php 
+              foreach ($this->hasil->get_pelamar() as $key => $value): ?>
+                   <tr>
+                     <td class="text-center"> <?php echo ++$key ?></td>
+                     <td class="text-center"><?php echo $value->nama_lengkap ?></td>
+                      <?php foreach ($this->hasil->ngambil($value->kd_pelamar) as $key => $value): ?>
+                      <td class="text-center"><?php echo $value->nilai ?></td>
+                      <?php endforeach ?>
+                   </tr>
+                <?php endforeach ?>
+            </tbody>
+            <!-- Nilai Profile Ideal Prusahaan -->
+            <th class="color text-center"></th>
+            <th class="color text-center">Nilai Profile</th>
+              <?php foreach ($this->hasil->ngambil($value->kd_pelamar) as $value) : ?>
+                <td class="color text-center"><?php echo $value->nilai_ideal ?></td>
+                <?php endforeach; ?>
 
-              <td></td>
-          
-                <?php foreach ($this->hasil->ngambil() as $row) : ?>
-                 <td><?php echo $row->nama_lengkap; ?></td>
-                 <?php foreach ($this->hasil->ngambil()) : ?>
-                  <td><?php echo $this->hasil->ngambil($id_kriteria)->range; ?></td>
-                 <?php endforeach; ?>
-              <?php endforeach; ?>
+            <tbody>
+             <!--  Nilai Setelah Dikonversikan -->
+              <?php 
+              foreach ($this->hasil->get_pelamar() as $key => $value): ?>
+                   <tr>
+                     <td class="text-center"> <?php echo ++$key ?></td>
+                     <td class="text-center"><?php echo $value->nama_lengkap ?></td>
+                      <?php foreach ($this->hasil->ngambil($value->kd_pelamar) as $key => $value): ?>
+                      <td class="text-center"><?php echo $value->nilai - $value->nilai_ideal ?></td>
+                      <?php endforeach ?>
+                   </tr>
+                <?php endforeach ?>
+            </tbody>
+          </table>
+          <br><br>
 
-         
+          <table class="table table-bordered">
+            <thead class="text-center bg-silver" style="font-weight: bold;">
+                <tr>
+                  <th class="text-center">No</th>
+                  <th class="text-center">Nama Lengkap</th>
+                  <th class="text-center">Wawancara</th>
+                  <th class="text-center">Tes Tertulis</th>
+                  <th class="text-center">Tes Microsoft Word</th>
+                  <th class="text-center">Tes Microsoft Excel</th>
+                  <th class="text-center">Tes Keahlian</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+              <?php 
+              foreach ($this->hasil->get_pelamar() as $key => $value): ?>
+                   <tr>
+                     <td class="text-center"> <?php echo ++$key ?></td>
+                     <td class="text-center"><?php echo $value->nama_lengkap ?></td>
+                      <?php foreach ($this->hasil->ngambil($value->kd_pelamar) as $key => $value): ?>
+                      <td class="text-center"><?php echo pembobotan($value->nilai - $value->nilai_ideal) ?></td>
+                      <?php endforeach ?>  
+                   </tr>
+                <?php endforeach ?>  
+            </tbody>
+          </table>
+          <br>
+          <br>
+          <table class="table table-bordered">
+            <thead class="text-center bg-silver" style="font-weight: bold;">
+                <tr>
+                  <th class="text-center">No</th>
+                  <th class="text-center">Nama Lengkap</th>
+                  <th class="text-center">Wawancara</th>
+                  <th class="text-center">Tes Tertulis</th>
+                  <th class="text-center">Tes Microsoft Word</th>
+                  <th class="text-center">Tes Microsoft Excel</th>
+                  <th class="text-center">Tes Keahlian</th>
+                  <th class="text-center">Core Factor</th>
+                  <th class="text-center">Secondary Factor</th>
+                  <th class="text-center">Total Nilai</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+              <?php 
+              foreach ($this->hasil->get_pelamar() as $key => $value): ?>
+                   <tr>
+                     <td class="text-center"> <?php echo ++$key ?></td>
+                     <td class="text-center"><?php echo $value->nama_lengkap ?></td>
+                      <?php foreach ($this->hasil->ngambil($value->kd_pelamar) as $key => $value): ?>
+                      <td class="text-center"><?php echo pembobotan($value->nilai - $value->nilai_ideal) ?></td>
+
+                      <?php endforeach ?>
+                      <td></td>
+                      <td></td>
+                      <td></td>  
+                   </tr>
+                <?php endforeach ?>  
             </tbody>
           </table>
         </div>
