@@ -121,7 +121,7 @@ class Msub_kriteria extends Kominfo_model
 			
 		);
 
-		$this->db->update('tbl_profile_standar', $data1);
+		$this->db->update('tbl_profile_standar', $data1, array('id_kriteria' => $param));
 		
 		
 		if($this->db->affected_rows())

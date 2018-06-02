@@ -48,7 +48,7 @@ class Manalisa extends Kominfo_model
 
 		} else {
 			
-			$this->db->select('tbl_pelamar.*, notifikasi.id_notifikasi AS status, notifikasi.id_notifikasi  AS id_status, notifikasi.id_notifikasi AS id_status, notifikasi.status,tbl_nilai.*,tbl_pelamar.*,notifikasi.*, tbl_pelamar.kd_pelamar AS id');
+		$this->db->select('tbl_pelamar.*, notifikasi.id_notifikasi AS status, notifikasi.id_notifikasi  AS id_status, notifikasi.id_notifikasi AS id_status, notifikasi.status,tbl_nilai.*,tbl_pelamar.*,notifikasi.*, tbl_pelamar.kd_pelamar AS id');
 
 		$this->db->from('tbl_pelamar');
 
@@ -234,21 +234,7 @@ class Manalisa extends Kominfo_model
 
 	}
 
-	// public function ngambil($param=0)
-	// {
-	// 	$this->db->select('*');
-	// 	$this->db->from('tbl_konversi');
-	// 	$this->db->join('tbl_sub_kriteria', 'tbl_sub_kriteria.id_kriteria = tbl_konversi.id_kriteria ', 'left');
-	// 	$this->db->join('tbl_nilai', 'tbl_konversi.id_konversi = tbl_nilai.id_konversi', 'left');
-	// 	$this->db->where('tbl_nilai.kd_pelamar', $param);
-	// 	$this->db->order_by('tbl_konversi.id_konversi', 'ASC'); //ASC Dari Kecil Ke besar DESC Dari Besar Ke kecil
-	// 	return $this->db->get()->result();
 
-	// 	//return $this->db->get_where('tbl_sub_kriteria.id_kriteria', array('id_kriteria'))->result();
-
-	// }
-
-	
 
 }
 

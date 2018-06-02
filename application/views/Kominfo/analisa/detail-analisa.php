@@ -1,6 +1,4 @@
-<!-- <pre>
-  <?php print_r($this->analisa->pengurangan_nilai($id_pelamar)) ?>
-</pre> -->
+
   <div class="row">
     <div class="col-md-4">
       <div class="box box-primary">
@@ -130,7 +128,6 @@
                   <td>Tes Keahlian</td>  
                 </tr>
               </thead>
-
               <!-- tabel nilai asli karyawan baru setela di konversikan -->
               <tbody>
                 <th class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></th>
