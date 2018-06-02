@@ -225,9 +225,24 @@
                 <td class=" text-center"><?php echo $dataSecondery[1] ?></td>
                 <td class="text-center"><?php echo $total ?></td>
                 <td class="text-center"><?php echo $pembagian ?></td> 
-                <td class="text-center"><?php echo $hasil ?></td>
-                <td><?php echo $hasil + $hasil1; ?></td>
-                
+                <td class="text-center"><?php echo $hasil ?></td>                
+             </tbody>
+          </table>
+        </div>
+
+        <div class="box-body">
+          <table class="table table-bordered">
+               <thead style="font-weight: bold;" >
+                <tr class="bg-silver">
+                  <td class="text-center">Calon Karyawan</td>
+                  <td class="text-center">Hasil Nilai Total</td>
+                </tr>
+              </thead>
+
+              <!-- tabel nilai asli karyawan baru setela di konversikan -->
+              <tbody>
+                <th class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></th>
+                <td class=" text-center"><?php echo $hasil + $hasil1  ?></td>                
              </tbody>
           </table>
         </div>

@@ -135,7 +135,7 @@
                   <th class="text-center">Tes Keahlian</th>
                   <th class="text-center">Nilai Core Factor</th>
                   <th class="text-center">Nilai Core Factor dibagi 3</th>
-                  <th class="text-center">Total Nilai Core Factor</th>
+                  <th class="text-center">Total Nilai Core Factor X 60%</th>
                 </tr>
             </thead>
                 <?php 
@@ -182,7 +182,7 @@
                   <th class="text-center">Tes Microsoft Excel</th>
                   <th class="text-center">Total Nilai Secondery</th>
                   <th class="text-center">Nilai Secondery dibagi 2</th>
-                  <th class="text-center">Total Nilai Secondery Factor</th>
+                  <th class="text-center">Total Nilai Secondery Factor X 40%</th>
                 </tr>
             </thead>
                 <?php 
@@ -211,6 +211,49 @@
                         <td class="text-center"><?php echo $total; ?></td>
                         <td class="text-center"><?php echo $pembagian ?></td>
                         <td class="text-center"><?php echo $hasil ?></td>  
+                   </tr>
+                <?php endforeach ?>  
+
+          </table>
+
+          <br>
+          <br>
+          <table class="table table-bordered">
+            <thead class="text-center bg-silver" style="font-weight: bold;">
+                <tr>
+                  <th class="text-center">No</th>
+                  <th class="text-center">Nama Lengkap</th>
+                  <th class="text-center">Nilai Rengking</th>
+                </tr>
+            </thead>
+                <?php 
+                foreach ($this->hasil->get_pelamar() as $key => $value): ?>
+                   <tr>
+                     <td class="text-center"> <?php echo ++$key ?></td>
+                     <td class="text-center"><?php echo $value->nama_lengkap ?></td>
+                     <?php 
+                      $total1 = 0;
+                      $bagi1 = 3;
+                      $kali1 = 0.6;
+                      $total = 0;
+                      $bagi = 2;
+                      $kali = 0.4;
+                      $corefactor = array();
+                      foreach ($this->hasil->ngambil($value->kd_pelamar) as $key => $value):
+                      if ($key <= 1 or  $key == 4 )  {
+                          $total1 += pembobotan($value->nilai - $value->nilai_ideal);
+                          $corefactor[] = pembobotan($value->nilai - $value->nilai_ideal);
+                          $pembagian1 = $total1 / $bagi1;
+                          $hasil1 = $pembagian1 * $kali1;
+                        }if ($key >= 2 && $key < 4)  {
+                          $total += pembobotan($value->nilai - $value->nilai_ideal);
+                          $dataSecondery[] = pembobotan($value->nilai - $value->nilai_ideal);
+                          $pembagian = $total / $bagi;
+                          $hasil = $pembagian * $kali;
+                        } 
+                      ?>
+                      <?php endforeach ?>
+                     <td class="text-center"><?php echo $hasil + $hasil1 ?></td>  
                    </tr>
                 <?php endforeach ?>  
 
