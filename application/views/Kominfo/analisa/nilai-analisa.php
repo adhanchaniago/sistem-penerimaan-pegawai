@@ -88,7 +88,7 @@ echo form_hidden('kd_pelamar', $get->kd_pelamar );
 						<select name="id_konversi[1]" class="form-control select2" style="width: 100%;">
 			                <option value="">==== Pilih Nilai ====</option>
 			                <?php foreach($create_nilai1 as $get) :?>
-			                  <option value="<?php echo $get->id_konversi ?>"><?php echo $get->range.'-'.$get->nilai ?></option> 
+			                  <option value="<?php echo $get->id_konversi ?>"><?php echo $get->range ?></option> 
 			                <?php endforeach; ?>
 			            </select>
 			            <p class="help-block"><?php echo form_error('id_konversi[1]', '<small class="text-danger">', '</small>'); ?></p>
