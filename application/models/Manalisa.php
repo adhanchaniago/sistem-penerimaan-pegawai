@@ -17,17 +17,17 @@ class Manalisa extends Kominfo_model
 			$this->db->like('tbl_pelamar.kd_pelamar', $this->input->get('query'))
 						->or_like('tbl_pelamar.nama_lengkap', $this->input->get('query'));
 
-		// $this->db->select('tbl_pelamar.*, notifikasi.id_notifikasi AS status, notifikasi.id_notifikasi  AS id_status, notifikasi.id_notifikasi AS id_status, notifikasi.status,tbl_nilai.*,tbl_pelamar.*,notifikasi.*, tbl_pelamar.kd_pelamar AS id');
+		$this->db->select('tbl_pelamar.*, notifikasi.id_notifikasi AS status, notifikasi.id_notifikasi  AS id_status, notifikasi.id_notifikasi AS id_status, notifikasi.status,tbl_nilai.*,tbl_pelamar.*,notifikasi.*, tbl_pelamar.kd_pelamar AS id');
 
-		// //$this->db->from('tbl_pelamar.kd_pelamar');
+		// $this->db->from('tbl_pelamar');
 
 		// $this->db->join('notifikasi', 'tbl_pelamar.kd_pelamar = notifikasi.kd_pelamar', 'left');
 
 		// $this->db->join('tbl_nilai', 'notifikasi.kd_pelamar = tbl_nilai.kd_pelamar', 'left');
 
-		// $this->db->group_by('tbl_nilai.kd_pelamar');
+		// //$this->db->group_by('tbl_nilai.kd_pelamar');
 
-		// $this->db->order_by('kd_pelamar', 'ASC');
+		$this->db->limit($limit, $offset);
 
 		if($type == 'result')
 		{
@@ -56,7 +56,7 @@ class Manalisa extends Kominfo_model
 
 		$this->db->join('tbl_nilai', 'notifikasi.kd_pelamar = tbl_nilai.kd_pelamar', 'left');
 
-		$this->db->group_by('tbl_nilai.kd_pelamar');
+		//$this->db->group_by('tbl_nilai.kd_pelamar');
 
 		$this->db->limit($limit, $offset);
 

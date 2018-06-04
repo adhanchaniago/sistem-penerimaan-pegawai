@@ -18,6 +18,7 @@ class Mhasil extends Kominfo_model
 		$this->db->join('tbl_konversi', 'tbl_konversi.id_konversi = tbl_nilai.id_konversi', 'left');
 		$this->db->join('tbl_sub_kriteria', 'tbl_sub_kriteria.id_kriteria = tbl_konversi.id_kriteria ', 'left');
 		$this->db->where('tbl_pelamar.kd_pelamar', $param);
+		$this->db->order_by('tbl_konversi.id_konversi', 'ASC'); 
 		return $this->db->get()->result();
 
 	}
