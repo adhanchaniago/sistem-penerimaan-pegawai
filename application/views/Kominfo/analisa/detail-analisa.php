@@ -4,12 +4,16 @@
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">Variabel dan Konversi Nilai</h3>
+          <div class="box-tools pull-right">
+              <button class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+              <button class="btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+          </div>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
           <table class="table table-bordered">
             <thead style="font-weight: bold;" >
-            <tr class="bg-silver">
+            <tr class="bg-silver prettyprint">
               <td>Variabel</td>
               <td>Nilai Konversi</td>
               <td>Range Nilai</td>
@@ -32,7 +36,7 @@
     </div>
 
 
-    <div class="col-md-8" style="margin-top: 2px;">
+    <div class="col-md-8 pull-left" style="margin-top: 2px;">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">Nilai Tes Calon Karyawan Baru</h3>
@@ -66,7 +70,7 @@
       </div>
     </div>
 
-    <div class="col-md-8" style="margin-top: 2px;">
+    <div class="col-md-8 pull-right" style="margin-top: 2px;">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">Data Konversi Perhitungan Gap </h3>
@@ -113,7 +117,7 @@
       </div>
     </div>
 
-    <div class="col-md-8" style="margin-top: 2px;">
+    <div class="col-md-8 pull-right" style="margin-top: 2px;">
       <div class="box box-primary">
         <!-- /.box-header -->
          <div class="box-body">
@@ -155,7 +159,7 @@
     </div> 
 
 
-    <div class="col-md-8" style="margin-top: 2px;">
+    <div class="col-md-8 pull-right" style="margin-top: 2px;">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">Data Konversi Perhitungan Gap </h3>
