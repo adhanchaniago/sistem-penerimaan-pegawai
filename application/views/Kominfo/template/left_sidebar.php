@@ -36,19 +36,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       
       <li class="<?php echo active_link_method('index','pelamar').active_link_method('update','pelamar') ?>">
         <a href="<?php  echo site_url('pelamar') ?>">
-          <i class="fa fa-user"></i> <span>Data Pelamar</span>
+          <i class="fa fa-users"></i> <span>Data Pelamar</span>
         </a>
       </li>
 
       <li class="<?php echo active_link_method('create','pelamar'); ?>">
         <a href="<?php  echo site_url('pelamar/create') ?>">
-          <i class="fa fa-user"></i> <span>Input Data Pelamar</span>
+          <i class="fa fa-download"></i> <span>Input Data Pelamar</span>
         </a>
       </li>
 
       <li class="treeview <?php echo active_link_multiple(array('bobot','kriteria','sub_kriteria','analisa','konversi','hasil')); ?>">
         <a href="#">
-          <i class="fa fa-wrench"></i> <span> Master Penilaian</span>
+          <i class="glyphicon glyphicon-th-list"></i> <span> Master Penilaian</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -76,9 +76,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </ul>
       </li>
 
-      <li class="#">
-        <a href="#">
-          <i class="fa fa-home"></i> <span>Pengumuman</span>
+      <li class="<?php echo active_link_method('index','pengumuman'); ?>">
+        <a href="<?php  echo site_url('pengumuman') ?>">
+          <i class="fa fa-info"></i> <span>Pengumuman</span>
         </a>
       </li>
       <li class="treeview <?php echo active_link_multiple(array('account','pengguna')); ?>">
@@ -117,17 +117,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <i class="fa fa-book"></i> <span>Panduan Sistem</span>
         </a>
       </li>
-      <!-- <li class="<?php echo active_link_controller('analisa') ?>">
-        <a href="<?php echo site_url('analisa') ?>">
-          <i class="fa fa-home"></i> <span>Hasil</span>
-        </a>
-      </li> -->
-      <li class="#">
-        <a href="#">
-          <i class="fa fa-home"></i> <span>Pengumuman</span>
+      <li class="<?php echo active_link_method('index','pengumuman'); ?>">
+        <a href="<?php  echo site_url('pengumuman') ?>">
+          <i class="fa fa-info"></i> <span>Pengumuman</span>
         </a>
       </li>
+    </ul>
 
+    <?php endif; ?>
+
+    <?php if ($this->muniversal->get_account_by_login($this->session->userdata('ID'))->level == 'Petugas') : ?>
+    <ul class="sidebar-menu">
+      <li class="<?php echo active_link_method('index','home'); ?>">
+        <a href="<?php  echo site_url('home') ?>">
+          <i class="fa fa-home"></i> <span>Home</span>
+        </a>
+      </li>
+       <li class="treeview <?php echo active_link_multiple(array('bobot','kriteria','sub_kriteria','analisa','konversi','hasil')); ?>">
+        <a href="#">
+          <i class="glyphicon glyphicon-th-list"></i> <span> Master Penilaian</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <!-- -->
+          <li class="<?php echo active_link_controller('analisa') ?>">
+            <a href="<?php echo site_url('analisa') ?>"><i class="fa fa-angle-double-right"></i> Analisa</a>
+          </li>
+          <li class="<?php echo active_link_controller('hasil') ?>">
+            <a href="<?php echo site_url('hasil') ?>"><i class="fa fa-angle-double-right"></i> Hasil</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="<?php echo active_link_method('index','pengumuman'); ?>">
+        <a href="<?php  echo site_url('pengumuman') ?>">
+          <i class="fa fa-info"></i> <span>Pengumuman</span>
+        </a>
+      </li>
     </ul>
 
     <?php endif; ?>

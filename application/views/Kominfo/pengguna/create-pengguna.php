@@ -60,6 +60,7 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
 						<select name="level" class="form-control">
 							<option value="">-- PILIH --</option>
 							<option value="Admin" <?php if($this->input->get('level')=='Admin') echo 'selected'; ?>>Admin</option>
+				        	<option value="Petugas" <?php if($this->input->get('level')=='Petugas') echo 'selected'; ?>>Petugas</option>
 				        	<option value="Username" <?php if($this->input->get('level')=='Username') echo 'selected'; ?>>Username</option>
 						</select>
 						<p class="help-block"><?php echo form_error('level', '<small class="text-red">', '</small>'); ?></p>

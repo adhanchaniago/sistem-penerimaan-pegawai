@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<td><?php echo $row->pend_terakhir ?></td>
 
 							<td>
-								<a class="btn btn-xs btn-danger" href="<?php echo base_url('assets/images/documen/'.$row->file) ?>" >download</a>
+								<a class="btn btn-xs btn-danger" href="<?php echo base_url('assets/images/documen/'.$row->file) ?>" ><i class="fa fa-download"></i> <span>Download</span></a>
 							</td>							
 							
 							<td>
