@@ -60,7 +60,7 @@ class Manalisa extends Kominfo_model
 
 		$this->db->limit($limit, $offset);
 
-			return $this->db->get()->num_rows();
+		return $this->db->get()->num_rows();
 
 			//return $this->db->get('tbl_pelamar')->num_rows();
 		}

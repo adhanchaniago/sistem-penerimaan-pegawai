@@ -204,7 +204,6 @@
              </tbody>
           </table>
           <!--ini adalah Tutup corefaktor -->
-
         </div>
         <div class="box-body">
           <table class="table table-bordered">
