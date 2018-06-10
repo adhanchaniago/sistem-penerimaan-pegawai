@@ -44,8 +44,9 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
 					<label for="level" class="control-label col-md-3 col-xs-12">Level Akses : <strong class="text-red">*</strong></label>
 					<div class="col-md-8">
 						<select name="level" class="form-control">
-							<option value="Admin" <?php if($this->input->get('level')== $get->level ) echo 'selected'; ?>>Admin</option>
-				        	<option value="Operator" <?php if($this->input->get('level')== $get->level ) echo 'selected'; ?>>Username</option>
+							<option value="Admin" <?php if($this->input->get('level')=='Admin') echo 'selected'; ?>>Admin</option>
+				        	<option value="Petugas" <?php if($this->input->get('level')=='Petugas') echo 'selected'; ?>>Petugas</option>
+				        	<option value="Username" <?php if($this->input->get('level')=='Username') echo 'selected'; ?>>Username</option>
 						</select>
 						<p class="help-block"><?php echo form_error('level', '<small class="text-red">', '</small>'); ?></p>
 					</div>

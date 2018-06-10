@@ -19,7 +19,7 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
                     <div class="col-md-8">
                     	<select name="nama_kriteria" class="form-control select2">
 							<option value="">-- Pilih Nama Kriteria --</option>
-							<?php foreach($this->kriteria->get_all() as $kre => $get) :?>
+							<?php foreach($this->kriteria->get_all() as $key => $get) :?>
 								<option value="<?php echo $get->id_kriteria ?>"<?php if($get->nama_kriteria) echo 'selected'; ?>>
 									<?php echo $get->nama_kriteria ?></option> 
 							<?php endforeach; ?>
@@ -40,7 +40,7 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
                     <div class="col-md-8">
                     	<select name="jenis_kriteria" class="form-control select2">
                            <option value="">-- Pilih Nama Kriteria --</option>
-							<?php foreach($this->kriteria->get_all() as $kre => $get) :?>
+							<?php foreach($this->kriteria->get_all() as $key => $get) :?>
 								<option value="<?php echo $get->jenis_kriteria ?>"<?php if($get->jenis_kriteria) echo 'selected'; ?>>
 									<?php echo $get->jenis_kriteria ?></option> 
 							<?php endforeach; ?>

@@ -138,11 +138,11 @@
 
                  <?php 
                  $total = 0;
-                 $bagi = 2;
+                 $bagi = 3;
                  $kali = 0.4;
                  $dataSecondery = array();
                  foreach ($this->analisa->pengurangan_nilai($id_pelamar) as $key =>$row) : 
-                  if ($key >= 2 && $key < 4)  {
+                  if ($key >= 2 or $key >= 4)  {
                     $total += pembobotan($row->nilai - $row->nilai_ideal);
                     $dataSecondery[] = pembobotan($row->nilai - $row->nilai_ideal);
                     //$corefactor[] = pembobotan($row->nilai - $row->nilai_ideal);
@@ -171,11 +171,11 @@
                <thead style="font-weight: bold;" >
                 <?php 
                  $total1 = 0;
-                 $bagi1 = 3;
+                 $bagi1 = 2;
                  $kali1 = 0.6;
                  $corefactor = array();
                  foreach ($this->analisa->pengurangan_nilai($id_pelamar) as $key =>$row) : 
-                  if ($key <= 1 or  $key == 4 )  {
+                  if ($key <=1 && $key < 3)  {
                     $total1 += pembobotan($row->nilai - $row->nilai_ideal);
                     $corefactor[] = pembobotan($row->nilai - $row->nilai_ideal);
                     $pembagian1 = $total1 / $bagi1;
@@ -188,26 +188,22 @@
                   <td>Calon Karyawan</td>
                   <td>Wawancara</td>
                   <td>Tes Tertulis</td>
-                  <td>Tes Keahlian</td>
                   <td>Nilai Core Factor</td>
-                  <td>Nilai Core Factor dibagi 3</td>
+                  <td>Nilai Core Factor dibagi 2</td>
                   <td>Pembagian (60%)</td>
                 </tr>
-              </thead>
-
+              </thead> 
               <!-- tabel nilai asli karyawan baru setela di konversikan -->
               <tbody>
                 <th class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></th>
                 <td class=" text-center"><?php echo $corefactor[0] ?></td>
                 <td class=" text-center"><?php echo $corefactor[1] ?></td>
-                <td class=" text-center"><?php echo $corefactor[2] ?></td>
                 <td class="text-center"><?php echo $total1; ?></td>
                 <td class="text-center"><?php echo $pembagian1 ?></td> 
                 <td class="text-center"><?php echo $hasil1; ?></td>
              </tbody>
           </table>
           <!--ini adalah Tutup corefaktor -->
-
         </div>
         <div class="box-body">
           <table class="table table-bordered">
@@ -216,17 +212,20 @@
                   <td>Calon Karyawan</td>
                   <td>Tes Microsoft Word</td>
                   <td>Tes Microsoft Excel</td>
+                  <td>Tes Keahlian</td>
                   <td>Total Nilai Secondery</td>
-                  <td>Nilai Secondery dibagi 2</td>
+                  <td>Nilai Secondery dibagi 3</td>
                   <td>Pembagian (40%)</td>
                 </tr>
-              </thead>
+              </thead><!-- <pre><?php print_r($corefactor) ?></pre> -->
+
 
               <!-- tabel nilai asli karyawan baru setela di konversikan -->
               <tbody>
                 <th class="text-center"><?php echo $this->analisa->get_analisa($id_pelamar)->nama_lengkap; ?></th>
                 <td class=" text-center"><?php echo $dataSecondery[0]  ?></td>
                 <td class=" text-center"><?php echo $dataSecondery[1] ?></td>
+                <td class=" text-center"><?php echo $dataSecondery[2] ?></td>
                 <td class="text-center"><?php echo $total ?></td>
                 <td class="text-center"><?php echo $pembagian ?></td> 
                 <td class="text-center"><?php echo $hasil ?></td>                
@@ -241,7 +240,7 @@
                   <td class="text-center">Calon Karyawan</td>
                   <td class="text-center">Hasil Nilai Total</td>
                 </tr>
-              </thead>
+              </thead><!-- <pre><?php print_r($dataSecondery) ?></pre> -->
 
               <!-- tabel nilai asli karyawan baru setela di konversikan -->
               <tbody>
