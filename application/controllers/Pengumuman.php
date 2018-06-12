@@ -3,7 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pengumuman extends Kominfo
 {
-		public $query;
+	
+	public $query;
 
 	public $per_page;
 
@@ -23,17 +24,17 @@ class Pengumuman extends Kominfo
 	{
 		$this->page_title->push('Pengumuman', 'Data Pengumuman');
 		$config = $this->template->pagination_list();
-		$config['base_url'] = site_url("analisa?per_page={$this->per_page}&query={$this->query}");
+		$config['base_url'] = site_url("pengumuman?per_page={$this->per_page}&query={$this->query}");
 		$config['per_page'] = $this->per_page;
-		$config['total_rows'] = $this->analisa->get_all(null, null, 'num');
+		$config['total_rows'] = $this->pengumuman->get_all(null, null, 'num');
 
 		$this->data = array(
 			'title' => "Data Hasil Prengkingan", 
 			'breadcrumb' => $this->breadcrumbs->show(),
 			'page_title' => $this->page_title->show(),
-			'analisa' => $this->analisa->get_all($this->per_page, $this->page, 'result'),
-			'get' => $this->hasil->ngambil(),
-			'nama' => $this->hasil->get_nama(),
+			'pengumuman' => $this->pengumuman->get_all($this->per_page, $this->page, 'result'),
+			// 'get' => $this->hasil->ngambil(),
+			// 'nama' => $this->hasil->get_nama(),
 		);
 
 		$this->template->view('Kominfo/pengumuman/data-pengumuman', $this->data);

@@ -240,12 +240,12 @@
                       $kali = 0.4;
                       $corefactor = array();
                       foreach ($this->hasil->ngambil($value->kd_pelamar) as $key => $value):
-                      if ($key <= 1 or  $key == 4 )  {
+                      if ($key <=1 && $key < 3)  {
                           $total1 += pembobotan($value->nilai - $value->nilai_ideal);
                           $corefactor[] = pembobotan($value->nilai - $value->nilai_ideal);
                           $pembagian1 = $total1 / $bagi1;
                           $hasil1 = $pembagian1 * $kali1;
-                        }if ($key >= 2 && $key < 4)  {
+                        }if ($key >= 2 or $key >= 4)  {
                           $total += pembobotan($value->nilai - $value->nilai_ideal);
                           $dataSecondery[] = pembobotan($value->nilai - $value->nilai_ideal);
                           $pembagian = $total / $bagi;

@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<?php echo form_close(); ?>
 			<div class="box-body no-padding">
-				<table class="table table-bordered table-stripped mini-font" >
+				<table class="table table-bordered table-stripped mini-font">
 					<thead class="bg-silver">
 						<tr >
 							<th rowspan="2" style="vertical-align: middle;">No.</th>
