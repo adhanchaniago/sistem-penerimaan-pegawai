@@ -43,7 +43,7 @@ table.kop {
 td > span.kop-heading {
    font-weight: 500;
    text-align: center;
-   font-size: 18px;
+   font-size: 12px;
    line-height: 1.4;
    text-transform: uppercase;
    letter-spacing:2px;
@@ -51,10 +51,10 @@ td > span.kop-heading {
 
 td > span.kop-heading-company {
    font-weight: bold;
-   font-size: 16px;
+   font-size: 12px;
    line-height: 1.4;
    text-transform: uppercase;
-   letter-spacing:3px;
+   letter-spacing:2px;
 }
 
 td > span.kop-heading-address {
@@ -66,7 +66,7 @@ td > span.kop-heading-address {
 }
 
 img.logo {
-   width: 50px;
+   width: 100px;
    height: auto;
 }
 
@@ -172,7 +172,7 @@ ul > li > p,
 ul > li > table,
 ol > li > p,
 ol > li > table {
-   line-height: 1.5em;
+   line-height: 1em;
    margin-top: 0px;
    margin-bottom:0px;
 }

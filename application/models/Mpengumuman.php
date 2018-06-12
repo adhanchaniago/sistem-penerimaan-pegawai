@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Mpengumuman extends Kominfo_Model 
+class Mpengumuman extends Kominfo_model 
 {
 	public function __construct()
 	{
@@ -12,11 +12,10 @@ class Mpengumuman extends Kominfo_Model
 	{
 		if($this->input->get('query') != '')
 			$this->db->like('tbl_pelamar.kd_pelamar', $this->input->get('query'))
-						->or_like('tbl_pelamar.nama_lengkap', $this->input->get('query'));
-
+						->or_like('tbl_pelamar.no_ktp', $this->input->get('query'));
 
 		if($type == 'result')
-		{	
+		{
 			return $this->db->get('tbl_pelamar', $limit, $offset)->result();
 		} else {
 			return $this->db->get('tbl_pelamar')->num_rows();

@@ -1,21 +1,15 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?> 
-<div class="row">
-  <div class="col-md-8 col-md-offset-2 col-xs-12"><?php echo $this->session->flashdata('alert'); ?></div>
-    <div class="col-md-12">
-  
-      <div class="box box-primary">
-        <div class="box-header">
-            <h3 class="box-title">Pengumuman</h3>
-        </div>      
-        <div class="box-body">
-            <div class="pull-right">
-              <a href="<?php echo site_url("pengumuman/print_out?{$this->input->server('QUERY_STRING')}") ?>" class="btn btn-warning hvr-shadow btn-flat btn-sm btn-print"><i class="fa fa-print"></i> Cetak Pengumuman</a>
-            </div>
-        </div>
-        <div class="box-body" style="margin-top: 20px;">
-            <table id="example1" class="table table-bordered table-striped">
+	defined('BASEPATH') OR exit('No direct script access allowed');
+	/**
+	* Header Print (KOP)
+	*
+	* @author Teitra Mega office@teitraega.co.id
+	**/
+	$this->load->view('Kominfo/print/header');
+	?>
+	<div class="content " style="margin-bottom: 7px;">
+		<h5 class="upper text-center"><?php echo $title; ?></h5>
+		<table id="example1" class="table table-bordered table-striped">
                 <thead style="margin-top: 20px;">
                   <tr>
                     <th class="text-center">No</th>
@@ -74,13 +68,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php endforeach ?>
                 </tbody>
             </table>
-        </div>
-    </div>
-    <div class="col-md-12 text-center">
-      <?php echo $this->pagination->create_links(); ?>
-    </div>
-  </div>
-</div>
-<?php
-/* End of file main-anggota.php */
-/* Location: ./application/views/pages/anggota/main-anggota.php */
+		</div>
+		<?php
+		$this->load->view('Kominfo/print/footer');
