@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <td class="text-center"><?php echo ucwords($value->alamat) ?></td>
                             <td class="text-center"><?php echo $value->pend_terakhir ?></td>
                             <td class="text-center"><?php echo $hasil+$hasil1 ?></td>
-                            <td class="text-center"><?php if ($hasil+$hasil1 <= '3.0') : ?><span class="label label-danger">TIDAK LULUS<span><?php endif ?> <?php if ($hasil+$hasil1 >= '3.0') :?><span class="label label-success">LULUS<span><?php endif ?></td>
+                            <td class="text-center"><?php if ($hasil+$hasil1 <= '2.4') : ?><span class="label label-danger">TIDAK LULUS<span><?php endif ?> <?php if ($hasil+$hasil1 > '2.4') :?><span class="label label-success">LULUS<span><?php endif ?></td>
                           
                           </tr>
                 <?php endforeach ?>
