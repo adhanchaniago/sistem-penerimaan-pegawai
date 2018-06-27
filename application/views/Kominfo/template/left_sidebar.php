@@ -78,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <li class="<?php echo active_link_method('index','pengumuman'); ?>">
         <a href="<?php  echo site_url('pengumuman') ?>">
-          <i class="fa fa-info"></i> <span>Pengumuman</span>
+          <i class="fa fa-bullhorn"></i> <span>Pengumuman</span>
         </a>
       </li>
       <li class="treeview <?php echo active_link_multiple(array('account','pengguna')); ?>">
@@ -119,7 +119,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </li>
       <li class="<?php echo active_link_method('index','pengumuman'); ?>">
         <a href="<?php  echo site_url('pengumuman') ?>">
-          <i class="fa fa-info"></i> <span>Pengumuman</span>
+          <i class="fa fa-bullhorn"></i> <span>Pengumuman</span>
         </a>
       </li>
     </ul>
@@ -153,7 +153,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <li class="<?php echo active_link_method('index','pengumuman'); ?>">
         <a href="<?php  echo site_url('pengumuman') ?>">
-          <i class="fa fa-info"></i> <span>Pengumuman</span>
+          <i class="fa fa-bullhorn"></i> <span>Pengumuman</span>
+        </a>
+      </li>
+    </ul>
+
+    <?php endif; ?>
+
+    <?php if ($this->muniversal->get_account_by_login($this->session->userdata('ID'))->level == 'kepala') : ?>
+    <ul class="sidebar-menu">
+      <li class="<?php echo active_link_method('index','home'); ?>">
+        <a href="<?php  echo site_url('home') ?>">
+          <i class="fa fa-home"></i> <span>Home</span>
+        </a>
+      <li class="<?php echo active_link_method('index','pengumuman'); ?>">
+        <a href="<?php  echo site_url('pengumuman') ?>">
+          <i class="fa fa-bullhorn"></i> <span>Pengumuman</span>
         </a>
       </li>
     </ul>

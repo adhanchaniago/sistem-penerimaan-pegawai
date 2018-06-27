@@ -89,7 +89,7 @@ echo form_open_multipart(current_url(), array('class' => 'form-horizontal'));
 
 				<div class="form-group">
 					<label for="rt" class="control-label col-md-3 col-xs-12">RT :<strong class="text-blue">*</strong></label>
-					<div class="col-md-8">
+					<div class="col-md-6">
 						<input type="text" name="rt" class="form-control" value="<?php echo $get->rt ?>">
 						<p class="help-block"><?php echo form_error('rt', '<small class="text-red">', '</small>'); ?></p>
 					</div>

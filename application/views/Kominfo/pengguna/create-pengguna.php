@@ -62,6 +62,7 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
 							<option value="Admin" <?php if($this->input->get('level')=='Admin') echo 'selected'; ?>>Admin</option>
 				        	<option value="Petugas" <?php if($this->input->get('level')=='Petugas') echo 'selected'; ?>>Petugas</option>
 				        	<option value="Username" <?php if($this->input->get('level')=='Username') echo 'selected'; ?>>Username</option>
+				        	<option value="kepala" <?php if($this->input->get('level')=='kepala') echo 'selected'; ?>>Kepala Loka Monitor</option>
 						</select>
 						<p class="help-block"><?php echo form_error('level', '<small class="text-red">', '</small>'); ?></p>
 					</div>
