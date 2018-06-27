@@ -1,9 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-/**
-* @version 1.0.0
-* @author Teitra Mega <office@teitramega.co.id>
-*/
 
 class Muniversal extends Kominfo_model 
 {
