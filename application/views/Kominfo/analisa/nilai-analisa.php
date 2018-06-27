@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</tr>
 							<tr>
 								<th class="small text-right">Pengalaman Kerja :</th>
-								<td class="small">gsdgs</td>
+								<td class="small"><?php echo ucwords($get->pengalaman) ?></td>
 								
 							</tr>
 						</tbody>

@@ -24,10 +24,10 @@ $(document).ready(function() {
 		message: "Tunggu sebentar ..."
 	})
 
-//<![CDATA[
-$(document).ready(function(){
-$(".group3").colorbox({rel:'group3', transition:"none", width:"75%", height:"auto"});
-});
-//]]>
+// //<![CDATA[
+// $(document).ready(function(){
+// $(".group3").colorbox({rel:'group3', transition:"none", width:"75%", height:"auto"});
+// });
+// //]]>
 
 });

@@ -149,14 +149,26 @@ echo form_open_multipart(current_url(), array('class' => 'form-horizontal'));
 						<p class="help-block"><?php echo form_error('pend_terakhir', '<small class="text-red">', '</small>'); ?></p>
 					</div>
 				</div>
-
+				<div class="form-group">
+                    <label for="deskripsi" class="control-label col-md-3 col-xs-12">Pengalaman Kerja : <strong class="text-red">*</strong></label>
+                   	<div class="col-md-8">
+                   		<textarea name="pengalaman" rows="3" class="form-control"  placeholder="Pengalaman Pekerjaan"><?php echo $get->pengalaman ?></textarea>
+                   		<p class="help-block"><?php echo form_error('pengalaman', '<small class="text-red">', '</small>'); ?></p>      
+                    </div>
+                </div>
 				<div class="form-group">
 					<label for="telepon" class="control-label col-md-3 col-xs-12">Foto : <strong class="text-blue">*</strong></label>
 					<div class="col-md-6">
 						<input type="file" name="foto" class="form-control" value="<?php echo $get->foto ?>">
 					</div>
 				</div>
-
+				<div class="form-group">
+					<label for="telepon" class="control-label col-md-3 col-xs-12">Berkas Lamaran : <strong class="text-blue">*</strong></label>
+					<div class="col-md-4">
+						<input type="file" name="file" class="form-control">
+						<small style="font-weight:bold ;"><I><strong class="text-red">*) </strong>File Berkas Lamaran Di jadikan Satu dalam Format PDF</I></small>
+					</div>
+				</div>
 			</div>
 
 			<div class="box-footer with-border">

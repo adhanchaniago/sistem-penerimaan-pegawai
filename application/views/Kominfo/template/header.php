@@ -33,6 +33,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url("assets/public/plugins/autocomplete/tautocomplete.css?v=".md5(date('YmdHis'))); ?>">
   <link rel="shortcut icon" type="image/png" href="<?php echo base_url('assets/public/image/kominfo.png') ?>"/>
 
+
+
   <script src="<?php echo base_url("assets/public/plugins/jQuery/jquery-2.2.3.min.js"); ?>"></script> 
   <script src="<?php echo base_url("assets/public/bootstrap/js/bootstrap.min.js"); ?>"></script>
   <script src="<?php echo base_url("assets/public/plugins/slimScroll/jquery.slimscroll.min.js"); ?>"></script>
@@ -60,6 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <script src="<?php echo base_url("assets/public/plugins/autocomplete/tautocomplete.js"); ?>"></script>
   <script src="<?php echo base_url("assets/public/plugins/select2/select2.full.min.js"); ?>"></script>
   <script src="<?php echo base_url("assets/public/app/form-wizard.js"); ?>"></script>
+
   <script type="text/javascript"> 
       var base_url   = '<?php echo site_url(); ?>';
       var base_path  = '<?php echo base_url('assets/public'); ?>';
@@ -69,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
   $(function () {
     $('.select2').select2()
-
+   
     $('#datepicker1').datepicker({
       autoclose: true,
       format: 'yyyy-mm-dd',

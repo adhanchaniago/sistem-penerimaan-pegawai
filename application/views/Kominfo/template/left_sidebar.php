@@ -27,11 +27,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </a>
       </li>
 
-      <li class="<?php echo active_link_method('index','panduan').active_link_method('create','panduan').active_link_method('update','panduan') ?>">
+     <!--  <li class="<?php echo active_link_method('index','panduan').active_link_method('create','panduan').active_link_method('update','panduan') ?>">
         <a href="<?php  echo site_url('panduan') ?>">
           <i class="fa fa-book"></i> <span>Panduan Sistem</span>
         </a>
-      </li>
+      </li> -->
 
       
       <li class="<?php echo active_link_method('index','pelamar').active_link_method('update','pelamar') ?>">
