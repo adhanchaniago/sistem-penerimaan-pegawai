@@ -89,6 +89,7 @@ class Mpelamar extends Kominfo_model
 			'kecamatan' => $this->input->post('kecamatan'),
 			'desa' => $this->input->post('desa'),
 			'pend_terakhir' => $this->input->post('pend_terakhir'),
+			'pengalaman' => $this->input->post('pengalaman'),
 			'foto' => $foto,
 			'file' => $file
 		);
@@ -157,7 +158,9 @@ class Mpelamar extends Kominfo_model
 			'kecamatan' => $this->input->post('kecamatan'),
 			'desa' => $this->input->post('desa'),
 			'pend_terakhir' => $this->input->post('pend_terakhir'),
-			'foto' => $foto
+			'pengalaman' => $this->input->post('pengalaman'),
+			'foto' => $foto,
+			'file' => $file
 
 		);
 

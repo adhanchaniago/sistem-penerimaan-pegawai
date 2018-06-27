@@ -56,6 +56,7 @@ class Pelamar extends Kominfo
 		$this->form_validation->set_rules('kecamatan', 'Kecamataan ', 'trim|required');
 		$this->form_validation->set_rules('desa', 'Kelurahan/ Desa ', 'trim|required');
 		$this->form_validation->set_rules('pend_terakhir', 'Pendidikan Terakhir', 'trim|required');
+		$this->form_validation->set_rules('pengalaman', 'Pengalaman Kerja', 'trim|required');
 
 		if ($this->form_validation->run() == TRUE)
 		{
@@ -100,6 +101,7 @@ class Pelamar extends Kominfo
 		$this->form_validation->set_rules('kecamatan', 'Kecamataan ', 'trim|required');
 		$this->form_validation->set_rules('desa', 'Kelurahan/ Desa ', 'trim|required');
 		$this->form_validation->set_rules('pend_terakhir', 'Pendidikan Terakhir', 'trim|required');
+		$this->form_validation->set_rules('pengalaman', 'Pengalaman Kerja', 'trim|required');
 
 		if ($this->form_validation->run() == TRUE)
 		{

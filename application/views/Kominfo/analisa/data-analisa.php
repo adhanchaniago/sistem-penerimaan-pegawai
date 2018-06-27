@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<td><?php echo ucwords($row->alamat) ?></td>
 							<td><?php echo ucwords($row->agama) ?></td>
 							<td><?php echo ucwords($row->pend_terakhir) ?></td>
-							<td></td>
+							<td><?php echo ucwords($row->pengalaman) ?></td>
 							<td>
 							<?php if ($row->status != FALSE): ?>
 								<span class="label label-success">Telah<span>

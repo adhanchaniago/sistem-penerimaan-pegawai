@@ -21,14 +21,14 @@ echo form_open_multipart(current_url(), array('class' => 'form-horizontal'));
 				<div class="form-group">
 					<label for="email" class="control-label col-md-3 col-xs-12">Nama Lengkap : <strong class="text-red">*</strong></label>
 					<div class="col-md-4">
-						<input type="text" name="nama_lengkap" class="form-control" value="<?php echo set_value('nama_lengkap'); ?>">
+						<input type="text" name="nama_lengkap" class="form-control" value="<?php echo set_value('nama_lengkap'); ?>" placeholder="Nama Lengkap">
 						<p class="help-block"><?php echo form_error('nama_lengkap', '<small class="text-red">', '</small>'); ?></p>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="name" class="control-label col-md-3 col-xs-12">Nomor KTP : <strong class="text-red">*</strong></label>
+					<label for="name" class="control-label col-md-3 col-xs-12">NIK : <strong class="text-red">*</strong></label>
 					<div class="col-md-8">
-						<input type="text" name="no_ktp" class="form-control" value="<?php echo set_value('no_ktp'); ?>">
+						<input type="text" name="no_ktp" class="form-control" value="<?php echo set_value('no_ktp'); ?>" placeholder="NIK">
 						<p class="help-block"><?php echo form_error('no_ktp', '<small class="text-red">', '</small>'); ?></p>
 					</div>
 				</div>
@@ -36,7 +36,7 @@ echo form_open_multipart(current_url(), array('class' => 'form-horizontal'));
 				<div class="form-group">
 					<label for="tmp_lahir" class="control-label col-md-3 col-xs-12">Tempat, Tanggal Lahir : <strong class="text-red">*</strong></label>
 					<div class="col-md-4">
-						<input type="text" name="tmp_lahir" class="form-control" value="<?php echo set_value('tmp_lahir'); ?>">
+						<input type="text" name="tmp_lahir" class="form-control" value="<?php echo set_value('tmp_lahir'); ?>" placeholder="Tempat">
 						<p class="help-block"><?php echo form_error('tmp_lahir', '<small class="text-red">', '</small>'); ?></p>
 					</div>
 
@@ -65,7 +65,7 @@ echo form_open_multipart(current_url(), array('class' => 'form-horizontal'));
 				<div class="form-group">
 					<label for="agama" class="control-label col-md-3 col-xs-12">Alamat : <strong class="text-red">*</strong></label>
 					<div class="col-md-8">
-						<textarea name="alamat" rows="3" class="form-control"><?php echo set_value('alamat'); ?></textarea>
+						<textarea name="alamat" rows="3" class="form-control" placeholder="Alamat"><?php echo set_value('alamat'); ?></textarea>
 						<p class="help-block"><?php echo form_error('alamat', '<small class="text-red">', '</small>'); ?></p>
 					</div>
 				</div>
@@ -154,12 +154,18 @@ echo form_open_multipart(current_url(), array('class' => 'form-horizontal'));
 					</div>
 				</div>
 				<div class="form-group">
+                    <label for="deskripsi" class="control-label col-md-3 col-xs-12">Pengalaman Kerja : <strong class="text-red">*</strong></label>
+                   	<div class="col-md-8">
+                   		<textarea name="pengalaman" rows="3" class="form-control" value="<?php echo set_value('pengalaman'); ?>" placeholder="Pengalaman Pekerjaan"></textarea>
+                   		<p class="help-block"><?php echo form_error('pengalaman', '<small class="text-red">', '</small>'); ?></p>      
+                    </div>
+                </div>
+				<div class="form-group">
 					<label for="telepon" class="control-label col-md-3 col-xs-12">Berkas Lamaran : <strong class="text-blue">*</strong></label>
 					<div class="col-md-4">
 						<input type="file" name="file" class="form-control">
 						<small style="font-weight:bold ;"><I><strong class="text-red">*) </strong>File Berkas Lamaran Di jadikan Satu dalam Format PDF</I></small>
 					</div>
-
 				</div>
 
 			</div>
