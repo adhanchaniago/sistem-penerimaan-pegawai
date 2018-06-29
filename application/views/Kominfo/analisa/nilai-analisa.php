@@ -109,7 +109,7 @@ echo form_hidden('kd_pelamar', $get->kd_pelamar );
 				</div>
 
 				<div class="form-group">
-					<label for="no_sk" class="control-label col-md-3 col-xs-12">Tes Praktek Word : <strong class="text-red">*</strong></label>
+					<label for="no_sk" class="control-label col-md-3 col-xs-12">Tes Praktek Microsoft Word : <strong class="text-red">*</strong></label>
 					<div class="col-md-8">
 						
 						<select name="id_konversi[3]" class="form-control select2" style="width: 100%;">
@@ -123,7 +123,7 @@ echo form_hidden('kd_pelamar', $get->kd_pelamar );
 				</div>
 
 				<div class="form-group">
-					<label for="no_sk" class="control-label col-md-3 col-xs-12">Tes Praktek Excel : <strong class="text-red">*</strong></label>
+					<label for="no_sk" class="control-label col-md-3 col-xs-12">Tes Praktek Microsoft Excel : <strong class="text-red">*</strong></label>
 					<div class="col-md-8">
 						
 						<select name="id_konversi[4]" class="form-control select2" style="width: 100%;">

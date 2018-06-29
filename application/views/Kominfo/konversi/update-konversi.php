@@ -17,10 +17,10 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
 </pre> -->
       <div class="box-body" style="margin-top: 10px;">
         <div class="form-group">
-          <label for="nomor" class="control-label col-md-3 col-xs-12">Nama variabel : <strong class="text-red">*</strong></label>
+          <label for="nomor" class="control-label col-md-3 col-xs-12">Nama Konversi : <strong class="text-red">*</strong></label>
             <div class="col-md-8">
               <select name="id_tes" class="form-control select2"  style="width: 100%;">
-               <option value="<?php echo set_value('nama'); ?>"></option>
+               <option value="">--Pilih--</option>
                 <?php foreach($get as $key => $get) :?>
                   <option value="<?php echo $get->id_tes ?>" <?php if ($get->nama) echo "selected"; ?>><?php echo $get->nama ?></option> 
                 <?php endforeach; ?>
@@ -30,8 +30,6 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
               <!-- <input id="input" value="Hello world!" /> -->
           </div>
         </div>
-
-
         <div class="form-group">
             <label for="nomor" class="control-label col-md-3 col-xs-12">Nilai Konversi : <strong class="text-red">*</strong></label>
             <div class="col-md-8">

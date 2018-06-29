@@ -54,10 +54,10 @@ class Mkonversi extends Kominfo_model
 	{
 		$this->db->select('*');
 		$this->db->from('tbl_konversi');
-		$this->db->join('tbl_tes', 'tbl_tes.id_tes = tbl_konversi.id_tes','LEFT');
+		$this->db->join('tbl_tes', 'tbl_tes.id_kriteria = tbl_konversi.id_kriteria','LEFT');
 
-		$this->db->group_by('tbl_konversi.id_tes');
-		$this->db->order_by('nama', 'desc');
+		 $this->db->group_by('tbl_konversi.id_kriteria');
+		// $this->db->order_by('nama', 'desc');
 		
 		return $this->db->get()->result();
 
@@ -93,10 +93,10 @@ class Mkonversi extends Kominfo_model
 		);
 		$this->db->insert('tbl_konversi', $data);
 
-		$data = array(
-			'' => $this->input->post('nama_konversi'),
-		);
-		$this->db->insert('nm_konversi', $data);
+		// $data = array(
+		// 	'' => $this->input->post('nama_konversi'),
+		// );
+		// $this->db->insert('nm_konversi', $data);
 
 		if($this->db->affected_rows())
 		{

@@ -18,9 +18,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<button type="submit" class="btn btn-warning hvr-shadow btn-flat btn-sm" id="search"><i class="fa fa-search"></i> Cari Data</button>
 						<a href="<?php echo base_url('analisa') ?>" class="btn btn-warning hvr-shadow btn-flat btn-sm" id="reset-form"><i class="fa fa-times"></i> Reset</a>
 					</div>
-					<div class="col-md-3 pull-right">
-						<a href="#" class="btn btn-warning hvr-shadow btn-flat btn-sm btn-print" id="reset-form"><i class="fa fa-print"></i> Cetak</a>
-					</div>
 				</div>
 			</div>
 			<?php echo form_close(); ?>

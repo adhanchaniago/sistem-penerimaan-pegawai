@@ -17,9 +17,9 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
 </pre> -->
       <div class="box-body" style="margin-top: 10px;">
         <div class="form-group">
-          <label for="nomor" class="control-label col-md-3 col-xs-12">Nama variabel : <strong class="text-red">*</strong></label>
+          <label for="nomor" class="control-label col-md-3 col-xs-12">Nama Konversi : <strong class="text-red">*</strong></label>
             <div class="col-md-8">
-              <select name="id_kriteria" class="form-control select2" data-placeholder="Pilih Nama Variabel" style="width: 100%;">
+              <select name="id_kriteria" class="form-control select2" data-placeholder="Pilih Nama Konversi" style="width: 100%;">
                <option value="<?php echo set_value('nama'); ?>"></option>
                 <?php foreach($nama as $key => $get) :?>
                   <option value="<?php echo $get->id_kriteria ?>"><?php echo $get->nama ?></option> 

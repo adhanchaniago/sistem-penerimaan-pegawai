@@ -87,7 +87,7 @@ class Pelamar extends Kominfo
 			
 		}
 
-		$this->page_title->push('Lamaran Pekerjaan', 'Tambah Data Pelamar');
+		$this->page_title->push('Lamaran Pekerjaan', 'Ubah Data Pelamar');
 
 		$this->form_validation->set_rules('nama_lengkap', 'Nama', 'trim|required');
 		$this->form_validation->set_rules('no_ktp', 'Nama', 'trim|required');
@@ -111,7 +111,7 @@ class Pelamar extends Kominfo
 		}
 
 		$this->data = array(
-			'title' => "Tambah Panduan Aplikasi", 
+			'title' => "Ubah Panduan Aplikasi", 
 			'breadcrumb' => $this->breadcrumbs->show(),
 			'page_title' => $this->page_title->show(),
 			'provinsi' => $this->pelamar->get_all_provinsi(),

@@ -26,7 +26,7 @@
             <thead class="text-center bg-silver" style="font-weight: bold;">
                 <tr>
                   <th>No</th>
-                  <th>Nama Variabel</th>
+                  <th>Nama Konversi</th>
                   <th>Nilai Konversi</th>
                   <th>Range Konversi</th>
                   <th></th>

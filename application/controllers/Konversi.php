@@ -60,7 +60,7 @@ class Konversi extends Kominfo
 		$this->template->view('Kominfo/konversi/create-konversi', $this->data);
 	}
 
-	public function update($param)
+	public function update($param = 0)
 	{
 		$this->page_title->push('Konversi Nilai', 'Ubah Nilai Konversi');
 

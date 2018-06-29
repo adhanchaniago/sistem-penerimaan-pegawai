@@ -162,7 +162,7 @@
     <div class="col-md-8 pull-right" style="margin-top: 2px;">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Data Konversi Perhitungan Gap </h3>
+          <h3 class="box-title">Data Hasil Perhitungan</h3>
         </div>
         <!-- /.box-header -->
          <div class="box-body">
