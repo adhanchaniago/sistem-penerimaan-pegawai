@@ -38,8 +38,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<tr >
 							<th rowspan="2" style="vertical-align: middle;">No.</th>
 							<th rowspan="2" class="text-center" style="vertical-align: middle;">Kode Pelamar</th>
+							<th rowspan="2" class="text-center" style="vertical-align: middle;">Nik</th>
 							<th rowspan="2" class="text-center" style="vertical-align: middle;">Nama Lengkap</th>
-							<th rowspan="2" class="text-center" style="vertical-align: middle;">Nomor KTP</th>
 							<th rowspan="2" class="text-center" style="vertical-align: middle;">Tempat, Tanggal Lahir</th>
 							<th rowspan="2" class="text-center" style="vertical-align: middle;">Jenis Kelamin</th>
 							<th rowspan="2" class="text-center" style="vertical-align: middle;">Alamat</th>
@@ -60,8 +60,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<tr style="vertical-align: top">
 							<td><?php echo ++$this->page ?>.</td>
 							<td><?php echo $row->kd_pelamar ?></td>
-							<td><?php echo $row->nama_lengkap ?></td>
 							<td><?php echo $row->no_ktp ?></td>
+							<td><?php echo $row->nama_lengkap ?></td>
 							<td><?php echo ucwords($row->tmp_lahir).', '.date_id($row->tgl_lahir) ?></td>
 							<td><?php echo ucwords($row->jenis_kelamin )?></td>
 							<td><?php echo ucwords($row->alamat) ?></td>
