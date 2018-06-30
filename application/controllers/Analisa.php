@@ -78,6 +78,43 @@ class Analisa extends Kominfo
 		$this->template->view('Kominfo/analisa/nilai-analisa', $this->data);
 	}
 
+	public function nilai_update($param = 0)
+	{
+
+		$this->page_title->push('Penilaian', 'Form Ubah Penilaian calon Karyawan');
+
+		 $this->form_validation->set_rules('id_konversi[1]', 'Wawancara', 'trim|required');
+		 $this->form_validation->set_rules('id_konversi[2]', 'Tes Tertulis', 'trim|required');
+		 $this->form_validation->set_rules('id_konversi[3]', 'Tes Microsoft Word', 'trim|required');
+		 $this->form_validation->set_rules('id_konversi[4]', 'Tes Microsoft Excel','trim|required');
+		 $this->form_validation->set_rules('id_konversi[5]', 'Tes Keahilan', 'trim|required');
+		
+
+		if ($this->form_validation->run() == TRUE)
+		{
+			$this->analisa->update();
+			//$this->test();
+
+			redirect(current_url());
+		}
+
+		$this->data = array(
+			'title' => "Form Penilaian", 
+			'breadcrumb' => $this->breadcrumbs->show(),
+			'page_title' => $this->page_title->show(),
+			'data' => $this->analisa->nilai($param),
+			'create_nilai1' => $this->analisa->get_create(1),
+			'create_nilai2' => $this->analisa->get_create(2),
+			'create_nilai3' => $this->analisa->get_create(3),
+			'create_nilai4' => $this->analisa->get_create(4),
+			'create_nilai5' => $this->analisa->get_create(5),
+			'get' => $this->db->get_where('tbl_pelamar', array('kd_pelamar'=> $param))->row(),
+			'tampil' => $this->analisa->get_Profil($param),
+		);
+
+		$this->template->view('Kominfo/analisa/update-nilai', $this->data);
+	}
+
 	public function test()
 	{
 		echo "<pre>";

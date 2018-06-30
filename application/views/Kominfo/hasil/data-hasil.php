@@ -75,7 +75,7 @@
             </tbody>
             <!-- Nilai Profile Ideal Prusahaan -->
             <th class="color text-center"></th>
-            <th class="color text-center">Nilai Profile</th>
+            <th class="color text-center">Nilai Profil</th>
               <?php foreach ($this->hasil->ngambil($value->kd_pelamar) as $value) : ?>
                 <td class="color text-center"><?php echo $value->nilai_ideal ?></td>
                 <?php endforeach; ?>

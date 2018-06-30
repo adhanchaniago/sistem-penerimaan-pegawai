@@ -14,7 +14,7 @@
                   <tr>
                     <th class="text-center">No</th>
                     <th class="text-center">Kode Pelamar</th>
-                    <th class="text-center">No KTP</th>
+                    <th class="text-center">Nik</th>
                     <th class="text-center">Nama</th>
                     <th class="text-center">Tempat dan Tanggal Lahiir</th>
                     <th class="text-center">Jenis Kelamin</th>

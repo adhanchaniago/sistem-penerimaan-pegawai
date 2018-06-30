@@ -158,12 +158,50 @@ class Manalisa extends Kominfo_model
 	}
 //Tutup Loop nilai berganda
 
+	public function update($param = 0)
+	{
+		
+// Loop nilai update berganda
+		$dataNilai = array();
+		foreach ($this->input->post('id_konversi[]') as $key => $value) 
+		{
+			$dataNilai[] = array(
+				'kd_pelamar' => $this->input->post('kd_pelamar'),
+				'id_konversi' => $value,
+			);
+		}
+
+		$this->db->update_batch('tbl_nilai', $dataNilai);
+
+		// $data2 = array(
+		// 	'kd_pelamar' => $this->input->post('kd_pelamar'),
+		// 	'status' => 'telah',
+		// );
+
+		// $this->db->update('notifikasi', $data2 , array('id_notifikasi' => $param));
+
+
+		if($this->db->affected_rows())
+		{
+			$this->template->alert(
+				' Penilaian Karyawan di Ubah.', 
+				array('type' => 'success','icon' => 'check')
+			);
+		} else {
+			$this->template->alert(
+				' Gagal Merubah data.', 
+				array('type' => 'warning','icon' => 'warning')
+			);
+		}
+	}
+//Tutup Loop nilai berganda
+
 	public function delete($param = 0)
 	{	
 		
-		$this->db->delete('tbl_pelamar', array('kd_pelamar' => $param));
+		$this->db->delete('tbl_nilai', array('kd_pelamar' => $param));
 		// $this->db->delete('tbl_analisa', array('id_analisa' => $param));
-		// $this->db->delete('notifikasi', array('id_notifikasi' => $param));
+		 $this->db->delete('notifikasi', array('kd_pelamar' => $param));
 
 		if($this->db->affected_rows())
 		{

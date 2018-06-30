@@ -63,22 +63,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 							<td>
 								<?php if($row->status != FALSE): ?>
-								<a href="<?php echo base_url('analisa/detail_analisa/'.$row->id) ?>" data-toggle="tooltip" data-placement="top" title="Lihat Penilaian" class="btn btn-xs btn-danger">
+								<a href="<?php echo base_url('analisa/detail_analisa/'.$row->id) ?>" data-toggle="tooltip" data-placement="top" title="Lihat Penilaian" class="btn btn-xs btn-primary">
 								<i class="fa fa-check"></i>
 								</a>
+								<!-- <a href="<?php //echo base_url('analisa/nilai_update/'.$row->id) ?>" class="btn btn-xs btn-primary" data-toggle="tooltip" data-placement="top" title="Sunting">
+								<i class="fa fa-pencil"></i>
+								</a> -->
+
+								<a href="javascript:void(0)" id="delete-analisa" data-id="<?php echo $row->id ?>" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus">
+				                  <i class="fa fa-trash-o"></i>
+				                </a>
 								<?php else : ?>
 								<a href="<?php echo base_url('analisa/nilai/'.$row->id) ?>" data-toggle="tooltip" data-placement="top" title="Instruksikan Penilaian" class="btn btn-xs btn-success">
 								<i class="fa fa-send"></i>
 								</a>
+
 								<?php endif ?>
 
-								<a href="<?php echo base_url('analisa/update/'.$row->id) ?>" class="btn btn-xs btn-primary" data-toggle="tooltip" data-placement="top" title="Sunting">
-
-									<i class="fa fa-pencil"></i>
-								</a>
-								<!-- <a href="javascript:void(0)" id="delete-analisa" data-id="<?php //echo $row->kd_pelamar ?>" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus">
-				                  <i class="fa fa-trash-o"></i>
-				                </a> -->
 							</td>
 						</tr>
 					<?php endforeach; ?>
@@ -92,6 +93,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>
 </div>
+<div class="modal fade in modal-danger" id="modal-delete" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"><i class="fa fa-warning"></i> Perhatian!</h4>
+                <span>Hapus data ini dari sistem?</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Tidak</button>
+                <a id="delete-yes" class="btn btn-outline"> Ya </a>
+            </div>
+        </div>
+    </div>
+</div>
 <?php
 /* End of file main-anggota.php */
 /* Location: ./application/views/pages/anggota/main-anggota.php */
+

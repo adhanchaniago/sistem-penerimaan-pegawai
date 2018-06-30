@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<table class="table" style="font-family: arial;">
 						<tbody>
 							<tr>
-								<th class="small text-right">Nik:</th>
+								<th class="small text-right">No. KTP :</th>
 								<td class="small"><?php echo $get->no_ktp ?></td>
 							</tr>
 							<tr>
@@ -58,6 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</table>
 			</div>
 		</div>
+
     </div>
 
     <div class="col-md-8 pull-right">

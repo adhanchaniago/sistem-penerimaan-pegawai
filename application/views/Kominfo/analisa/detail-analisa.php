@@ -1,6 +1,65 @@
 
   <div class="row">
+  
     <div class="col-md-4">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Profil Karyawan</h3>
+          <div class="box-tools pull-right">
+              <button class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+              <button class="btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+      <div class="box-body box-profile">
+        <div class="profile-user-img img-responsive img-circle">
+        <?php if($get->foto == NULL) : ?>
+                <img width="100%" src="<?php echo base_url('assets/public/image/avatar.jpg') ?>" class="img-circle" alt="User Image">
+              <?php else : ?>
+                <img width="100%" src="<?php echo base_url('assets/images/documen/'.$get->foto) ?>" class="img-circle" alt="User Image">
+              <?php endif ?>
+            </div>
+            <br>
+        
+        <h3 class="profile-username text-center"><?php echo ucwords($get->nama_lengkap) ?></h3>
+
+        <p class="text text-center"></p>
+
+          <table class="table" style="font-family: arial;">
+            <tbody>
+              <tr>
+                <th class="small text-right">Nik :</th>
+                <td class="small"><?php echo $get->no_ktp ?></td>
+              </tr>
+              <tr>
+                <th class="small text-right">Tempat, Tanggal Lahir :</th>
+                <td class="small"><?php echo ucwords($get->tmp_lahir).', '.date_id($get->tgl_lahir) ?></td>
+              </tr>
+              <tr>
+                <th class="small text-right">Jenis Kelamin :</th>
+                <td class="small"><?php echo ucwords($get->jenis_kelamin )?></td>
+              </tr>
+              <tr>
+                <th class="small text-right">Alamat :</th>
+                <td class="small"><?php echo ucwords($get->alamat) ?></td>
+              </tr>
+              <tr>
+                <th class="small text-right">Agama :</th>
+                <td class="small"><?php echo ucwords($get->agama) ?></td>
+              </tr>
+              <tr>
+                <th class="small text-right">Pendidikan Terakhir :</th>
+                <td class="small"><?php echo ucwords($get->pend_terakhir) ?></td>
+              </tr>
+              <tr>
+                <th class="small text-right">Pengalaman Kerja :</th>
+                <td class="small"><?php echo ucwords($get->pengalaman) ?></td>
+                
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">Variabel dan Konversi Nilai</h3>
@@ -99,7 +158,7 @@
               </tbody>
               
               <!-- tabel nilai profil ideal perusahaan -->
-              <th class="color text-center">Nilai Profile</th>
+              <th class="color text-center">Nilai Profil</th>
               <?php foreach ($this->analisa->pengurangan_nilai($id_pelamar) as $row) : ?>
                 <td class="color text-center"><?php echo $row->nilai_ideal ?></td>
                 <?php endforeach; ?>
