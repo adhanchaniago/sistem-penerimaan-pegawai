@@ -56,8 +56,8 @@ class Mkonversi extends Kominfo_model
 		$this->db->from('tbl_konversi');
 		$this->db->join('tbl_tes', 'tbl_tes.id_kriteria = tbl_konversi.id_kriteria','LEFT');
 
-		 $this->db->group_by('tbl_konversi.id_kriteria');
-		// $this->db->order_by('nama', 'desc');
+		$this->db->group_by('tbl_konversi.id_kriteria');
+		$this->db->order_by('nama', 'ASC');
 		
 		return $this->db->get()->result();
 
@@ -116,11 +116,12 @@ class Mkonversi extends Kominfo_model
 	public function update($param = 0)
 	{
 		$data = array(
-			'id_tes' => $this->input->post('id_tes'),
+			'id_kriteria' => $this->input->post('id_kriteria'),
 			'nilai' => $this->input->post('nilai'),
 			'range' => $this->input->post('range'),
 			
 		);
+
 		$this->db->update('tbl_konversi', $data, array('id_konversi' => $param));
 
 		// $data = array(
@@ -131,7 +132,7 @@ class Mkonversi extends Kominfo_model
 		if($this->db->affected_rows())
 		{
 			$this->template->alert(
-				' Konversi Nilai di update.', 
+				' Konversi di update.', 
 				array('type' => 'success','icon' => 'check')
 			);
 		} else {
@@ -140,7 +141,6 @@ class Mkonversi extends Kominfo_model
 				array('type' => 'warning','icon' => 'warning')
 			);
 		}
-
 	}
 	
 	public function delete($param = 0)

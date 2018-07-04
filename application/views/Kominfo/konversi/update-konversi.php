@@ -19,15 +19,13 @@ echo form_open(current_url(), array('class' => 'form-horizontal'));
         <div class="form-group">
           <label for="nomor" class="control-label col-md-3 col-xs-12">Nama Konversi : <strong class="text-red">*</strong></label>
             <div class="col-md-8">
-              <select name="id_tes" class="form-control select2"  style="width: 100%;">
+              <select name="id_kriteria" class="form-control select2"  style="width: 100%;">
                <option value="">--Pilih--</option>
                 <?php foreach($get as $key => $get) :?>
-                  <option value="<?php echo $get->id_tes ?>" <?php if ($get->nama) echo "selected"; ?>><?php echo $get->nama ?></option> 
+                  <option value="<?php echo $get->id_kriteria ?>" <?php if ($get->nama) echo "selected"; ?>><?php echo $get->nama ?></option> 
                 <?php endforeach; ?>
-                
               </select>
-              <p class="help-block"><?php echo form_error('id_tes', '<small class="text-danger">', '</small>'); ?></p>
-              <!-- <input id="input" value="Hello world!" /> -->
+              <p class="help-block"><?php echo form_error('id_kriteria', '<small class="text-danger">', '</small>'); ?></p>
           </div>
         </div>
         <div class="form-group">

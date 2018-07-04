@@ -64,7 +64,7 @@ class Konversi extends Kominfo
 	{
 		$this->page_title->push('Konversi Nilai', 'Ubah Nilai Konversi');
 
-		$this->form_validation->set_rules('id_nama', 'Nama Variabel', 'trim|required');
+		$this->form_validation->set_rules('id_kriteria', 'Nama Variabel', 'trim|required');
 		$this->form_validation->set_rules('nilai', 'Nilai Konversi', 'trim|required');
 		$this->form_validation->set_rules('range', 'Range Nilai', 'trim|required');
 
