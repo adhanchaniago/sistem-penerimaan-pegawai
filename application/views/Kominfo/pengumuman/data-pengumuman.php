@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>      
         <div class="box-body">
             <div class="pull-right">
-              <a href="<?php echo site_url("pengumuman/print_out?{$this->input->server('QUERY_STRING')}") ?>" class="btn btn-warning hvr-shadow btn-flat btn-sm btn-print"><i class="fa fa-print"></i> Cetak Pengumuman</a>
+              <a href="<?php echo site_url("pengumuman/print_out?{$this->input->server('QUERY_STRING')}") ?>" class="btn btn-warning hvr-shadow btn-flat btn-sm btn-print"><i class="fa fa-print"></i> Cetak Laporan</a>
             </div>
         </div>
         <div class="box-body" style="margin-top: 20px;">
